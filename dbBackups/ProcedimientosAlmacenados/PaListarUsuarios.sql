@@ -17,9 +17,7 @@ BEGIN
 		P.telefono,
 		P.correoElectronico,
 		U.username,
-		U.rol,
-		U.password
-
+		U.rol
 	FROM TbPerson as P
 	INNER JOIN TbUser as U ON U.idUser = P.idUsuario
 	WHERE P.eliminado = 0

@@ -12,19 +12,8 @@ import {
   paListarUsuarios,
   paRegisterPerson,
 } from "../models/personas.model.js";
+import { genealError } from "../helpers/index.js";
 
-/**
- * Maneja errores generales y envía una respuesta de error
- * @param {Object} res - Objeto de respuesta Express
- * @param {Error} error - Objeto de error
- * @returns {Object} Respuesta JSON con estado 500 y mensaje de error
- */
-const genealError = (res, error) => {
-  return res.status(500).json({
-    succes: false,
-    data: error.message,
-  });
-};
 
 /**
  * Encripta una contraseña usando bcrypt

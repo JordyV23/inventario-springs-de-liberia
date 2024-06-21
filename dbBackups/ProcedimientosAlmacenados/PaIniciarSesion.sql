@@ -4,8 +4,8 @@
 -- =============================================
 CREATE OR ALTER PROCEDURE PaIniciarSesion
 	-- Add the parameters for the stored procedure here
-	@username varchar(30),
-	@password varbinary(max)
+	@username varchar(30)
+	--,@password varchar(60)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,6 +20,6 @@ BEGIN
 	FROM TbUser AS U 
 	WHERE eliminado = 0 
 		  AND U.username = @username 
-		  AND U.password = @password
+		  --AND U.password = @password
 END
 GO

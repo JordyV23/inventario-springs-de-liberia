@@ -9,7 +9,7 @@ CREATE OR ALTER PROCEDURE PaRegisterPerson
     @telefono varchar(30),
     @correo varchar(max),
     @username varchar(30),
-    @password varbinary(max),
+    @password varchar(60),
     @rol char(1)
 AS
 BEGIN

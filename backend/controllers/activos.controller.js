@@ -1,3 +1,8 @@
+/**
+ * @module ActivosController
+ * @description Controlador para manejar operaciones relacionadas con activos
+ */
+
 import { genealError } from "../helpers/index.js";
 import {
   paAgregarActivo,
@@ -6,11 +11,19 @@ import {
   paListarActivos,
 } from "../models/activos.model.js";
 
+/**
+ * Crea un nuevo activo
+ * @async
+ * @function crearActivo
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @returns {Object} Respuesta JSON con estado de éxito y mensaje
+ */
 export const crearActivo = async (req, res) => {
   try {
     const activo = req.body;
 
-    // Obtiene la lista de activos de la base de datos
+    // Agrega el activo a la base de datos
     let data = await paAgregarActivo(activo);
 
     return res
@@ -21,6 +34,14 @@ export const crearActivo = async (req, res) => {
   }
 };
 
+/**
+ * Obtiene la lista de todos los activos
+ * @async
+ * @function obtenerActivos
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @returns {Object} Respuesta JSON con estado de éxito y lista de activos
+ */
 export const obtenerActivos = async (req, res) => {
   try {
     // Obtiene la lista de activos de la base de datos
@@ -33,34 +54,48 @@ export const obtenerActivos = async (req, res) => {
   }
 };
 
+/**
+ * Edita un activo existente
+ * @async
+ * @function editarActivo
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @returns {Object} Respuesta JSON con estado de éxito y mensaje
+ */
 export const editarActivo = async (req, res) => {
-    try {
-      const activo = req.body;
-  
-      // Obtiene la lista de activos de la base de datos
-      let data = await paEditarActivo(activo);
-  
-      return res
-        .status(201)
-        .json({ succes: true, data: "Activo editado con Éxito!" });
-    } catch (error) {
-      return genealError(res, error);
-    }
-  };
+  try {
+    const activo = req.body;
 
-  
-  export const eliminarActivo = async (req, res) => {
-    try {
-      const activo = req.body;
-  
-      // Obtiene la lista de activos de la base de datos
-      let data = await paBorrarActivo(activo);
-  
-      return res
-        .status(201)
-        .json({ succes: true, data: "Activo eliminado con Éxito!" });
-    } catch (error) {
-      return genealError(res, error);
-    }
-  };
-  
+    // Edita el activo en la base de datos
+    let data = await paEditarActivo(activo);
+
+    return res
+      .status(201)
+      .json({ succes: true, data: "Activo editado con Éxito!" });
+  } catch (error) {
+    return genealError(res, error);
+  }
+};
+
+/**
+ * Elimina un activo
+ * @async
+ * @function eliminarActivo
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @returns {Object} Respuesta JSON con estado de éxito y mensaje
+ */
+export const eliminarActivo = async (req, res) => {
+  try {
+    const activo = req.body;
+
+    // Elimina el activo de la base de datos
+    let data = await paBorrarActivo(activo);
+
+    return res
+      .status(201)
+      .json({ succes: true, data: "Activo eliminado con Éxito!" });
+  } catch (error) {
+    return genealError(res, error);
+  }
+};

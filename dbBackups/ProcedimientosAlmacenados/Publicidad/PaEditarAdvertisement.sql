@@ -5,7 +5,7 @@
 CREATE OR ALTER PROCEDURE PaEditarAdvertisement 
 	-- Add the parameters for the stored procedure here
 	@idAvertisement int,
-	@titulo varchar(30),
+	@titulo varchar(100),
 	@description text,
 	@fechaInicio date,
 	@fechaFin date,

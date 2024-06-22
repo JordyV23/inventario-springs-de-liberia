@@ -4,7 +4,7 @@
 -- =============================================
 CREATE OR ALTER PROCEDURE PaCrearAdvertisement 
 	-- Add the parameters for the stored procedure here
-	@titulo varchar(30),
+	@titulo varchar(100),
 	@description text,
 	@fechaInicio date,
 	@fechaFin date,

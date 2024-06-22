@@ -1,5 +1,24 @@
+/**
+ * @module PublicidadModel
+ * @description Módulo para interactuar con la base de datos para operaciones relacionadas con publicidad
+ */
+
 import { getConnection } from "../database/connection.js";
 
+/**
+ * Crea una nueva publicidad en la base de datos
+ * @async
+ * @function paCrearAdvertisement
+ * @param {Object} publicidad - Objeto con los datos de la publicidad a crear
+ * @param {string} publicidad.titulo - Título de la publicidad
+ * @param {string} publicidad.description - Descripción de la publicidad
+ * @param {Date} publicidad.fechaInicio - Fecha de inicio de la publicidad
+ * @param {Date} publicidad.fechaFin - Fecha de fin de la publicidad
+ * @param {boolean} publicidad.isPeriodica - Indica si la publicidad es periódica
+ * @param {number} publicidad.intervalo - Intervalo de repetición (si es periódica)
+ * @returns {Promise<Array>} Resultado de la operación
+ * @throws {Error} Si ocurre un error durante la operación
+ */
 export const paCrearAdvertisement = async (publicidad) => {
   try {
     const pool = await getConnection();
@@ -19,6 +38,21 @@ export const paCrearAdvertisement = async (publicidad) => {
   }
 };
 
+/**
+ * Edita una publicidad existente en la base de datos
+ * @async
+ * @function paEditarAdvertisement
+ * @param {Object} publicidad - Objeto con los datos de la publicidad a editar
+ * @param {number} publicidad.id - ID de la publicidad a editar
+ * @param {string} publicidad.titulo - Título de la publicidad
+ * @param {string} publicidad.description - Descripción de la publicidad
+ * @param {Date} publicidad.fechaInicio - Fecha de inicio de la publicidad
+ * @param {Date} publicidad.fechaFin - Fecha de fin de la publicidad
+ * @param {boolean} publicidad.isPeriodica - Indica si la publicidad es periódica
+ * @param {number} publicidad.intervalo - Intervalo de repetición (si es periódica)
+ * @returns {Promise<Array>} Resultado de la operación
+ * @throws {Error} Si ocurre un error durante la operación
+ */
 export const paEditarAdvertisement = async (publicidad) => {
   try {
     const pool = await getConnection();
@@ -39,6 +73,13 @@ export const paEditarAdvertisement = async (publicidad) => {
   }
 };
 
+/**
+ * Obtiene la lista de todas las publicidades de la base de datos
+ * @async
+ * @function paListarAdvertisement
+ * @returns {Promise<Array>} Lista de publicidades
+ * @throws {Error} Si ocurre un error durante la operación
+ */
 export const paListarAdvertisement = async () => {
   try {
     const pool = await getConnection();
@@ -50,6 +91,15 @@ export const paListarAdvertisement = async () => {
   }
 };
 
+/**
+ * Borra una publicidad de la base de datos
+ * @async
+ * @function paBorrarAdvertisement
+ * @param {Object} publicidad - Objeto con el ID de la publicidad a borrar
+ * @param {number} publicidad.id - ID de la publicidad a borrar
+ * @returns {Promise<Array>} Resultado de la operación
+ * @throws {Error} Si ocurre un error durante la operación
+ */
 export const paBorrarAdvertisement = async (publicidad) => {
   try {
     const pool = await getConnection();

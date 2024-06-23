@@ -35,5 +35,7 @@ BEGIN
 			,@jsonDetalles
 	)
 
+	UPDATE TbAssets SET estado = 'A' WHERE idAsset = @idAsset
+
 END
 GO

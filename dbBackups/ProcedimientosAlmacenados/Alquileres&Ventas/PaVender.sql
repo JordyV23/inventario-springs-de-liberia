@@ -26,5 +26,7 @@ BEGIN
 			,@fecha
 	)
 
+	UPDATE TbAssets SET estado = 'V' WHERE idAsset = @idAsset
+
 END
 GO

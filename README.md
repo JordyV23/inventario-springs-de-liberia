@@ -5,6 +5,18 @@ springs de liberia.
 
 ---
 
+## Pasos para instalar la base de datos
+
+Para esta este desarrollo se utiliza Microsoft SQL Server, por lo que se adjuntas las instrucciones a seguir para instalar el respaldo de bases de datos.
+
+1. Abrir MSSQL
+2. Click en `File > Open > File` y buscar el respaldo mas reciente ubicado en el directorio `./dbBackups/` del respositorio
+3. Click en `Execute`
+
+**Nota** En el directorio `./dbBackups/` se encuentran archivos con diferentes nomenclaturas. El archivo que contiene el termino *"Clea"* hace referencia a una base de datos que cuenta con unicamente la estructura. Mientras que el archivo que tiene el termino *"Full"* cuenta con la estructura y datos de prueba. Esto para dar una idea de como lucen las tablas con informacion
+
+---
+
 ## Pruebas con la API del Backend
 
 Para probar el backend en el directorio `./postman` se encuentra las copias correspondientes a la documentacion de los *'endpoints'* de la API.

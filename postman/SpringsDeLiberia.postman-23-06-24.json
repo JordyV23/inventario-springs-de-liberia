@@ -1,0 +1,2155 @@
+{
+	"info": {
+		"_postman_id": "0f316ee1-dc03-47b6-98c1-8b885c531f2c",
+		"name": "SpringsDeLiberia",
+		"description": "Documentacion de enpoints para pruebas en el backend.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23407660"
+	},
+	"item": [
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "getUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/personas/getPersonas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"personas",
+								"getPersonas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getUsuarios",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/personas/getPersonas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"personas",
+										"getPersonas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bd-zkU2JiFtBqoo8YpI4SV5WB4bqoE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jun 2024 21:27:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"cedula\": \"118340484\",\n            \"nombreCompleto\": \"Jordy Hernandez Vargas\",\n            \"telefono\": \"85054393\",\n            \"correoElectronico\": \"jordyvargas@gmail.com\",\n            \"username\": \"jhernandez\",\n            \"rol\": \"A\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"jhernandez\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/personas/iniciarSesion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"personas",
+								"iniciarSesion"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"jhernandez\",\r\n    \"password\":\"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/personas/iniciarSesion",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"personas",
+										"iniciarSesion"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-hjrOj97v22cfSC0EFK7Lx3dHi7Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 01:38:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiamhlcm5hbmRleiIsInJvbCI6IkEiLCJpYXQiOjE3MTg5MzM5MDksImV4cCI6MTcxODkzNzUwOX0.MO4t_okq1Rm9XyoNmeB3BL846vQOwBIHKrbYMjJ6qsA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "registrarPersona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cedula\": \"123456789\",\r\n  \"nombreCompleto\": \"Juan Pérez\",\r\n  \"telefono\": \"1234-5678\",\r\n  \"correo\": \"juan.perez@example.com\",\r\n  \"username\": \"juanperez\",\r\n  \"password\": \"password123\",\r\n  \"rol\":\"C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/personas/registrarPersona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"personas",
+								"registrarPersona"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "registrarPersona",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cedula\": \"123456789\",\r\n  \"nombreCompleto\": \"Juan Pérez\",\r\n  \"telefono\": \"1234-5678\",\r\n  \"correo\": \"juan.perez@example.com\",\r\n  \"username\": \"juanperez\",\r\n  \"password\": \"password123\",\r\n  \"rol\":\"C\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/personas/registrarPersona",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"personas",
+										"registrarPersona"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-Oz+qwQtjJfopOsF/h4wW76Hn9JU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 02:39:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "editarPersona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":\"2\",\r\n  \"cedula\": \"123456789\",\r\n  \"nombreCompleto\": \"Juan Pérez Mora\",\r\n  \"telefono\": \"1234-5678\",\r\n  \"correo\": \"juan.perez@example.com\",\r\n  \"username\": \"juanperez\",\r\n  \"password\": \"password123\",\r\n  \"rol\":\"C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/personas/editarPersona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"personas",
+								"editarPersona"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editarPersona",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\":\"2\",\r\n  \"cedula\": \"123456789\",\r\n  \"nombreCompleto\": \"Juan Pérez Mora\",\r\n  \"telefono\": \"1234-5678\",\r\n  \"correo\": \"juan.perez@example.com\",\r\n  \"username\": \"juanperez\",\r\n  \"password\": \"password123\",\r\n  \"rol\":\"C\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/personas/editarPersona",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"personas",
+										"editarPersona"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-Y9uFC8Dk5EGFwFtrGDN561sm8j8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 04:07:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Edición exitosa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminarPersona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/personas/eliminarPersona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"personas",
+								"eliminarPersona"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminarPersona",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/personas/eliminarPersona",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"personas",
+										"eliminarPersona"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-Mi+Bi0KOMuWEe5iLIyJz9t949C8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 04:17:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Eliminación exitosa\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Activos",
+			"item": [
+				{
+					"name": "registrarActivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\":\"La casita\",\r\n  \"descripcion\":\"Hermosa casita con vistas a CHEPE\",\r\n  \"idProvincia\":\"1\",\r\n  \"idCanton\":\"1\",\r\n  \"distrito\":\"Carmen\",\r\n  \"detalleDireccion\":\"500 mts sur de la pulperia\",\r\n  \"precioGlobal\":\"1000\",\r\n  \"tipoAsset\":\"C\",\r\n  \"precioPorNoche\":\"12000\",\r\n  \"precioPorMes\":\"36000\",\r\n  \"disponibilidad\":\"A\",\r\n  \"imagenSrc\":\"/no-img\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/activos/registrarActivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"activos",
+								"registrarActivo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "registrarActivo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\":\"La casita\",\r\n  \"descripcion\":\"Hermosa casita con vistas a CHEPE\",\r\n  \"idProvincia\":\"1\",\r\n  \"idCanton\":\"1\",\r\n  \"distrito\":\"Carmen\",\r\n  \"detalleDireccion\":\"500 mts sur de la pulperia\",\r\n  \"precioGlobal\":\"1000\",\r\n  \"tipoAsset\":\"C\",\r\n  \"precioPorNoche\":\"12000\",\r\n  \"precioPorMes\":\"36000\",\r\n  \"disponibilidad\":\"A\",\r\n  \"imagenSrc\":\"/no-img\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/activos/registrarActivo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"activos",
+										"registrarActivo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-Oz+qwQtjJfopOsF/h4wW76Hn9JU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 19:04:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "getActivos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/activos/listarActivos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"activos",
+								"listarActivos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getActivos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/activos/listarActivos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"activos",
+										"listarActivos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-pPdF83ugajD7HK7NjR0Rlb3fw0I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 19:10:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"nombre\": \"La casita\",\n            \"descripcion\": \"Hermosa casita con vistas a CHEPE\",\n            \"Direccion\": \"San José,San José,Carmen,500 mts sur de la pulperia\",\n            \"Estado\": \"Disponible\",\n            \"TipoActivo\": \"Casa\",\n            \"Disponibilidad\": \"Alquiler\",\n            \"precioGlobal\": 1000,\n            \"precioPorMes\": 36000,\n            \"precioPorNoche\": 12000,\n            \"imagenSrc\": \"/no-img\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "editarActivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\",\r\n  \"nombre\":\"La casita preciosa\",\r\n  \"descripcion\":\"Hermosa casita con vistas a CHEPE\",\r\n  \"idProvincia\":\"1\",\r\n  \"idCanton\":\"1\",\r\n  \"distrito\":\"Carmen\",\r\n  \"detalleDireccion\":\"500 mts sur de la pulperia\",\r\n  \"precioGlobal\":\"1000\",\r\n  \"tipoAsset\":\"C\",\r\n  \"precioPorNoche\":\"12000\",\r\n  \"precioPorMes\":\"36000\",\r\n  \"disponibilidad\":\"A\",\r\n  \"imagenSrc\":\"/no-img\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/activos/editarActivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"activos",
+								"editarActivo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editarActivo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\",\r\n  \"nombre\":\"La casita preciosa\",\r\n  \"descripcion\":\"Hermosa casita con vistas a CHEPE\",\r\n  \"idProvincia\":\"1\",\r\n  \"idCanton\":\"1\",\r\n  \"distrito\":\"Carmen\",\r\n  \"detalleDireccion\":\"500 mts sur de la pulperia\",\r\n  \"precioGlobal\":\"1000\",\r\n  \"tipoAsset\":\"C\",\r\n  \"precioPorNoche\":\"12000\",\r\n  \"precioPorMes\":\"36000\",\r\n  \"disponibilidad\":\"A\",\r\n  \"imagenSrc\":\"/no-img\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/activos/editarActivo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"activos",
+										"editarActivo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-cEYy30Dluh4iBNAhNJCu2pqeJqU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 19:57:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Activo editado con Éxito!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminarActivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/activos/eliminarActivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"activos",
+								"eliminarActivo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminarActivo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/activos/eliminarActivo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"activos",
+										"eliminarActivo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-tT2yMiyS9aqPFDGt5Dw5ZlbwPEQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 20:05:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Activo eliminado con Éxito!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Publicidad",
+			"item": [
+				{
+					"name": "crearPublicidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"10% de descuento\",\r\n    \"description\": \"10% de descuento en las promociones para los nuevos clientes\",\r\n    \"fechaInicio\": \"2024-01-23\",\r\n    \"fechaFin\": \"2024-12-31\",\r\n    \"isPeriodica\": \"0\",\r\n    \"intervalo\": \"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/publicidad/crearPublicidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"publicidad",
+								"crearPublicidad"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crearPublicidad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"10% de descuento\",\r\n    \"description\": \"10% de descuento en las promociones para los nuevos clientes\",\r\n    \"fechaInicio\": \"2024-01-23\",\r\n    \"fechaFin\": \"2024-12-31\",\r\n    \"isPeriodica\": \"0\",\r\n    \"intervalo\": \"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/publicidad/crearPublicidad",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"publicidad",
+										"crearPublicidad"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-mBnEYEeXtHDfEP871HqMWIcNBTU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2024 14:46:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Publicidad creada exitosamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/publicidad/listarPublicidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"publicidad",
+								"listarPublicidad"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listarPublicidad",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/publicidad/listarPublicidad",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"publicidad",
+										"listarPublicidad"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "302"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12e-1yfhLbX1EPRrZVfrjyN+I5sR/No\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2024 14:48:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"idAdvertisement\": 1,\n            \"titulo\": \"10% de descuento\",\n            \"descripcion\": \"10% de descuento en las promociones para los nuevos clientes\",\n            \"fechaInicio\": \"2024-01-23T00:00:00.000Z\",\n            \"fechaFin\": \"2024-12-31T00:00:00.000Z\",\n            \"envioPeriodico\": false,\n            \"intervaloDiasNotificacion\": 0,\n            \"envioActivo\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "editarPublicidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"titulo\": \"10% de descuento a los primeros 100 clientes\",\r\n    \"description\": \"10% de descuento en las promociones para los nuevos clientes\",\r\n    \"fechaInicio\": \"2024-01-23\",\r\n    \"fechaFin\": \"2024-12-31\",\r\n    \"isPeriodica\": \"0\",\r\n    \"intervalo\": \"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/publicidad/editarPublicidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"publicidad",
+								"editarPublicidad"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editarPublicidad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"1\",\r\n    \"titulo\": \"10% de descuento a los primeros 100 clientes\",\r\n    \"description\": \"10% de descuento en las promociones para los nuevos clientes\",\r\n    \"fechaInicio\": \"2024-01-23\",\r\n    \"fechaFin\": \"2024-12-31\",\r\n    \"isPeriodica\": \"0\",\r\n    \"intervalo\": \"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/publicidad/editarPublicidad",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"publicidad",
+										"editarPublicidad"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-Qj2GQ1b2eIxBD1EwJZhcgUs2iwE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2024 15:53:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Publicidad editada exitosamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "borrarPublicidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/publicidad/borrarPublicidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"publicidad",
+								"borrarPublicidad"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrarPublicidad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/publicidad/borrarPublicidad",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"publicidad",
+										"borrarPublicidad"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-wKdsT1zW2V8dnUVLgVnugM7pjLg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2024 16:06:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Publicidad eliminada exitosamente\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tramites",
+			"item": [
+				{
+					"name": "alquilar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAsset\": \"1\",\r\n    \"idPerson\": \"1\",\r\n    \"fechaRegistroAlquiler\": \"2023-06-22\",\r\n    \"fechaInicio\": \"2023-06-22\",\r\n    \"fechaFin\": \"2023-06-24\",\r\n    \"jsonDetalles\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/tramites/alquilar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"alquilar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alquilar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idAsset\": \"1\",\r\n    \"idPerson\": \"1\",\r\n    \"fechaRegistroAlquiler\": \"2023-06-22\",\r\n    \"fechaInicio\": \"2023-06-22\",\r\n    \"fechaFin\": \"2023-06-24\",\r\n    \"jsonDetalles\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/tramites/alquilar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"alquilar"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-RgS+iWHePfFZYQemARfJT2lH5ZU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 03:33:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Alquiler agregado con Éxito!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listarAlquileres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/tramites/listarAlquileres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"listarAlquileres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listarAlquileres",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/tramites/listarAlquileres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"listarAlquileres"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f3-Yhe2SM0TzgLioyBRO96OPNFsriw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 03:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"idRental\": 4,\n            \"nombre\": \"La casita preciosa\",\n            \"fechaRegistroAlquiler\": \"2023-06-22T00:00:00.000Z\",\n            \"activo\": true,\n            \"fechaInicio\": \"2023-06-22T00:00:00.000Z\",\n            \"fechaFin\": \"2023-06-24T00:00:00.000Z\",\n            \"jsonDetalles\": \"\",\n            \"idAsset\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "borrarAlquiler",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/tramites/borrarAlquiler",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"borrarAlquiler"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrarAlquiler",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/tramites/borrarAlquiler",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"borrarAlquiler"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-FAbfutPViJ0fnG8brsZcwoM42tA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 04:05:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Alquiler eliminado con Éxito!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "vender",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"idAsset\":\"1\",\r\n\"idPerson\":\"1\",\r\n\"fecha\":\"2024-06-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/tramites/vender",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"vender"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "vender",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"idAsset\":\"1\",\r\n\"idPerson\":\"1\",\r\n\"fecha\":\"2024-06-22\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/tramites/vender",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"vender"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-rVwncWE2ZrQjzIy1ZTxPrOworxw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 15:17:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Venta agregado con Éxito!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listarVentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/tramites/listarVentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"listarVentas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listarVentas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/tramites/listarVentas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"listarVentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d-lMY/1EpbJEH8qN8kiYA4e2gLw5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 15:26:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"idSelling\": 1003,\n            \"fechaVenta\": \"2024-06-22T00:00:00.000Z\",\n            \"idAsset\": 1,\n            \"nombre\": \"La casita preciosa\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "borrarVenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/tramites/borrarVenta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"tramites",
+								"borrarVenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrarVenta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1003\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/tramites/borrarVenta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"tramites",
+										"borrarVenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-NdLKWbjpC0/rr3dCYJaDn/h1NAA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 15:31:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Venta eliminada con Éxito!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Mantenimientos",
+			"item": [
+				{
+					"name": "crearMantenimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAsset\": \"1\",\r\n    \"idPerson\": \"1\",\r\n    \"fecha\": \"2024-06-20\",\r\n    \"detalle\": \"reparacion de techo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/mantenimientos/crearMantenimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"mantenimientos",
+								"crearMantenimiento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crearMatenimiento",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idAsset\": \"1\",\r\n    \"idPerson\": \"1\",\r\n    \"fecha\": \"2024-06-20\",\r\n    \"detalle\": \"reparacion de techo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/mantenimientos/crearMantenimiento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"mantenimientos",
+										"crearMantenimiento"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-ZxjgSj8zYN7GeMXDEniKJMyfIZA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 19:00:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Mantenimiento agregado con Éxito!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "cerrarMatenimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMaintenance\": \"1\",\r\n    \"idOperario\": \"1\",\r\n    \"motivo\": \"D\",\r\n    \"detalle\": \"No se encontró la averia reportada\",\r\n    \"costo\": \"0\",\r\n    \"fechaCierre\": \"2024-06-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/mantenimientos/terminarMantenimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"mantenimientos",
+								"terminarMantenimiento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cerrarMatenimiento",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idMaintenance\": \"1\",\r\n    \"idOperario\": \"1\",\r\n    \"motivo\": \"D\",\r\n    \"detalle\": \"No se encontró la averia reportada\",\r\n    \"costo\": \"0\",\r\n    \"fechaCierre\": \"2024-06-23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/mantenimientos/terminarMantenimiento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"mantenimientos",
+										"terminarMantenimiento"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-TGo40cPFXOGTnoc8TtECy+N7n7w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jun 2024 21:54:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Mantenimieto Finalizado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listarMantenimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2305/mantenimientos/listarMantenimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"mantenimientos",
+								"listarMantenimientos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrarMantenimiento",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2305/mantenimientos/listarMantenimientos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"mantenimientos",
+										"listarMantenimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"89-k8FIXiMOW10JjoOyNOBFw32By7g\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 02:46:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": [\n        {\n            \"NombreActivo\": \"La casita preciosa\",\n            \"detalle\": \"reparacion de techo\",\n            \"fechaRegistro\": \"2024-06-20T00:00:00.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "borrarMatenimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2305/mantenimientos/borrarMantenimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2305",
+							"path": [
+								"mantenimientos",
+								"borrarMantenimientos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrarMatenimiento",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2305/mantenimientos/borrarMantenimientos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2305",
+									"path": [
+										"mantenimientos",
+										"borrarMantenimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-HGHJPbW+d2qfzk0EfqJllhLgg+o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 03:43:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"data\": \"Matenimiento eliminado con Éxito!\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -17,7 +17,7 @@ BEGIN
 		M.detalle,
 		M.fechaRegistro
 	FROM TbMaintenance M
-	INNER JOIN TbPaperwork AS P on P.idAsset = M.idPaperwork
+	INNER JOIN TbPaperwork AS P on P.idPaperwork = M.idPaperwork
 	INNER JOIN TbAssets as A on A.idAsset = P.idAsset
 	WHERE M.eliminado = 0
 END

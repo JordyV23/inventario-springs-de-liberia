@@ -30,7 +30,7 @@ export const agregarAlquiler = async (req, res) => {
     let data = await paAlquilar(asset);
     return res
       .status(201)
-      .json({ succes: true, data: "Alquiler agregado con Éxito!" });
+      .json({ success: true, data: "Alquiler agregado con Éxito!" });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -48,7 +48,7 @@ export const agregarAlquiler = async (req, res) => {
 export const listarAlquileres = async (req, res) => {
   try {
     let data = await paMostrarAlquileres();
-    return res.status(201).json({ succes: true, data });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -69,7 +69,7 @@ export const borrarAlquiler = async (req, res) => {
     let data = await paBorrarAlquiler(alquiler);
     return res
       .status(201)
-      .json({ succes: true, data: "Alquiler eliminado con Éxito!" });
+      .json({ success: true, data: "Alquiler eliminado con Éxito!" });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -90,7 +90,7 @@ export const agregarVenta = async (req, res) => {
     let data = await paVender(venta);
     return res
       .status(201)
-      .json({ succes: true, data: "Venta agregada con Éxito!" });
+      .json({ success: true, data: "Venta agregada con Éxito!" });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -108,7 +108,7 @@ export const agregarVenta = async (req, res) => {
 export const listarVentas = async (req, res) => {
   try {
     let data = await paMostrarVentas();
-    return res.status(201).json({ succes: true, data });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -129,7 +129,7 @@ export const borrarVenta = async (req, res) => {
     let data = await paBorrarVenta(asset);
     return res
       .status(201)
-      .json({ succes: true, data: "Venta eliminada con Éxito!" });
+      .json({ success: true, data: "Venta eliminada con Éxito!" });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);

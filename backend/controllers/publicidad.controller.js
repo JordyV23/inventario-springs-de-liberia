@@ -25,7 +25,7 @@ export const crearPublicidad = async (req, res) => {
     let data = await paCrearAdvertisement(publicidad);
     return res
       .status(201)
-      .json({ succes: true, data: "Publicidad creada exitosamente" });
+      .json({ success: true, data: "Publicidad creada exitosamente" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -42,7 +42,7 @@ export const crearPublicidad = async (req, res) => {
 export const listarPublicidad = async (req, res) => {
   try {
     let data = await paListarAdvertisement();
-    return res.status(201).json({ succes: true, data });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -62,7 +62,7 @@ export const editarPublicidad = async (req, res) => {
     let data = await paEditarAdvertisement(publicidad);
     return res
       .status(201)
-      .json({ succes: true, data: "Publicidad editada exitosamente" });
+      .json({ success: true, data: "Publicidad editada exitosamente" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -82,7 +82,7 @@ export const borrarPublicidad = async (req, res) => {
     let data = await paBorrarAdvertisement(publicidad);
     return res
       .status(201)
-      .json({ succes: true, data: "Publicidad eliminada exitosamente" });
+      .json({ success: true, data: "Publicidad eliminada exitosamente" });
   } catch (error) {
     return genealError(res, error);
   }

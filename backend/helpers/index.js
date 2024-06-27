@@ -6,7 +6,7 @@
  */
 export const genealError = (res, error) => {
     return res.status(500).json({
-      succes: false,
+      success: false,
       data: error.message,
     });
   };

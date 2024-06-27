@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const backendApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
+const backendApi = {
+  personas: axios.create({
+    baseURL: `${import.meta.env.VITE_API_URL}personas`,
+  })
+};
+
 
 export default backendApi;

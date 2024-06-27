@@ -1,21 +1,42 @@
 import "animate.css";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { FormInput } from "../../components/FormInput";
 import { loginFields } from "../../data/userFormFields";
 const { usernameInput, passwordInput } = loginFields();
+import { useActionsUsers } from "../../hooks/Users/useActionsUsers";
+import { useSelector } from "react-redux";
 
-export const LoginPage = () => (
-  <>
-    <AuthLayout title={"Inicio de Sesión"}>
-      <LoginForm />
-    </AuthLayout>
-  </>
-);
+export const LoginPage = () => {
+  const { token } = useSelector((state) => state.global);
 
-const LoginForm = () => (
-  <form className="space-y-4 md:space-y-6" action="#">
+  const navigate = useNavigate();
+
+  const { makeLogin } = useActionsUsers();
+
+  const loginAction = async (event) => {
+    event.preventDefault();
+    makeLogin();
+  };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/users", { replace: true });
+    }
+  }, [token]);
+
+  return (
+    <>
+      <AuthLayout title={"Inicio de Sesión"}>
+        <LoginForm submitEvent={loginAction} />
+      </AuthLayout>
+    </>
+  );
+};
+
+const LoginForm = ({ submitEvent }) => (
+  <form className="space-y-4 md:space-y-6" onSubmit={submitEvent}>
     <FormInput type={"InputFiled"} formProps={usernameInput} />
     <FormInput type={"InputFiled"} formProps={passwordInput} />
     <div className="flex justify-center">

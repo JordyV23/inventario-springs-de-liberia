@@ -14,7 +14,6 @@ import {
 } from "../models/personas.model.js";
 import { genealError } from "../helpers/index.js";
 
-
 /**
  * Encripta una contraseña usando bcrypt
  * @param {string} password - Contraseña a encriptar
@@ -60,7 +59,7 @@ export const registrarPersona = async (req, res) => {
     );
 
     // Envía una respuesta de éxito
-    res.status(201).json({ succes: true, data: "Registro exitoso" });
+    res.status(201).json({ success: true, data: "Registro exitoso" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -92,8 +91,14 @@ export const iniciarSesion = async (req, res) => {
       return loginErrorMessage(res);
     }
 
+    const responseData = {
+      token: generateToken(data),
+      username: data.username,
+      rol: data.rol,
+    };
+
     // Si la autenticación es exitosa, genera y envía un token
-    res.status(201).json({ succes: true, data: generateToken(data) });
+    res.status(201).json({ success: true, data: responseData });
   } catch (error) {
     return genealError(res, error);
   }
@@ -106,8 +111,8 @@ export const iniciarSesion = async (req, res) => {
  */
 const loginErrorMessage = (res) => {
   return res
-    .status(400)
-    .json({ succes: false, data: "Usuario o Contraseña inválidos" });
+    .status(401)
+    .json({ success: false, data: "Usuario o Contraseña inválidos" });
 };
 
 /**
@@ -164,7 +169,7 @@ export const editarPersona = async (req, res) => {
     );
 
     // Envía una respuesta de éxito
-    res.status(201).json({ succes: true, data: "Edición exitosa" });
+    res.status(201).json({ success: true, data: "Edición exitosa" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -196,7 +201,7 @@ export const obtenerPersonas = async (req, res) => {
     let data = await paListarUsuarios();
 
     // Envía la lista de usuarios como respuesta
-    res.status(201).json({ succes: true, data });
+    res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -216,7 +221,7 @@ export const eliminarPerson = async (req, res) => {
     let data = await paInhabilitarPerson(id);
 
     // Envía una respuesta de éxito
-    res.status(201).json({ succes: true, data: "Eliminación exitosa" });
+    res.status(201).json({ success: true, data: "Eliminación exitosa" });
   } catch (error) {
     return genealError(res, error);
   }

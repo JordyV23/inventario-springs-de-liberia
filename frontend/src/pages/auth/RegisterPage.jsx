@@ -22,9 +22,6 @@ const RegisterForm = () => (
       ))}
     </div>
 
-    {/* <FormInput type={"InputFiled"} formProps={usernameInput} />
-    <FormInput type={"InputFiled"} formProps={passwordInput} /> */}
-
     <div className="flex justify-center">
       <button
         type="submit"

@@ -2,6 +2,14 @@ import { faIdCard, faUser, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons/faAt";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons/faPhoneVolume";
+import {
+  writeCedula,
+  writeNombre,
+  writeTelefono,
+  writeCorreo,
+  writeUsername,
+  writePassword,
+} from "../store/User";
 
 export const loginFields = () => {
   const usernameInput = {
@@ -10,6 +18,7 @@ export const loginFields = () => {
     icon: faUser,
     type: "text",
     placeholder: "user1234",
+    write: writeUsername,
   };
 
   const passwordInput = {
@@ -18,6 +27,7 @@ export const loginFields = () => {
     icon: faKey,
     type: "password",
     placeholder: "••••••••",
+    write: writePassword,
   };
 
   return {
@@ -33,6 +43,7 @@ export const registerFields = [
     icon: faIdCard,
     type: "text",
     placeholder: "111230456",
+    write: writeCedula,
   },
   {
     id: "NombreCompleto",
@@ -40,6 +51,7 @@ export const registerFields = [
     icon: faUserPen,
     type: "text",
     placeholder: "Nombre Apellidos ",
+    write: writeNombre,
   },
   {
     id: "telefono",
@@ -47,6 +59,7 @@ export const registerFields = [
     icon: faPhoneVolume,
     type: "text",
     placeholder: "Número de teléfono",
+    write: writeTelefono,
   },
   {
     id: "email",
@@ -54,6 +67,7 @@ export const registerFields = [
     icon: faAt,
     type: "email",
     placeholder: "ejemplo@algo.com",
+    write: writeCorreo,
   },
   {
     id: "username",
@@ -61,6 +75,7 @@ export const registerFields = [
     icon: faUser,
     type: "text",
     placeholder: "",
+    write: writeUsername,
   },
   {
     id: "password",
@@ -68,5 +83,6 @@ export const registerFields = [
     icon: faKey,
     type: "password",
     placeholder: "••••••••",
+    write: writePassword,
   },
 ];

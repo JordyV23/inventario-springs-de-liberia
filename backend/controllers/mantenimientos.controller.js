@@ -30,7 +30,7 @@ export const crearMantenimiento = async (req, res) => {
 
     return res
       .status(201)
-      .json({ succes: true, data: "Mantenimiento agregado con Éxito!" });
+      .json({ success: true, data: "Mantenimiento agregado con Éxito!" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -47,7 +47,7 @@ export const crearMantenimiento = async (req, res) => {
 export const listarMantenimientos = async (req, res) => {
   try {
     let data = await paListarMantenimientos();
-    return res.status(201).json({ succes: true, data });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -69,7 +69,7 @@ export const terminarMantenimiento = async (req, res) => {
 
     return res
       .status(201)
-      .json({ succes: true, data: "Mantenimiento Finalizado" });
+      .json({ success: true, data: "Mantenimiento Finalizado" });
   } catch (error) {
     return genealError(res, error);
   }
@@ -90,7 +90,7 @@ export const borrarMantenimiento = async (req, res) => {
 
     return res
       .status(201)
-      .json({ succes: true, data: "Mantenimiento eliminado con Éxito!" });
+      .json({ success: true, data: "Mantenimiento eliminado con Éxito!" });
   } catch (error) {
     return genealError(res, error);
   }

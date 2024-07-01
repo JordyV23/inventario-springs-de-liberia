@@ -7,7 +7,6 @@ const { logInEndpoint } = useApiUsers();
 export const starLogInUser = (user) => {
   return async (dispatch) => {
     const res = await logInEndpoint(user);
-
     if (res.status === 200) {
       const { data } = res;
       dispatch(setUserAsLogged(data.data));

@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  sidebarOpen: false,
   isLoading: false,
   isLogged: false,
-  authUser: "", 
+  authUser: "",
   authRol: "",
   token: "",
 };
@@ -20,7 +21,6 @@ export const GlobalSlice = createSlice({
       state.token = "";
     },
     setUserAsLogged: (state, action) => {
-      console.log(action.payload)
       state.authUser = action.payload.username;
       state.authRol = action.payload.rol;
       state.token = action.payload.token;
@@ -29,7 +29,11 @@ export const GlobalSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+    changeSidebar: (state, action) => {
+      state.sidebarOpen = !state.sidebarOpen;
+    },
   },
 });
 
-export const { clear, setUserAsLogged, setLoading } = GlobalSlice.actions;
+export const { clear, setUserAsLogged, setLoading, changeSidebar } =
+  GlobalSlice.actions;

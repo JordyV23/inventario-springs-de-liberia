@@ -98,7 +98,7 @@ export const iniciarSesion = async (req, res) => {
     };
 
     // Si la autenticación es exitosa, genera y envía un token
-    res.status(201).json({ success: true, data: responseData });
+    res.status(200).json({ success: true, data: responseData });
   } catch (error) {
     return genealError(res, error);
   }

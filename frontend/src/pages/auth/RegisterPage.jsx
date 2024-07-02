@@ -1,7 +1,7 @@
 import React from "react";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { FormInput } from "../../components/FormInput";
-import { registerFields } from "../../data/userFormFields";
+import { registerFields } from "../../data";
 import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {

@@ -9,7 +9,7 @@ import {
   writeCorreo,
   writeUsername,
   writePassword,
-} from "../store/User";
+} from "../../store/User";
 
 export const loginFields = () => {
   const usernameInput = {

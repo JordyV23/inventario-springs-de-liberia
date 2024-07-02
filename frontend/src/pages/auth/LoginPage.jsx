@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { FormInput } from "../../components/FormInput";
-import { loginFields } from "../../data/userFormFields";
+import { loginFields } from "../../data/forms/userFormFields";
 const { usernameInput, passwordInput } = loginFields();
 import { useActionsUsers } from "../../hooks/Users/useActionsUsers";
 import { useSelector } from "react-redux";

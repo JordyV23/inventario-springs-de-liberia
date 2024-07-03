@@ -35,7 +35,11 @@ const InputField = ({ formProps }) => {
         className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
         placeholder={formProps.placeholder}
         onChange={(e) => dispatch(formProps.write(e.target.value))}
+        readOnly={formProps.editable}
         required
+        {
+          ...formProps.aditional
+        }
       />
     </>
   );

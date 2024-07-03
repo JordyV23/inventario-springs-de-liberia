@@ -1,12 +1,11 @@
 {
-
   "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "type": "module",
   "keywords": [],
@@ -23,7 +22,8 @@
     "moment-timezone": "^0.5.45",
     "mssql": "^11.0.0",
     "node-cron": "^3.0.3",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.14",
+    "resend": "^3.4.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"

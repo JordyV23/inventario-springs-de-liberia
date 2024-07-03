@@ -19,6 +19,7 @@ export const loginFields = () => {
     type: "text",
     placeholder: "user1234",
     write: writeUsername,
+    editable: false,
   };
 
   const passwordInput = {
@@ -28,6 +29,7 @@ export const loginFields = () => {
     type: "password",
     placeholder: "••••••••",
     write: writePassword,
+    editable: false,
   };
 
   return {
@@ -44,6 +46,7 @@ export const registerFields = [
     type: "text",
     placeholder: "111230456",
     write: writeCedula,
+    editable: false,
   },
   {
     id: "NombreCompleto",
@@ -52,6 +55,7 @@ export const registerFields = [
     type: "text",
     placeholder: "Nombre Apellidos ",
     write: writeNombre,
+    editable: false,
   },
   {
     id: "telefono",
@@ -60,6 +64,7 @@ export const registerFields = [
     type: "text",
     placeholder: "Número de teléfono",
     write: writeTelefono,
+    editable: false,
   },
   {
     id: "email",
@@ -68,15 +73,17 @@ export const registerFields = [
     type: "email",
     placeholder: "ejemplo@algo.com",
     write: writeCorreo,
+    editable: false,
   },
-  {
-    id: "username",
-    label: "Usuario",
-    icon: faUser,
-    type: "text",
-    placeholder: "",
-    write: writeUsername,
-  },
+  // {
+  //   id: "username",
+  //   label: "Usuario",
+  //   icon: faUser,
+  //   type: "text",
+  //   placeholder: "",
+  //   write: writeUsername,
+  //   editable: true,
+  // },
   {
     id: "password",
     label: "Contraseña",
@@ -84,5 +91,6 @@ export const registerFields = [
     type: "password",
     placeholder: "••••••••",
     write: writePassword,
+    editable: false,
   },
 ];

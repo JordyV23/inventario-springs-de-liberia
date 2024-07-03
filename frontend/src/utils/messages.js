@@ -8,3 +8,12 @@ export const showErrorMessage = (body) => {
     confirmButtonText: "Aceptar",
   });
 };
+
+export const showSuccessMessage = (body) => {
+  Swal.fire({
+    title: "Acción Exitosa!",
+    text: body,
+    icon: "success",
+    confirmButtonText: "Aceptar",
+  });
+};

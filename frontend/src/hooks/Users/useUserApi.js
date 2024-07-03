@@ -10,7 +10,20 @@ export const useApiUsers = () => {
     }
   };
 
+  const selfRegisterEndpoint = async (user) => {
+    try {
+      const response = await backendApi.personas.post(
+        "/registrarPersona",
+        user
+      );
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
+
   return {
     logInEndpoint,
+    selfRegisterEndpoint,
   };
 };

@@ -1,5 +1,5 @@
 // A - Administrador, F - Funcionario , O - Operario, C - Cliente
-const roles = ["A", "F", "O", "C"];
+export const roles = ["A", "F", "O", "C"];
 
 export const privileged = [roles[0], roles[1]]; // Modulo Usuarios
 

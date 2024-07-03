@@ -12,7 +12,12 @@ import {
   paListarUsuarios,
   paRegisterPerson,
 } from "../models/personas.model.js";
-import { genealError } from "../helpers/index.js";
+import {
+  genealError,
+  generarUsuario,
+  sendMailWithNodemailer,
+} from "../helpers/index.js";
+import { welcomeEmailHtmlBody } from "../helpers/emailTemplate.js";
 
 /**
  * Encripta una contraseña usando bcrypt
@@ -34,15 +39,11 @@ const encriptar = async (password) => {
 export const registrarPersona = async (req, res) => {
   try {
     // Extrae los datos del cuerpo de la solicitud
-    const {
-      cedula,
-      nombreCompleto,
-      telefono,
-      correo,
-      username,
-      password,
-      rol,
-    } = req.body;
+    const { cedula, nombreCompleto, telefono, correo, password, rol } =
+      req.body;
+
+    // Genera el nombre de usuario
+    const username = generarUsuario(nombreCompleto);
 
     // Encripta la contraseña
     const PasswordHash = await encriptar(password);
@@ -56,6 +57,16 @@ export const registrarPersona = async (req, res) => {
       username,
       PasswordHash,
       rol
+    );
+
+    // Genera el html para enviar en el correo
+    let emailBody = welcomeEmailHtmlBody(username, nombreCompleto);
+
+    // Envia el correo
+    await sendMailWithNodemailer(
+      correo,
+      "Bienvenido a nuestra familia",
+      emailBody
     );
 
     // Envía una respuesta de éxito

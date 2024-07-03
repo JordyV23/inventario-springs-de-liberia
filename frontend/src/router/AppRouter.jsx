@@ -4,18 +4,15 @@ import { LoginPage, RegisterPage } from "../pages/";
 import { RequireAuth } from "../components/shared/RequireAuth";
 import { useSelector } from "react-redux";
 import { AuthRouter } from "./AuthRouter";
-import { SpringLayout } from "../layouts/SpringLayout";
 
 export const AppRouter = () => {
   return (
     <>
-      <SpringLayout>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/*" element={<Authenticated />} />
-        </Routes>
-      </SpringLayout>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/*" element={<Authenticated />} />
+      </Routes>
     </>
   );
 };

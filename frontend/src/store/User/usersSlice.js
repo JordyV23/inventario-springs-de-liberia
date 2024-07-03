@@ -14,9 +14,7 @@ export const UserSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    clear: (state, action) => {
-      state.token = "";
-      state.rol = "";
+    clearForm: (state, action) => {
       state.username = "";
       state.password = "";
       state.cedula = "";
@@ -52,7 +50,7 @@ export const UserSlice = createSlice({
 });
 
 export const {
-  clear,
+  clearForm,
   setUsers,
   writeRol,
   writeUsername,

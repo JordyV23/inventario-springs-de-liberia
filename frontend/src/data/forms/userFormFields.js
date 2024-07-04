@@ -20,6 +20,7 @@ export const loginFields = () => {
     placeholder: "user1234",
     write: writeUsername,
     editable: false,
+    stateName: "users",
   };
 
   const passwordInput = {
@@ -30,6 +31,7 @@ export const loginFields = () => {
     placeholder: "••••••••",
     write: writePassword,
     editable: false,
+    stateName: "users",
   };
 
   return {
@@ -47,6 +49,7 @@ export const registerFields = [
     placeholder: "111230456",
     write: writeCedula,
     editable: false,
+    stateName: "users",
   },
   {
     id: "NombreCompleto",
@@ -56,6 +59,7 @@ export const registerFields = [
     placeholder: "Nombre Apellidos ",
     write: writeNombre,
     editable: false,
+    stateName: "users",
   },
   {
     id: "telefono",
@@ -65,6 +69,7 @@ export const registerFields = [
     placeholder: "Número de teléfono",
     write: writeTelefono,
     editable: false,
+    stateName: "users",
   },
   {
     id: "email",
@@ -74,6 +79,7 @@ export const registerFields = [
     placeholder: "ejemplo@algo.com",
     write: writeCorreo,
     editable: false,
+    stateName: "users",
   },
   // {
   //   id: "username",
@@ -92,5 +98,6 @@ export const registerFields = [
     placeholder: "••••••••",
     write: writePassword,
     editable: false,
+    stateName: "users",
   },
 ];

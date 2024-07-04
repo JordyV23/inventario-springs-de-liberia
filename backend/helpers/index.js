@@ -80,6 +80,8 @@ export const sendMailWithNodemailer = async (to, subject, htmlBody) => {
     },
   });
 
+  console.log(transporter.options)
+
   // Define las opciones del correo electrónico
   const mailOptions = {
     from: process.env.MAILSENDER, // Dirección de correo del remitente

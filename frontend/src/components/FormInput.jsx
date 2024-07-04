@@ -13,7 +13,7 @@ export const FormInput = ({ type, formProps }) => {
 };
 
 const InputField = ({ formProps }) => {
-  // useSelector
+  const state  = useSelector((state) => state[formProps.stateName]);
   const dispatch = useDispatch();
   return (
     <>
@@ -36,10 +36,9 @@ const InputField = ({ formProps }) => {
         placeholder={formProps.placeholder}
         onChange={(e) => dispatch(formProps.write(e.target.value))}
         readOnly={formProps.editable}
+        value={state[formProps.id]}
         required
-        {
-          ...formProps.aditional
-        }
+        {...formProps.aditional}
       />
     </>
   );

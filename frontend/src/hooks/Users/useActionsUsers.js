@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../store";
 import {
+  startGetUsers,
   startLogInUser,
   startSelfRegisterUser,
 } from "../../store/User/userThunk";
@@ -32,8 +33,14 @@ export const useActionsUsers = () => {
     );
   };
 
+  const makeGetUsers = () => {
+    dispatch(setLoading(true));
+    dispatch(startGetUsers())
+  }
+
   return {
     makeLogin,
     makeSelfRegister,
+    makeGetUsers,
   };
 };

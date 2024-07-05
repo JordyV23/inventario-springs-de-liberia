@@ -22,8 +22,20 @@ export const useApiUsers = () => {
     }
   };
 
+  const getUsersEndpoint = async () => {
+    try {
+      const response = await backendApi.personas.get(
+        "/getPersonas",
+      );
+      return response;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return {
     logInEndpoint,
     selfRegisterEndpoint,
+    getUsersEndpoint,
   };
 };

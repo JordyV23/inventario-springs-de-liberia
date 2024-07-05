@@ -212,7 +212,7 @@ export const obtenerPersonas = async (req, res) => {
     let data = await paListarUsuarios();
 
     // Envía la lista de usuarios como respuesta
-    res.status(201).json({ success: true, data });
+    res.status(200).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }

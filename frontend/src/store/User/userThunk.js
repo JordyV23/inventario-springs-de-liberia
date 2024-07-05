@@ -1,9 +1,9 @@
 import { useApiUsers } from "../../hooks/Users/useUserApi";
 import { showErrorMessage, showSuccessMessage } from "../../utils/messages";
 import { setLoading, setUserAsLogged } from "../Global";
-import { clearForm } from "./usersSlice";
+import { clearForm, setUsers } from "./usersSlice";
 
-const { logInEndpoint, selfRegisterEndpoint } = useApiUsers();
+const { logInEndpoint, selfRegisterEndpoint, getUsersEndpoint } = useApiUsers();
 
 const errorProcess = (res, dispatch) => {
   dispatch(setLoading(false));
@@ -36,6 +36,18 @@ export const startSelfRegisterUser = (user) => {
       return;
     }
 
+    errorProcess(res, dispatch);
+  };
+};
+
+export const startGetUsers = () => {
+  return async (dispatch) => {
+    const res = await getUsersEndpoint();
+    if (res.status === 200) {
+      console.log(res);
+      dispatch(setUsers(res.data.data));
+      return;
+    }
     errorProcess(res, dispatch);
   };
 };

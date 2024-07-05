@@ -52,7 +52,7 @@ export const registerFields = [
     stateName: "users",
   },
   {
-    id: "NombreCompleto",
+    id: "nombre",
     label: "Nombre Completo",
     icon: faUserPen,
     type: "text",
@@ -72,7 +72,7 @@ export const registerFields = [
     stateName: "users",
   },
   {
-    id: "email",
+    id: "correo",
     label: "Correo electrónico",
     icon: faAt,
     type: "email",

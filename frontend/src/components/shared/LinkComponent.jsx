@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export const LinkComponent = ({location,icon,label}) => {
   return (
     <>
-        <Link to={location} className='py-1 px-3 text-white' >
+        <Link to={location} className='py-1 px-3 text-white hover:text-SpringBrown' >
             <FontAwesomeIcon icon={icon} className='mr-2' />
             <span className='font-medium'>{label}</span>
         </Link>

@@ -13,7 +13,6 @@ export const UsersPage = () => {
     "Correo",
     "Usuario",
     "Rol",
-    ""
   ];
 
   useEffect(() => {

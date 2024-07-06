@@ -24,7 +24,7 @@ export const UserSlice = createSlice({
       state.correo = "";
     },
     setUsers: (state, action) => {
-      state.users = [];
+      state.users = action.payload;
     },
     writeRol: (state, action) => {
       state.rol = action.payload;

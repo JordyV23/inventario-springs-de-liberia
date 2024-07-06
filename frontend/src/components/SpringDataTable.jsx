@@ -1,9 +1,12 @@
+import { DotLottiePlayer } from "@dotlottie/react-player";
 import {
+  faEdit,
   faMagnifyingGlass,
   faPenToSquare,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "flowbite-react";
+// import { Player } from "@lottiefiles/react-lottie-player";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 
@@ -12,11 +15,36 @@ export const SpringDataTable = ({ data, columnTitles }) => {
     return <TableComponent data={data} columnTitles={columnTitles} />;
   } else {
     return (
-      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-        <h1 className="text-center font-bold mt-10 font" >No hay datos para mostrar</h1>
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 bg-white rounded-lg shadow-md">
+        <h1 className="text-center font-bold mt-10 font pt-10 text-2xl text-gray-500">
+          Uups, parece que no hay datos para mostrar...
+        </h1>
+
+        <DotLottiePlayer
+          className="mx-auto"
+          autoplay
+          loop
+          src="animations/NoData.lottie"
+          style={{ height: "300px", width: "300px" }}
+        />
       </div>
     );
   }
+};
+
+const ActionBtn = ({ icon, event, type }) => {
+  return (
+    <button
+      onClick={() => event()}
+      className={`mr-2 p-1 ${
+        type === "E"
+          ? "text-blue-500 hover:text-blue-700"
+          : "text-red-500 hover:text-red-700"
+      }`}
+    >
+      <FontAwesomeIcon icon={icon} />
+    </button>
+  );
 };
 
 const TableComponent = ({ data, columnTitles }) => {
@@ -24,11 +52,30 @@ const TableComponent = ({ data, columnTitles }) => {
 
   const columnKeys = Object.keys(data[0]);
 
-  const columns = columnTitles.map((col, i) => ({
-    name: col,
-    selector: (row) => row[columnKeys[i]],
-    sortable: true,
-  }));
+  const onEdit = (row) => {
+    console.log(row);
+  };
+  const onDelete = (row) => {
+    console.log(row);
+  };
+
+  const columns = [
+    ...columnTitles.map((col, i) => ({
+      name: col,
+      selector: (row) => row[columnKeys[i]],
+      sortable: true,
+    })),
+    {
+      name: "Acciones",
+      cell: (row) => (
+        <div>
+          <ActionBtn type={"E"} event={() => onEdit(row)} icon={faEdit} />
+          <ActionBtn type={"D"} event={() => onDelete(row)} icon={faTrash} />
+        </div>
+      ),
+      ignoreRowClick: true,
+    },
+  ];
 
   const handleFilter = (event) => {
     const searchValue = event.target.value.toLowerCase();

@@ -44,7 +44,6 @@ export const startGetUsers = () => {
   return async (dispatch) => {
     const res = await getUsersEndpoint();
     if (res.status === 200) {
-      console.log(res);
       dispatch(setUsers(res.data.data));
       return;
     }

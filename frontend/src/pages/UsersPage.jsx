@@ -1,13 +1,32 @@
-import React from 'react'
-import { useActionsUsers } from '../hooks'
-
+import React, { useEffect } from "react";
+import { useActionsUsers } from "../hooks";
+import { useSelector } from "react-redux";
+import { SpringDataTable } from "../components/SpringDataTable";
 export const UsersPage = () => {
+  const { makeGetUsers } = useActionsUsers();
+  const { users } = useSelector((state) => state.users);
 
-  const { makeGetUsers } = useActionsUsers()
+  const columnTitles = [
+    "Cedula",
+    "Nombre Completo",
+    "Telefono",
+    "Correo",
+    "Usuario",
+    "Rol",
+    ""
+  ];
 
-  // makeGetUsers()
+  useEffect(() => {
+    makeGetUsers()
+  }, [])
+  
 
   return (
-    <button onClick={() => makeGetUsers()} >Obtener usuarios</button>
-  )
-}
+    <>
+      <SpringDataTable
+        data={users}
+        columnTitles={columnTitles}
+      />
+    </>
+  );
+};

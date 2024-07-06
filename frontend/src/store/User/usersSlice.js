@@ -8,6 +8,7 @@ const initialState = {
   nombre: "",
   telefono: "",
   correo: "",
+  users: [],
 };
 
 export const UserSlice = createSlice({
@@ -23,7 +24,7 @@ export const UserSlice = createSlice({
       state.correo = "";
     },
     setUsers: (state, action) => {
-      state.users = action.payload;
+      state.users = [];
     },
     writeRol: (state, action) => {
       state.rol = action.payload;

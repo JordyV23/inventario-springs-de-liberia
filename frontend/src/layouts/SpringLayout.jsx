@@ -11,9 +11,11 @@ export const SpringLayout = ({ children }) => {
     <>
       <div className="flex overflow-x-hidden h-screen">
         <SpringSidebar />
-        <div className="flex-1">
+        <div className="flex flex-col flex-grow overflow-hidden">
           <SpringNavbar />
-          <main className="p-4">{children}</main>
+          <main className="flex-grow p-2 sm:p-4 overflow-x-auto overflow-y-auto">
+            {children}
+          </main>
         </div>
       </div>
     </>

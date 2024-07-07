@@ -4,6 +4,7 @@ const initialState = {
   sidebarOpen: false,
   isLoading: false,
   isLogged: false,
+  isModalOpen: false,
   authUser: "",
   authRol: "",
   token: "",
@@ -32,8 +33,16 @@ export const GlobalSlice = createSlice({
     changeSidebar: (state, action) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
+    changeModalState: (state, action) => {
+      state.isModalOpen = !state.isModalOpen;
+    },
   },
 });
 
-export const { clear, setUserAsLogged, setLoading, changeSidebar } =
-  GlobalSlice.actions;
+export const {
+  clear,
+  setUserAsLogged,
+  setLoading,
+  changeSidebar,
+  changeModalState,
+} = GlobalSlice.actions;

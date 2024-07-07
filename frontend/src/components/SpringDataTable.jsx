@@ -6,7 +6,6 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Player } from "@lottiefiles/react-lottie-player";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 

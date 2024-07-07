@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useActionsUsers } from "../hooks";
 import { useSelector } from "react-redux";
-import { SpringDataTable } from "../components/SpringDataTable";
+import { FormModal, SpringDataTable } from "../components";
+
 export const UsersPage = () => {
   const { makeGetUsers } = useActionsUsers();
   const { users } = useSelector((state) => state.users);
@@ -16,16 +17,13 @@ export const UsersPage = () => {
   ];
 
   useEffect(() => {
-    makeGetUsers()
-  }, [])
-  
+    makeGetUsers();
+  }, []);
 
   return (
     <>
-      <SpringDataTable
-        data={users}
-        columnTitles={columnTitles}
-      />
+      <FormModal />
+      <SpringDataTable data={users} columnTitles={columnTitles} />
     </>
   );
 };

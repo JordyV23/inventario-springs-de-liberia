@@ -8,6 +8,7 @@ const initialState = {
   authUser: "",
   authRol: "",
   token: "",
+  modalTitle: "",
 };
 
 export const GlobalSlice = createSlice({
@@ -36,6 +37,9 @@ export const GlobalSlice = createSlice({
     changeModalState: (state, action) => {
       state.isModalOpen = !state.isModalOpen;
     },
+    writeModalTitle: (state, action) => {
+      state.modalTitle = action.payload;
+    },
   },
 });
 
@@ -45,4 +49,5 @@ export const {
   setLoading,
   changeSidebar,
   changeModalState,
+  writeModalTitle,
 } = GlobalSlice.actions;

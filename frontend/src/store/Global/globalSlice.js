@@ -9,6 +9,7 @@ const initialState = {
   authRol: "",
   token: "",
   modalTitle: "",
+  modalMode:""
 };
 
 export const GlobalSlice = createSlice({
@@ -31,6 +32,12 @@ export const GlobalSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+    setEdition:(state,action) => {
+      state.modalMode = "E"
+    },
+    setCreation:(state,action) => {
+      state.modalMode = "C"
+    },
     changeSidebar: (state, action) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
@@ -47,6 +54,8 @@ export const {
   clear,
   setUserAsLogged,
   setLoading,
+  setEdition,
+  setCreation,
   changeSidebar,
   changeModalState,
   writeModalTitle,

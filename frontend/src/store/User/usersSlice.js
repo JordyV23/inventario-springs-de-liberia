@@ -22,7 +22,24 @@ export const UserSlice = createSlice({
       state.nombre = "";
       state.telefono = "";
       state.correo = "";
-      state.rol = ""
+      state.rol = "";
+    },
+    loadUserForm: (state, action) => {
+      const {
+        cedula,
+        nombreCompleto,
+        telefono,
+        correoElectronico,
+        username,
+        rol,
+      } = action.payload;
+      state.cedula = cedula;
+      state.password = "";
+      state.nombre = nombreCompleto;
+      state.telefono = telefono;
+      state.correo = correoElectronico;
+      state.username = username;
+      state.rol = rol;
     },
     setUsers: (state, action) => {
       state.users = action.payload;
@@ -61,4 +78,5 @@ export const {
   writeNombre,
   writeTelefono,
   writeCorreo,
+  loadUserForm,
 } = UserSlice.actions;

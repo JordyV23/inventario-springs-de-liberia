@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FormModal, SpringDataTable, SpringForm } from "../components";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { registerFields } from "../data";
-import { clearForm } from "../store";
+import { clearForm, loadUserForm } from "../store";
 
 export const UsersPage = () => {
   const { makeGetUsers } = useActionsUsers();
@@ -16,15 +16,19 @@ export const UsersPage = () => {
     "Telefono",
     "Correo",
     "Usuario",
-    "Rol",
+    // "Rol",
   ];
 
   useEffect(() => {
     makeGetUsers();
   }, []);
 
-  const handleSubtmiEvent = () => {
-    console.log("Guardar");
+  const handleCreation = () => {
+    console.log("Crea");
+  };
+
+  const handleEdition = () => {
+    console.log("Edita");
   };
 
   return (
@@ -33,7 +37,8 @@ export const UsersPage = () => {
         label={"Agregar Usuario"}
         icon={faUserPlus}
         clearFunction={clearForm}
-        submitEvent={handleSubtmiEvent}
+        creationFunction={handleCreation}
+        editionFunction={handleEdition}
       >
         <SpringForm fields={registerFields} />
       </FormModal>
@@ -41,6 +46,7 @@ export const UsersPage = () => {
         data={users}
         columnTitles={columnTitles}
         editModalTitle={"Editar Usuarios"}
+        editFunction={loadUserForm}
       />
     </>
   );

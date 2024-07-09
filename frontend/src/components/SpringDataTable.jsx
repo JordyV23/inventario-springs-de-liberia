@@ -9,15 +9,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import { useDispatch } from "react-redux";
-import { changeModalState, writeModalTitle } from "../store";
+import { changeModalState, setEdition, writeModalTitle } from "../store";
 
-export const SpringDataTable = ({ data, columnTitles, editModalTitle }) => {
+export const SpringDataTable = ({
+  data,
+  columnTitles,
+  editModalTitle,
+  editFunction,
+}) => {
   if (data.length > 0) {
     return (
       <TableComponent
         data={data}
         columnTitles={columnTitles}
         editModalTitle={editModalTitle}
+        editFunction={editFunction}
       />
     );
   } else {
@@ -54,18 +60,26 @@ const ActionBtn = ({ icon, event, type }) => {
   );
 };
 
-const TableComponent = ({ data, columnTitles, editModalTitle }) => {
+const TableComponent = ({
+  data,
+  columnTitles,
+  editModalTitle,
+  editFunction,
+}) => {
   const [records, setRecords] = useState(data);
   const dispatch = useDispatch();
 
   const columnKeys = Object.keys(data[0]);
 
   const onEdit = (row) => {
-    console.log(row);
+    dispatch(editFunction(row));
     dispatch(writeModalTitle(editModalTitle));
+    dispatch(setEdition())
     dispatch(changeModalState());
   };
+
   const onDelete = (row) => {
+    console.log("Elimina");
     console.log(row);
   };
 

@@ -35,17 +35,22 @@ export const useActionsUsers = () => {
 
   const makeGetUsers = () => {
     dispatch(setLoading(true));
-    dispatch(startGetUsers())
-  }
+    dispatch(startGetUsers());
+  };
 
   const makeRegisterUser = () => {
-    // dispatch(setLoading(true));
+    dispatch(setLoading(true));
+  };
 
-  }
+  const makeEditUser = () => {
+    dispatch(setLoading(true));
+  };
 
   return {
     makeLogin,
     makeSelfRegister,
     makeGetUsers,
+    makeRegisterUser,
+    makeEditUser,
   };
 };

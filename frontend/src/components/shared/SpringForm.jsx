@@ -8,7 +8,7 @@ export const SpringForm = ({ submitEvent = () => {}, fields }) => {
         {fields.map((field, i) => (
           <FormInput
             key={i}
-            type={"InputFiled"}
+            type={field.fieldType}
             formProps={field}
             textColor={"text-black"}
           />

@@ -1,4 +1,4 @@
-import { faIdCard, faUser, faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { faExclamationCircle, faIdCard, faUser, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons/faAt";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons/faPhoneVolume";
@@ -11,6 +11,7 @@ import {
   writePassword,
   writeRol,
 } from "../../store/User";
+import { roleOptions } from "../mapings";
 
 export const loginFields = () => {
   const usernameInput = {
@@ -22,6 +23,7 @@ export const loginFields = () => {
     write: writeUsername,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   };
 
   const passwordInput = {
@@ -33,6 +35,7 @@ export const loginFields = () => {
     write: writePassword,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   };
 
   return {
@@ -51,6 +54,7 @@ export const selRegisterFields = [
     write: writeCedula,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "nombre",
@@ -61,6 +65,7 @@ export const selRegisterFields = [
     write: writeNombre,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "telefono",
@@ -71,6 +76,7 @@ export const selRegisterFields = [
     write: writeTelefono,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "correo",
@@ -81,6 +87,7 @@ export const selRegisterFields = [
     write: writeCorreo,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "password",
@@ -91,6 +98,7 @@ export const selRegisterFields = [
     write: writePassword,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
 ];
 
@@ -105,6 +113,7 @@ export const registerFields = [
     write: writeCedula,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "nombre",
@@ -115,6 +124,7 @@ export const registerFields = [
     write: writeNombre,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "telefono",
@@ -125,6 +135,7 @@ export const registerFields = [
     write: writeTelefono,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
   {
     id: "correo",
@@ -135,16 +146,20 @@ export const registerFields = [
     write: writeCorreo,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
-  // {
-  //   id: "rol",
-  //   label: "Rol de Usuario",
-  //   icon: faUser,
-  //   type: "text",
-  //   placeholder: "Rol del usuario",
-  //   write: writeRol,
-  //   editable: true,
-  // },
+  {
+    id: "rol",
+    label: "Rol de Usuario",
+    icon: faExclamationCircle,
+    type: "text",
+    placeholder: "Rol del usuario",
+    write: writeRol,
+    editable: true,
+    stateName: "users",
+    fieldType:"SelectField",
+    fieldOptions: roleOptions
+  },
   {
     id: "password",
     label: "Contraseña",
@@ -154,5 +169,6 @@ export const registerFields = [
     write: writePassword,
     editable: false,
     stateName: "users",
+    fieldType:"InputFiled"
   },
 ]

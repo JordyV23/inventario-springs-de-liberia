@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeModalState, writeModalTitle } from "../store";
+import { changeModalState, setCreation, writeModalTitle } from "../store";
 import { Button, Modal } from "flowbite-react";
 import { ModalFooterOption } from "./ModalFooterOption";
 import { SpringBtn } from "./shared";
@@ -10,21 +10,30 @@ export const FormModal = ({
   label,
   icon,
   clearFunction,
-  submitEvent,
+  creationFunction,
+  editionFunction,
 }) => {
-  const { isModalOpen, modalTitle } = useSelector((state) => state.global);
+  const { isModalOpen, modalTitle, modalMode } = useSelector(
+    (state) => state.global
+  );
 
   const dispatch = useDispatch();
 
   const handleModalChange = () => {
     dispatch(changeModalState());
     dispatch(writeModalTitle(label));
+    dispatch(setCreation())
     dispatch(clearFunction());
   };
 
-  const handleSubmit= () => {
-    submitEvent()
-  }
+  const handleSubmit = () => {
+    if (modalMode === "C") {
+      creationFunction();
+    }
+    if (modalMode === "E") {
+      editionFunction();
+    }
+  };
 
   return (
     <>

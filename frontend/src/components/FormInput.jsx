@@ -2,30 +2,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export const FormInput = ({ type, formProps }) => {
+export const FormInput = ({ type, formProps, textColor }) => {
   switch (type) {
     case "InputFiled":
-      return <InputField formProps={formProps} />;
+      return <InputField formProps={formProps} textColor={textColor} />;
 
     default:
       break;
   }
 };
 
-const InputField = ({ formProps }) => {
-  const state  = useSelector((state) => state[formProps.stateName]);
+const InputField = ({ formProps, textColor }) => {
+  const state = useSelector((state) => state[formProps.stateName]);
   const dispatch = useDispatch();
   return (
     <>
       <label
         htmlFor={formProps.id}
-        className="block mb-2 text-sm font-medium text-SpringWhite"
+        className={"block mb-2 text-sm font-medium " + textColor}
       >
-        <FontAwesomeIcon
-          icon={formProps.icon}
-          size="xl"
-          className="text-white mr-1"
-        />
+        <FontAwesomeIcon icon={formProps.icon} size="xl" className="mr-1" />
         {formProps.label}
       </label>
       <input

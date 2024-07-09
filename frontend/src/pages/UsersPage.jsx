@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useActionsUsers } from "../hooks";
 import { useSelector } from "react-redux";
-import { FormModal, SpringDataTable } from "../components";
+import { FormModal, SpringDataTable, SpringForm } from "../components";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { registerFields } from "../data";
+import { clearForm } from "../store";
 
 export const UsersPage = () => {
   const { makeGetUsers } = useActionsUsers();
@@ -21,10 +23,19 @@ export const UsersPage = () => {
     makeGetUsers();
   }, []);
 
+  const handleSubtmiEvent = () => {
+    console.log("Guardar");
+  };
+
   return (
     <>
-      <FormModal label={"Agregar Usuario"} icon={faUserPlus}>
-        <h1>Aqui va un formulario</h1>
+      <FormModal
+        label={"Agregar Usuario"}
+        icon={faUserPlus}
+        clearFunction={clearForm}
+        submitEvent={handleSubtmiEvent}
+      >
+        <SpringForm fields={registerFields} />
       </FormModal>
       <SpringDataTable
         data={users}

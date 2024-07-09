@@ -9,6 +9,7 @@ import {
   writeCorreo,
   writeUsername,
   writePassword,
+  writeRol,
 } from "../../store/User";
 
 export const loginFields = () => {
@@ -39,6 +40,60 @@ export const loginFields = () => {
     usernameInput,
   };
 };
+
+export const selRegisterFields = [
+  {
+    id: "cedula",
+    label: "Cédula",
+    icon: faIdCard,
+    type: "text",
+    placeholder: "111230456",
+    write: writeCedula,
+    editable: false,
+    stateName: "users",
+  },
+  {
+    id: "nombre",
+    label: "Nombre Completo",
+    icon: faUserPen,
+    type: "text",
+    placeholder: "Nombre Apellidos ",
+    write: writeNombre,
+    editable: false,
+    stateName: "users",
+  },
+  {
+    id: "telefono",
+    label: "Número de telefono",
+    icon: faPhoneVolume,
+    type: "text",
+    placeholder: "Número de teléfono",
+    write: writeTelefono,
+    editable: false,
+    stateName: "users",
+  },
+  {
+    id: "correo",
+    label: "Correo electrónico",
+    icon: faAt,
+    type: "email",
+    placeholder: "ejemplo@algo.com",
+    write: writeCorreo,
+    editable: false,
+    stateName: "users",
+  },
+  {
+    id: "password",
+    label: "Contraseña",
+    icon: faKey,
+    type: "password",
+    placeholder: "••••••••",
+    write: writePassword,
+    editable: false,
+    stateName: "users",
+  },
+];
+
 
 export const registerFields = [
   {
@@ -82,12 +137,12 @@ export const registerFields = [
     stateName: "users",
   },
   // {
-  //   id: "username",
-  //   label: "Usuario",
+  //   id: "rol",
+  //   label: "Rol de Usuario",
   //   icon: faUser,
   //   type: "text",
-  //   placeholder: "",
-  //   write: writeUsername,
+  //   placeholder: "Rol del usuario",
+  //   write: writeRol,
   //   editable: true,
   // },
   {
@@ -100,4 +155,4 @@ export const registerFields = [
     editable: false,
     stateName: "users",
   },
-];
+]

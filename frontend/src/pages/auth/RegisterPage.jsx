@@ -1,7 +1,7 @@
 import React from "react";
 import { AuthLayout } from "../../layouts/AuthLayout";
 import { FormInput } from "../../components/FormInput";
-import { registerFields } from "../../data";
+import { selRegisterFields } from "../../data";
 import { Link } from "react-router-dom";
 import { useActionsUsers } from "../../hooks/Users/useActionsUsers";
 
@@ -25,8 +25,13 @@ export const RegisterPage = () => {
 const RegisterForm = ({ submitEvent }) => (
   <form className="space-y-4 md:space-y-6" onSubmit={submitEvent}>
     <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-      {registerFields.map((field, i) => (
-        <FormInput key={i} type={"InputFiled"} formProps={field} />
+      {selRegisterFields.map((field, i) => (
+        <FormInput
+          key={i}
+          type={"InputFiled"}
+          formProps={field}
+          textColor={"text-SpringWhite"}
+        />
       ))}
     </div>
 

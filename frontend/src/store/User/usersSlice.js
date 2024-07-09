@@ -22,6 +22,7 @@ export const UserSlice = createSlice({
       state.nombre = "";
       state.telefono = "";
       state.correo = "";
+      state.rol = ""
     },
     setUsers: (state, action) => {
       state.users = action.payload;

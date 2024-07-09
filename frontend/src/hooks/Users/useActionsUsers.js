@@ -38,6 +38,11 @@ export const useActionsUsers = () => {
     dispatch(startGetUsers())
   }
 
+  const makeRegisterUser = () => {
+    // dispatch(setLoading(true));
+
+  }
+
   return {
     makeLogin,
     makeSelfRegister,

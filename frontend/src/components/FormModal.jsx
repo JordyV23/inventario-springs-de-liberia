@@ -5,7 +5,13 @@ import { Button, Modal } from "flowbite-react";
 import { ModalFooterOption } from "./ModalFooterOption";
 import { SpringBtn } from "./shared";
 
-export const FormModal = ({ children, label,icon }) => {
+export const FormModal = ({
+  children,
+  label,
+  icon,
+  clearFunction,
+  submitEvent,
+}) => {
   const { isModalOpen, modalTitle } = useSelector((state) => state.global);
 
   const dispatch = useDispatch();
@@ -13,7 +19,12 @@ export const FormModal = ({ children, label,icon }) => {
   const handleModalChange = () => {
     dispatch(changeModalState());
     dispatch(writeModalTitle(label));
+    dispatch(clearFunction());
   };
+
+  const handleSubmit= () => {
+    submitEvent()
+  }
 
   return (
     <>
@@ -31,7 +42,7 @@ export const FormModal = ({ children, label,icon }) => {
           <div className="space-y-6">{children}</div>
         </Modal.Body>
         <Modal.Footer className="bg-white border-none">
-          <ModalFooterOption type={"accept"} event={handleModalChange} />
+          <ModalFooterOption type={"accept"} event={handleSubmit} />
           <ModalFooterOption type={"cancel"} event={handleModalChange} />
         </Modal.Footer>
       </Modal>

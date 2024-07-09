@@ -37,8 +37,16 @@ export const LoginPage = () => {
 
 const LoginForm = ({ submitEvent }) => (
   <form className="space-y-4 md:space-y-6" onSubmit={submitEvent}>
-    <FormInput type={"InputFiled"} formProps={usernameInput} />
-    <FormInput type={"InputFiled"} formProps={passwordInput} />
+    <FormInput
+      textColor={"text-SpringWhite"}
+      type={"InputFiled"}
+      formProps={usernameInput}
+    />
+    <FormInput
+      textColor={"text-SpringWhite"}
+      type={"InputFiled"}
+      formProps={passwordInput}
+    />
     <div className="flex justify-center">
       <button
         type="submit"

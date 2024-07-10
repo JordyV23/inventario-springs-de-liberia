@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { SpringSidebar, SpringNavbar } from "../components/shared";
-import { Navbar, Sidebar } from "flowbite-react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeSidebar } from "../store";
+import {
+  SpringSidebar,
+  SpringNavbar,
+  SpringLoader,
+} from "../components/shared";
+import { useSelector } from "react-redux";
 
 export const SpringLayout = ({ children }) => {
-  const { sidebarOpen } = useSelector((state) => state.global);
+  const { isLoading } = useSelector((state) => state.global);
 
   return (
     <>
+      {isLoading ? <SpringLoader /> : ""}
       <div className="flex overflow-x-hidden h-screen">
         <SpringSidebar />
         <div className="flex flex-col flex-grow overflow-hidden">

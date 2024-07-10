@@ -51,6 +51,7 @@ export const startGetUsers = () => {
     const res = await getUsersEndpoint();
     if (res.status === 200) {
       dispatch(setUsers(res.data.data));
+      dispatch(setLoading(false));
       return;
     }
     errorProcess(res, dispatch);
@@ -62,6 +63,7 @@ export const startRegisterUser = (user) => {
     const res = await registerEndpoint(user);
     if (res.status === 201) {
       showSuccessMessage("Usuario registrado exitosamente");
+      dispatch(setUsers(res.data.data));
       dispatch(setLoading(false));
       dispatch(changeModalState());
       dispatch(clearForm());
@@ -76,7 +78,6 @@ export const startEditUser = (user) => {
   return async (dispatch) => {
     const res = await updateUserEndpoint(user);
     if (res.status === 201) {
-      console.log(res)
       dispatch(setUsers(res.data.data));
       showSuccessMessage("Usuario editado exitosamente");
       dispatch(setLoading(false));
@@ -93,9 +94,9 @@ export const startDeleteUser = (user) => {
   return async (dispatch) => {
     const res = await deleteUserEndpoint(user);
     if (res.status === 201) {
+      dispatch(setUsers(res.data.data));
       showSuccessMessage("Usuario eliminado exitosamente");
       dispatch(setLoading(false));
-      dispatch(changeModalState());
       dispatch(clearForm());
       return;
     }

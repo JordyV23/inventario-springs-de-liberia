@@ -6,7 +6,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useDispatch } from "react-redux";
 import { changeModalState, setEdition, writeModalTitle } from "../store";
@@ -74,6 +74,10 @@ const TableComponent = ({
   const dispatch = useDispatch();
 
   const columnKeys = Object.keys(data[0]);
+
+  useEffect(() => {
+    setRecords(data);
+  }, [data]);
 
   const onEdit = (row) => {
     dispatch(editFunction(row));

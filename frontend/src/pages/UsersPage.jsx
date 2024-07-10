@@ -7,7 +7,8 @@ import { registerFields } from "../data";
 import { clearForm, loadUserForm } from "../store";
 
 export const UsersPage = () => {
-  const { makeGetUsers, makeRegisterUser, makeEditUser } = useActionsUsers();
+  const { makeGetUsers, makeRegisterUser, makeEditUser, makeDeleteUser } =
+    useActionsUsers();
   const { users } = useSelector((state) => state.users);
 
   const columnTitles = [

@@ -49,7 +49,7 @@ export const registrarPersona = async (req, res) => {
     const PasswordHash = await encriptar(password);
 
     // Registra la persona en la base de datos
-    let data = await paRegisterPerson(
+    await paRegisterPerson(
       cedula,
       nombreCompleto,
       telefono,
@@ -69,8 +69,10 @@ export const registrarPersona = async (req, res) => {
       emailBody
     );
 
+    let data = await paListarUsuarios();
+
     // Envía una respuesta de éxito
-    res.status(201).json({ success: true, data: "Registro exitoso" });
+    res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -184,7 +186,7 @@ export const editarPersona = async (req, res) => {
     // Envía una respuesta de éxito
     res.status(201).json({ success: true, data });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return genealError(res, error);
   }
 };
@@ -232,10 +234,12 @@ export const eliminarPerson = async (req, res) => {
     const { id } = req.body;
 
     // Inhabilita la persona en la base de datos
-    let data = await paInhabilitarPerson(id);
+    await paInhabilitarPerson(id);
+
+    let data = await paListarUsuarios();
 
     // Envía una respuesta de éxito
-    res.status(201).json({ success: true, data: "Eliminación exitosa" });
+    res.status(201).json({ success: true, data: data });
   } catch (error) {
     return genealError(res, error);
   }

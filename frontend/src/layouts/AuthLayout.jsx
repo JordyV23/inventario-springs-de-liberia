@@ -1,9 +1,13 @@
 import React from "react";
-import { Logo } from "../components/shared";
+import { Logo, SpringLoader } from "../components/shared";
+import { useSelector } from "react-redux";
 
 export const AuthLayout = ({ children, title }) => {
+  const { isLoading } = useSelector((state) => state.global);
+
   return (
     <>
+      {isLoading ? <SpringLoader /> : ""}
       <section className="animate__animated animate__fadeIn">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <Logo />

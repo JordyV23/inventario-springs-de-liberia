@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  idUser: "",
   rol: "",
   username: "",
   password: "",
@@ -16,6 +17,7 @@ export const UserSlice = createSlice({
   initialState,
   reducers: {
     clearForm: (state, action) => {
+      state.idUser;
       state.username = "";
       state.password = "";
       state.cedula = "";
@@ -32,14 +34,17 @@ export const UserSlice = createSlice({
         correoElectronico,
         username,
         rol,
+        password,
+        idPerson,
       } = action.payload;
       state.cedula = cedula;
-      state.password = "";
+      state.password = password;
       state.nombre = nombreCompleto;
       state.telefono = telefono;
       state.correo = correoElectronico;
       state.username = username;
       state.rol = rol;
+      state.idUser = idPerson;
     },
     setUsers: (state, action) => {
       state.users = action.payload;

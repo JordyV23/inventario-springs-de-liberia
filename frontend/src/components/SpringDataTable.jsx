@@ -10,12 +10,14 @@ import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import { useDispatch } from "react-redux";
 import { changeModalState, setEdition, writeModalTitle } from "../store";
+import Swal from "sweetalert2";
 
 export const SpringDataTable = ({
   data,
   columnTitles,
   editModalTitle,
   editFunction,
+  deleteFunction,
 }) => {
   if (data.length > 0) {
     return (
@@ -24,6 +26,7 @@ export const SpringDataTable = ({
         columnTitles={columnTitles}
         editModalTitle={editModalTitle}
         editFunction={editFunction}
+        deleteFunction={deleteFunction}
       />
     );
   } else {
@@ -65,6 +68,7 @@ const TableComponent = ({
   columnTitles,
   editModalTitle,
   editFunction,
+  deleteFunction,
 }) => {
   const [records, setRecords] = useState(data);
   const dispatch = useDispatch();
@@ -74,13 +78,25 @@ const TableComponent = ({
   const onEdit = (row) => {
     dispatch(editFunction(row));
     dispatch(writeModalTitle(editModalTitle));
-    dispatch(setEdition())
+    dispatch(setEdition());
     dispatch(changeModalState());
   };
 
   const onDelete = (row) => {
-    console.log("Elimina");
-    console.log(row);
+    Swal.fire({
+      title: "¿Seguro de que desea eliminar este registro?",
+      text: "Esta acción no podrá ser revertida",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteFunction(row);
+      }
+    });
   };
 
   const columns = [

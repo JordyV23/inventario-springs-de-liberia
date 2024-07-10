@@ -11,13 +11,15 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT 
+	SELECT
 		P.cedula,
 		P.nombreCompleto,
 		P.telefono,
 		P.correoElectronico,
 		U.username,
-		U.rol
+		U.rol,
+		P.idPerson,
+		U.password
 	FROM TbPerson as P
 	INNER JOIN TbUser as U ON U.idUser = P.idUsuario
 	WHERE P.eliminado = 0

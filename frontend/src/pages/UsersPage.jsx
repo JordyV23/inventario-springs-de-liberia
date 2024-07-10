@@ -7,7 +7,7 @@ import { registerFields } from "../data";
 import { clearForm, loadUserForm } from "../store";
 
 export const UsersPage = () => {
-  const { makeGetUsers } = useActionsUsers();
+  const { makeGetUsers, makeRegisterUser, makeEditUser } = useActionsUsers();
   const { users } = useSelector((state) => state.users);
 
   const columnTitles = [
@@ -24,11 +24,15 @@ export const UsersPage = () => {
   }, []);
 
   const handleCreation = () => {
-    console.log("Crea");
+    makeRegisterUser();
   };
 
   const handleEdition = () => {
-    console.log("Edita");
+    makeEditUser();
+  };
+
+  const handleDelete = (row) => {
+    makeDeleteUser(row.idPerson);
   };
 
   return (
@@ -47,6 +51,7 @@ export const UsersPage = () => {
         columnTitles={columnTitles}
         editModalTitle={"Editar Usuarios"}
         editFunction={loadUserForm}
+        deleteFunction={handleDelete}
       />
     </>
   );

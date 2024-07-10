@@ -60,6 +60,7 @@ const SelectFiled = ({ formProps, textColor }) => {
         value={state[formProps.id]}
         onChange={(e) => dispatch(formProps.write(e.target.value))}
       >
+        <option value="">Seleccione un</option>
         {formProps.fieldOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

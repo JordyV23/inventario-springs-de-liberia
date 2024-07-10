@@ -169,7 +169,7 @@ export const editarPersona = async (req, res) => {
     let userPassword = await checkPasswordChange(username, password);
 
     // Actualiza los datos de la persona en la base de datos
-    let data = await paEditPerson(
+    await paEditPerson(
       id,
       cedula,
       nombreCompleto,
@@ -179,9 +179,12 @@ export const editarPersona = async (req, res) => {
       rol
     );
 
+    let data = await paListarUsuarios();
+
     // Envía una respuesta de éxito
-    res.status(201).json({ success: true, data: "Edición exitosa" });
+    res.status(201).json({ success: true, data });
   } catch (error) {
+    console.log(error)
     return genealError(res, error);
   }
 };
@@ -193,12 +196,12 @@ export const editarPersona = async (req, res) => {
  * @returns {Promise<string>} Contraseña encriptada o actual
  */
 const checkPasswordChange = async (username, password) => {
-  let actualPassword = await paIniciarSesion(username);
-  const isMatch = await bcrypt.compare(password, password);
-  if (!isMatch) {
+  let userInfo = await paIniciarSesion(username);
+  // const isMatch = await bcrypt.compare(actualPassword.password,password);
+  if (password !== userInfo.password) {
     return await encriptar(password);
   }
-  return actualPassword;
+  return password;
 };
 
 /**

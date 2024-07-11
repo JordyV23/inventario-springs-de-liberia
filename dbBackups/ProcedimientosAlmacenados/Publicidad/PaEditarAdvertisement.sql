@@ -10,7 +10,8 @@ CREATE OR ALTER PROCEDURE PaEditarAdvertisement
 	@fechaInicio date,
 	@fechaFin date,
 	@isPeriodical bit,
-	@intervalo int
+	@intervalo int,
+	@isActive bit
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -25,6 +26,7 @@ BEGIN
 		,fechaFin = @fechaFin
 		,envioPeriodico = @isPeriodical
 		,intervaloDiasNotificacion = @intervalo
+		,envioActivo = @isActive
 	WHERE idAdvertisement = @idAvertisement
 END
 GO

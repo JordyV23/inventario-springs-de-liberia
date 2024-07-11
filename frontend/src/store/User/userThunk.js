@@ -1,5 +1,5 @@
 import { useApiUsers } from "../../hooks/Users/useUserApi";
-import { showErrorMessage, showSuccessMessage } from "../../utils/messages";
+import { errorProcess, showSuccessMessage } from "../../utils/messages";
 import { changeModalState, setLoading, setUserAsLogged } from "../Global";
 import { clearForm, setUsers } from "./usersSlice";
 
@@ -11,10 +11,6 @@ const {
   deleteUserEndpoint,
 } = useApiUsers();
 
-const errorProcess = (res, dispatch) => {
-  dispatch(setLoading(false));
-  showErrorMessage(res.response.data.data);
-};
 
 export const startLogInUser = (user) => {
   return async (dispatch) => {

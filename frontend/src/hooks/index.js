@@ -1,1 +1,2 @@
-export * from "./Users"
+export * from "./Promotions";
+export * from "./Users";

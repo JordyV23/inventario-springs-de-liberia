@@ -65,6 +65,7 @@ export const paEditarAdvertisement = async (publicidad) => {
       .input("fechaFin", publicidad.fechaFin)
       .input("isPeriodical", publicidad.isPeriodica)
       .input("intervalo", publicidad.intervalo)
+      .input("isActive", publicidad.activa)
       .execute("PaEditarAdvertisement");
     return request.recordset;
   } catch (error) {

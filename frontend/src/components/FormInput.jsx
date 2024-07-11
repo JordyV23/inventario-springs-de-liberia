@@ -8,6 +8,8 @@ export const FormInput = ({ type, formProps, textColor }) => {
       return <InputField formProps={formProps} textColor={textColor} />;
     case "SelectField":
       return <SelectFiled formProps={formProps} textColor={textColor} />;
+    case "TextArea":
+      return <TextArea formProps={formProps} textColor={textColor} />;
     default:
       break;
   }
@@ -67,6 +69,31 @@ const SelectFiled = ({ formProps, textColor }) => {
           </option>
         ))}
       </select>
+    </>
+  );
+};
+
+const TextArea = ({ formProps, textColor }) => {
+  const state = useSelector((state) => state[formProps.stateName]);
+  const dispatch = useDispatch();
+  return (
+    <>
+      <label
+        htmlFor={formProps.id}
+        className={"block mb-2 text-sm font-medium " + textColor}
+      >
+        <FontAwesomeIcon icon={formProps.icon} size="xl" className="mr-1" />
+        {formProps.label}
+      </label>
+      <textarea
+        name={formProps.id}
+        id={formProps.id}
+        className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+        placeholder={formProps.placeholder}
+        onChange={(e) => dispatch(formProps.write(e.target.value))}
+        readOnly={formProps.editable}
+        value={state[formProps.id]}
+      />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { setLoading } from "../store";
 
 export const showErrorMessage = (body) => {
   Swal.fire({
@@ -16,4 +17,10 @@ export const showSuccessMessage = (body) => {
     icon: "success",
     confirmButtonText: "Aceptar",
   });
+};
+
+export const errorProcess = (res, dispatch) => {
+  dispatch(setLoading(false));
+  console.log(res)
+  showErrorMessage(res.response.data.data);
 };

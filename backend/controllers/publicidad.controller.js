@@ -22,10 +22,9 @@ import {
 export const crearPublicidad = async (req, res) => {
   try {
     let publicidad = req.body;
-    let data = await paCrearAdvertisement(publicidad);
-    return res
-      .status(201)
-      .json({ success: true, data: "Publicidad creada exitosamente" });
+    await paCrearAdvertisement(publicidad);
+    let data = await paListarAdvertisement();
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -59,10 +58,10 @@ export const listarPublicidad = async (req, res) => {
 export const editarPublicidad = async (req, res) => {
   try {
     let publicidad = req.body;
-    let data = await paEditarAdvertisement(publicidad);
-    return res
-      .status(201)
-      .json({ success: true, data: "Publicidad editada exitosamente" });
+    await paEditarAdvertisement(publicidad);
+    let data = await paListarAdvertisement();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -79,10 +78,10 @@ export const editarPublicidad = async (req, res) => {
 export const borrarPublicidad = async (req, res) => {
   try {
     let publicidad = req.body;
-    let data = await paBorrarAdvertisement(publicidad);
-    return res
-      .status(201)
-      .json({ success: true, data: "Publicidad eliminada exitosamente" });
+    await paBorrarAdvertisement(publicidad);
+    let data = await paListarAdvertisement();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }

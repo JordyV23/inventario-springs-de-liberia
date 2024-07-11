@@ -17,7 +17,7 @@ export const useActionsPromotions = () => {
     fechaFin,
     activa,
     descripcion,
-    intervalo,
+    intervaloDias,
     isPeriodica,
   } = useSelector((state) => state.promotions);
 
@@ -26,11 +26,11 @@ export const useActionsPromotions = () => {
     dispatch(
       startCreatePromotion({
         titulo,
-        descripcion,
+        description: descripcion,
         fechaInicio,
         fechaFin,
         isPeriodica,
-        intervalo,
+        intervalo: intervaloDias,
       })
     );
   };
@@ -40,12 +40,12 @@ export const useActionsPromotions = () => {
       startUpdatePromotion({
         id: idPromo,
         titulo,
-        descripcion,
+        description:descripcion,
         fechaInicio,
         fechaFin,
         isPeriodica,
-        intervalo,
-        activa
+        intervalo: intervaloDias,
+        activa: activa === "Activo" ? 1 : 0
       })
     );
   };

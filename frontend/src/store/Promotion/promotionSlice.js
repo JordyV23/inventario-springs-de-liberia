@@ -26,13 +26,16 @@ export const PromotionSlice = createSlice({
       state.descripcion = action.payload;
     },
     writeFechaInicio: (state, action) => {
-      state.fecha = action.payload;
+      state.fechaInicio = action.payload;
     },
     writeFechaFin: (state, action) => {
-      state.fecha = action.payload;
+      state.fechaFin = action.payload;
     },
     writeActiva: (state, action) => {
       state.activa = action.payload;
+    },
+    writePeriodica: (state, action) => {
+      state.isPeriodica = action.payload;
     },
     writeIntervaloDias: (state, action) => {
       state.intervaloDias = action.payload;
@@ -68,6 +71,7 @@ export const {
   writeActiva,
   writeDescripcion,
   writeIntervaloDias,
+  writePeriodica,
   loadPromotionForm,
   clearPromotionForm,
 } = PromotionSlice.actions;

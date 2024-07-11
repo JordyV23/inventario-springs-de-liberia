@@ -1,6 +1,6 @@
 import { useApiPromotion } from "../../hooks";
-import { errorProcess } from "../../utils/messages";
-import { setLoading } from "../Global";
+import { errorProcess, showSuccessMessage } from "../../utils/messages";
+import { changeModalState, setLoading } from "../Global";
 import { setPromotions } from "./promotionSlice";
 
 const {
@@ -16,6 +16,10 @@ export const startCreatePromotion = (promotion) => {
     if (res.status === 201) {
       const { data } = res;
       dispatch(setPromotions(data.data))
+      showSuccessMessage(
+        "Promoción creada exitosamente"
+      );
+      dispatch(changeModalState());
       dispatch(setLoading(false));
       return;
     }
@@ -27,8 +31,12 @@ export const startUpdatePromotion = (promotion) => {
   return async (dispatch) => {
     const res = await updatePromotionEndpoint(promotion);
     if (res.status === 201) {
+      showSuccessMessage(
+        "Promoción editada exitosamente"
+      );
       const { data } = res;
       dispatch(setPromotions(data.data))
+      dispatch(changeModalState());
       dispatch(setLoading(false));
       return;
     }
@@ -40,6 +48,9 @@ export const startDeletePromotion = (promotion) => {
   return async (dispatch) => {
     const res = await deletePromotionEndpoint(promotion);
     if (res.status === 201) {
+      showSuccessMessage(
+        "Promoción eliminada exitosamente"
+      );
       const { data } = res;
       dispatch(setPromotions(data.data))
       dispatch(setLoading(false));

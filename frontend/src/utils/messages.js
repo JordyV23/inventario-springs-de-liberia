@@ -21,6 +21,5 @@ export const showSuccessMessage = (body) => {
 
 export const errorProcess = (res, dispatch) => {
   dispatch(setLoading(false));
-  console.log(res)
   showErrorMessage(res.response.data.data);
 };

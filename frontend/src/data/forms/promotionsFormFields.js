@@ -1,5 +1,18 @@
-import { faCalendarCheck, faCalendarXmark, faHeading } from "@fortawesome/free-solid-svg-icons";
-import { writeDescripcion, writeFechaFin, writeFechaInicio, writeTitulo } from "../../store";
+import {
+  faCalendarCheck,
+  faCalendarXmark,
+  faClock,
+  faGaugeSimpleHigh,
+  faHeading,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  writeDescripcion,
+  writeFechaFin,
+  writeFechaInicio,
+  writeIntervaloDias,
+  writePeriodica,
+  writeTitulo,
+} from "../../store";
 import { faMicroblog } from "@fortawesome/free-brands-svg-icons";
 
 export const promotionRegisterFields = [
@@ -47,5 +60,26 @@ export const promotionRegisterFields = [
     editable: false,
     stateName: "promotions",
     fieldType: "InputFiled",
+  },
+  {
+    id: "isPeriodica",
+    label: "Envio periódico",
+    icon: faClock,
+    write: writePeriodica,
+    editable: false,
+    stateName: "promotions",
+    fieldType: "ToggleWithChild",
+    childDependency:"isPeriodica",
+    childProps: {
+      id: "intervaloDias",
+      label: "Lapso de días para envios",
+      icon: faGaugeSimpleHigh,
+      type: "text",
+      placeholder: "Ingrese el intervalo de dias",
+      write: writeIntervaloDias,
+      editable: false,
+      stateName: "promotions",
+      fieldType: "InputFiled",
+    },
   },
 ];

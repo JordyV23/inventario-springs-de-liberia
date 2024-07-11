@@ -20,7 +20,7 @@ export const PromotionsPage = () => {
     makeGetPromotions();
   }, []);
 
-  const columnTitles = ["No.Promocion", "Titulo", "FechaInicio", "Activa"];
+  const columnTitles = ["No.Promocion", "Titulo", "FechaInicio", "EnvioPeriodico"];
 
   return (
     <>

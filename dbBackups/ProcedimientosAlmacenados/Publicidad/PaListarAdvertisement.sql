@@ -14,12 +14,15 @@ BEGIN
 	SELECT 
 		A.idAdvertisement,
 		A.titulo,
+		CONVERT(varchar,A.fechaInicio) AS 'fechaInicio',
+		CASE A.envioActivo 
+			WHEN 1 THEN 'Activo'
+			WHEN 0 THEN 'Inactivo'
+		END AS 'envioActivo',
 		A.descripcion,
-		A.fechaInicio,
-		A.fechaFin,
-		A.envioPeriodico,
-		A.intervaloDiasNotificacion,
-		a.envioActivo
+		CONVERT(varchar,A.fechaFin) AS 'fechaFin',
+		A.envioPeriodico ,
+		A.intervaloDiasNotificacion
 	FROM TbAdvertisement A
 	WHERE eliminado = 0
 END

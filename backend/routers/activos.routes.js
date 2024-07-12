@@ -10,6 +10,7 @@ import {
   eliminarActivo,
   obtenerActivos,
 } from "../controllers/activos.controller.js";
+import fileUpload from "../middlewares/fileSaver.js";
 
 // Crea una nueva instancia del enrutador de Express
 const activosRoutes = Router();
@@ -42,5 +43,6 @@ activosRoutes.post("/editarActivo", editarActivo);
  */
 activosRoutes.post("/eliminarActivo", eliminarActivo);
 
-export default activosRoutes;
+activosRoutes.post("/guardarImagen", fileUpload);
 
+export default activosRoutes;

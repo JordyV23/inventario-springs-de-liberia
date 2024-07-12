@@ -6,7 +6,10 @@ const backendApi = {
   }),
   promociones: axios.create({
     baseURL: `${import.meta.env.VITE_API_URL}publicidad`,
-  })
+  }),
+  activos: axios.create({
+    baseURL: `${import.meta.env.VITE_API_URL}activos`,
+  }),
 };
 
 

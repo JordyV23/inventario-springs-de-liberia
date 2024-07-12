@@ -24,11 +24,11 @@ export const crearActivo = async (req, res) => {
     const activo = req.body;
 
     // Agrega el activo a la base de datos
-    let data = await paAgregarActivo(activo);
+    await paAgregarActivo(activo);
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Activo agregado con Éxito!" });
+    let data = await paListarActivos();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -67,11 +67,11 @@ export const editarActivo = async (req, res) => {
     const activo = req.body;
 
     // Edita el activo en la base de datos
-    let data = await paEditarActivo(activo);
+    await paEditarActivo(activo);
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Activo editado con Éxito!" });
+    let data = await paListarActivos();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -90,11 +90,11 @@ export const eliminarActivo = async (req, res) => {
     const activo = req.body;
 
     // Elimina el activo de la base de datos
-    let data = await paBorrarActivo(activo);
+    await paBorrarActivo(activo);
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Activo eliminado con Éxito!" });
+    let data = await paListarActivos();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }

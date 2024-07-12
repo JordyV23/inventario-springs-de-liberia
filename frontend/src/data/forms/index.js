@@ -1,2 +1,3 @@
-export * from "./userFormFields";
+export * from "./inventoryFormFields";
 export * from "./promotionsFormFields";
+export * from "./userFormFields";

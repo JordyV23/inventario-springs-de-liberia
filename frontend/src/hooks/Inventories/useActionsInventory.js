@@ -24,28 +24,30 @@ export const useActionsInventory = () => {
     precioGlobal,
     precioPorMes,
     precioPorNoche,
-    imagen
+    imagen,
+    direccion,
   } = useSelector((state) => state.inventory);
 
   const makeCreateAsset = () => {
     dispatch(setLoading(true));
     dispatch(
       startCreateAsset({
-        nombre:titulo,
+        nombre: titulo,
         descripcion,
         idProvincia,
         idCanton,
         distrito,
-        detalleDireccion,
+        detalleDireccion: direccion,
         precioGlobal,
-        tipoAsset:tipoActivo,
+        tipoAsset: tipoActivo,
         precioPorNoche,
         precioPorMes,
         disponibilidad,
-        imagenSrc:imagen,
+        imagenSrc: imagen,
       })
     );
   };
+
   const makeUpdateAsset = () => {
     dispatch(setLoading(true));
     dispatch(
@@ -62,14 +64,16 @@ export const useActionsInventory = () => {
         precioPorNoche,
         precioPorMes,
         disponibilidad,
-        imagenSrc:imagen,
+        imagenSrc: imagen,
       })
     );
   };
+
   const makeDeleteAsset = () => {
     dispatch(setLoading(true));
     dispatch(startDeleteAsset({ id: idActivo }));
   };
+
   const makeGetAsset = () => {
     dispatch(setLoading(true));
     dispatch(startGetAsset());

@@ -8,7 +8,8 @@ const __dirname = path.dirname(__filename);
 const diskStorage = multer.diskStorage({
   destination: path.join(__dirname, "../assets"),
   filename: (req, file, cb) => {
-    cb(null, Date.now() + file.originalname);
+    let filename = Date.now() + "-" + file.originalname;
+    cb(null, filename);
   },
 });
 

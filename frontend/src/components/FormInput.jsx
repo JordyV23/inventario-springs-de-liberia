@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,6 +13,8 @@ export const FormInput = ({ type, formProps, textColor }) => {
       return <TextArea formProps={formProps} textColor={textColor} />;
     case "ToggleWithChild":
       return <ToggleWithChild formProps={formProps} textColor={textColor} />;
+    case "ImageInput":
+      return <ImageInput formProps={formProps} textColor={textColor} />;
     default:
       break;
   }
@@ -64,7 +67,7 @@ const SelectFiled = ({ formProps, textColor }) => {
         value={state[formProps.id]}
         onChange={(e) => dispatch(formProps.write(e.target.value))}
       >
-        <option value="">Seleccione un</option>
+        <option value="">Seleccione una Opción</option>
         {formProps.fieldOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -105,9 +108,9 @@ const ToggleWithChild = ({ formProps, textColor }) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    dispatch(formProps.write(e.target.checked))
-    dispatch(formProps.childProps.write("0"))
-  }
+    dispatch(formProps.write(e.target.checked));
+    dispatch(formProps.childProps.write("0"));
+  };
 
   return (
     <>
@@ -133,6 +136,51 @@ const ToggleWithChild = ({ formProps, textColor }) => {
       ) : (
         ""
       )}
+    </>
+  );
+};
+
+const ImageInput = ({ formProps, textColor }) => {
+  const state = useSelector((state) => state[formProps.stateName]);
+  const dispatch = useDispatch();
+
+  const [file, setFile] = useState();
+
+  const handleChange = async (e) => {
+    setFile(e.target.files[0]);
+    // await axios.post("http://localhost:2305/activos/guardarImagen", {
+    //   body: formData,
+    // });
+
+    // dispatch(formProps.write(e.target.files[0].picture.name));
+  };
+
+  const send = () => {
+    const formData = new FormData();
+    formData.append("image", file);
+    fetch("http://localhost:2305/activos/guardarImagen", {
+      method: "POST",
+      body: formData,
+    });
+  };
+
+  return (
+    <>
+      <label
+        className={"block mb-2 text-sm font-medium " + textColor}
+        htmlFor="file_input"
+      >
+        Seleccionar Imagen
+      </label>
+      <input
+        className="block w-full text-sm text-gray-900 border border-gray-700 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+        aria-describedby="file_input_help"
+        id="file_input"
+        type="file"
+        accept="image/png, image/jpeg"
+        onChange={(e) => handleChange(e)}
+      />
+      <button onClick={() => send()}>Enviar</button>
     </>
   );
 };

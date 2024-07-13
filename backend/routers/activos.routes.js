@@ -25,7 +25,7 @@ activosRoutes.post("/registrarActivo", crearActivo);
 /**
  * @route GET /listarActivos
  * @description Ruta para obtener la lista de todos los activos
- * @access Private
+ * @access Public
  */
 activosRoutes.get("/listarActivos", obtenerActivos);
 
@@ -43,6 +43,11 @@ activosRoutes.post("/editarActivo", editarActivo);
  */
 activosRoutes.post("/eliminarActivo", eliminarActivo);
 
-activosRoutes.post("/guardarImagen", fileUpload);
+activosRoutes.post("/guardarImagen", fileUpload, (req, res) => {
+  res.status(201).json({
+    success: true,
+    data: req.file.filename,
+  });
+});
 
 export default activosRoutes;

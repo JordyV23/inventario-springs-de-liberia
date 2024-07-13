@@ -23,12 +23,15 @@ export const crearActivo = async (req, res) => {
   try {
     const activo = req.body;
 
-    // Agrega el activo a la base de datos
-    await paAgregarActivo(activo);
+    console.log(activo)
 
-    let data = await paListarActivos();
+    // // Agrega el activo a la base de datos
+    // await paAgregarActivo(activo);
 
-    return res.status(201).json({ success: true, data });
+    // let data = await paListarActivos();
+
+    // return res.status(201).json({ success: true, data });
+    return res.status(201).json({ success: true, data:[] });
   } catch (error) {
     return genealError(res, error);
   }

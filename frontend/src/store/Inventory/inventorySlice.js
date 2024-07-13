@@ -10,6 +10,7 @@ const initialState = {
   idCanton: "",
   distrito: "",
   idProvincia: "",
+  direccion: "",
   numeroHabitaciones: "",
   precioGlobal: "",
   precioPorMes: "",
@@ -37,6 +38,7 @@ export const InventoriesSlice = createSlice({
       state.precioPorMes = "";
       state.precioPorNoche = "";
       state.imagen = "";
+      state.direccion = "";
     },
     setAssets: (state, action) => {
       state.assets = action.payload;
@@ -64,6 +66,9 @@ export const InventoriesSlice = createSlice({
     },
     writeIdProvincia: (state, action) => {
       state.idProvincia = action.payload;
+    },
+    writeDireccion: (state, action) => {
+      state.direccion = action.payload;
     },
     writeNumeroHabitaciones: (state, action) => {
       state.numeroHabitaciones = action.payload;
@@ -98,5 +103,6 @@ export const {
   writePrecioGlobal,
   writePrecioPorMes,
   writePrecioPorNoche,
-  writeImage
+  writeImage,
+  writeDireccion,
 } = InventoriesSlice.actions;

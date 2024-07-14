@@ -1,6 +1,35 @@
-import { faAlignLeft, faCubes, faEye, faHeading } from "@fortawesome/free-solid-svg-icons";
-import { writeDescripcionActivo, writeDisponibilidad, writeImage, writeTipoActivo, writeTituloActivo } from "../../store";
-import { roleOptions } from "../mapings";
+import {
+  faAlignLeft,
+  faCalendar,
+  faCubes,
+  faEye,
+  faHeading,
+  faLocationDot,
+  faMapLocationDot,
+  faMapPin,
+  faMoon,
+  faSignsPost,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  writeDescripcionActivo,
+  writeDireccion,
+  writeDisponibilidad,
+  writeIdCanton,
+  writeIdDistrito,
+  writeIdProvincia,
+  writeImage,
+  writePrecioPorMes,
+  writePrecioPorNoche,
+  writeTipoActivo,
+  writeTituloActivo,
+} from "../../store";
+import {
+  assetsTypesOptions,
+  availabilityTypesOptions,
+  cantones,
+  distritos,
+  provincias,
+} from "../mapings";
 
 export const assetRegisterFileds = [
   {
@@ -23,7 +52,7 @@ export const assetRegisterFileds = [
     write: writeDescripcionActivo,
     editable: false,
     stateName: "inventory",
-    fieldType: "InputFiled",
+    fieldType: "TextArea",
   },
   {
     id: "tipoActivo",
@@ -34,8 +63,46 @@ export const assetRegisterFileds = [
     write: writeTipoActivo,
     editable: true,
     stateName: "inventory",
-    fieldType:"SelectField",
-    fieldOptions: roleOptions
+    fieldType: "SelectField",
+    fieldOptions: assetsTypesOptions,
+  },
+  {
+    id: "idProvincia",
+    label: "Provincia",
+    icon: faMapLocationDot,
+    write: writeIdProvincia,
+    stateName: "inventory",
+    fieldType: "SearchableSelect",
+    options: provincias,
+  },
+  {
+    id: "idCanton",
+    label: "Cantón",
+    icon: faLocationDot,
+    write: writeIdCanton,
+    stateName: "inventory",
+    fieldType: "SearchableSelect",
+    options: cantones,
+  },
+  {
+    id: "distrito",
+    label: "Distrito",
+    icon: faMapPin,
+    write: writeIdDistrito,
+    stateName: "inventory",
+    fieldType: "SearchableSelect",
+    editable: false,
+    options: distritos,
+  },
+  {
+    id: "direccion",
+    label: "Señalización",
+    placeholder: "Ingrese la dirección",
+    icon: faSignsPost,
+    write: writeDireccion,
+    stateName: "inventory",
+    editable: false,
+    fieldType: "InputFiled",
   },
   {
     id: "disponibilidad",
@@ -46,8 +113,32 @@ export const assetRegisterFileds = [
     write: writeDisponibilidad,
     editable: true,
     stateName: "inventory",
-    fieldType:"SelectField",
-    fieldOptions: roleOptions
+    fieldType: "SelectField",
+    fieldOptions: availabilityTypesOptions,
   },
+];
 
+export const priceFields = [
+  {
+    id: "precioPorMes",
+    label: "Precio de Alquiler por mes",
+    icon: faCalendar,
+    type: "number",
+    placeholder: "Monto mensual",
+    write: writePrecioPorMes,
+    editable: false,
+    stateName: "inventory",
+    fieldType: "InputFiled",
+  },
+  {
+    id: "precioPorNoche",
+    label: "Precio de alquiler por noche",
+    icon: faMoon,
+    type: "number",
+    placeholder: "Monto por noche",
+    write: writePrecioPorNoche,
+    editable: false,
+    stateName: "inventory",
+    fieldType: "InputFiled",
+  },
 ];

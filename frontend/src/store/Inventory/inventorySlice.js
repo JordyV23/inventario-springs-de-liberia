@@ -12,7 +12,7 @@ const initialState = {
   idProvincia: "",
   direccion: "",
   numeroHabitaciones: "",
-  precioGlobal: "",
+  precioGlobal: "0",
   precioPorMes: "",
   precioPorNoche: "",
   imagen: "",

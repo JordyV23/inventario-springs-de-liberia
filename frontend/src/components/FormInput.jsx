@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ReactSelect from "react-select";
 
 export const FormInput = ({ type, formProps, textColor }) => {
   switch (type) {
@@ -15,6 +16,8 @@ export const FormInput = ({ type, formProps, textColor }) => {
       return <ToggleWithChild formProps={formProps} textColor={textColor} />;
     case "ImageInput":
       return <ImageInput formProps={formProps} textColor={textColor} />;
+    case "SearchableSelect":
+      return <SearchableSelect formProps={formProps} textColor={textColor} />;
     default:
       break;
   }
@@ -132,10 +135,38 @@ const ToggleWithChild = ({ formProps, textColor }) => {
       </label>
 
       {state[formProps.childDependency] ? (
-        <InputField formProps={formProps.childProps} textColor={textColor} />
+        <FormInput
+          type={formProps.childProps.fieldType}
+          formProps={formProps.childProps}
+          textColor={textColor}
+        />
       ) : (
         ""
       )}
+    </>
+  );
+};
+
+const SearchableSelect = ({ formProps, textColor }) => {
+  const state = useSelector((state) => state[formProps.stateName]);
+  const dispatch = useDispatch();
+  return (
+    <>
+      <label
+        htmlFor={formProps.id}
+        className={"block mb-2 text-sm font-medium " + textColor}
+      >
+        <FontAwesomeIcon icon={formProps.icon} size="xl" className="mr-1" />
+        {formProps.label}
+      </label>
+      <ReactSelect
+        options={formProps.options}
+        name={formProps.id}
+        id={formProps.id}
+        value={state[formProps.id]}
+        className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+        onChange={(selectedOption) => dispatch(formProps.write(selectedOption))}
+      />
     </>
   );
 };

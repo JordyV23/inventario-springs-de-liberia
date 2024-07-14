@@ -46,7 +46,7 @@ export const paAgregarActivo = async (activo) => {
 
     return result.recordset;
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
     throw error;
   }
 };

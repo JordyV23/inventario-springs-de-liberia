@@ -38,7 +38,7 @@ export const useActionsInventory = () => {
         idCanton: idCanton.value,
         distrito: distrito.value,
         detalleDireccion: direccion,
-        precioGlobal:"0",
+        precioGlobal: "0",
         tipoAsset: tipoActivo,
         precioPorNoche,
         precioPorMes,
@@ -55,23 +55,23 @@ export const useActionsInventory = () => {
         id: idActivo,
         nombre: titulo,
         descripcion,
-        idProvincia,
-        idCanton,
-        distrito,
-        detalleDireccion,
-        precioGlobal,
+        idProvincia: parseInt(idProvincia.value),
+        idCanton: parseInt(idCanton.value),
+        distrito: distrito.value,
+        detalleDireccion: direccion,
+        precioGlobal: 0,
         tipoAsset: tipoActivo,
-        precioPorNoche,
+        precioPorNoche: parseInt(precioPorNoche),
         precioPorMes,
         disponibilidad,
-        imagenSrc: imagen,
+        // imagenSrc: imagen,
       })
     );
   };
 
-  const makeDeleteAsset = () => {
+  const makeDeleteAsset = (row) => {
     dispatch(setLoading(true));
-    dispatch(startDeleteAsset({ id: idActivo }));
+    dispatch(startDeleteAsset({ id: row.idAsset }));
   };
 
   const makeGetAsset = () => {

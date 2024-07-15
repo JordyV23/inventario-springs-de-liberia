@@ -16,6 +16,7 @@ const initialState = {
   precioPorMes: "",
   precioPorNoche: "",
   imagen: "",
+  querySucces: false,
   assets: [],
 };
 
@@ -41,7 +42,7 @@ export const InventoriesSlice = createSlice({
       state.direccion = "";
     },
     loadInventoryForm: (state, action) => {
-      state.idActivo = action.payload.idActivo;
+      state.idActivo = action.payload.idAsset;
       state.titulo = action.payload.nombre;
       state.tipoActivo = action.payload.TipoActivo;
       state.descripcion = action.payload.descripcion;
@@ -52,13 +53,16 @@ export const InventoriesSlice = createSlice({
       state.idProvincia = action.payload.idProvincia;
       state.numeroHabitaciones = action.payload.numeroHabitaciones;
       state.precioGlobal = action.payload.precioGlobal;
-      state.precioPorMes = "3000";
+      state.precioPorMes = action.payload.precioPorMes;
       state.precioPorNoche = action.payload.precioPorNoche;
       // state.imagen = action.payload.imagen;
       state.direccion = action.payload.Direccion;
     },
     setAssets: (state, action) => {
       state.assets = action.payload;
+    },
+    changeQueryState: (state, action) => {
+      state.querySucces = action.payload;
     },
     writeTituloActivo: (state, action) => {
       state.titulo = action.payload;
@@ -109,6 +113,7 @@ export const {
   clearInventoryForm,
   loadInventoryForm,
   setAssets,
+  changeQueryState,
   writeTituloActivo,
   writeTipoActivo,
   writeDescripcionActivo,

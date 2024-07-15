@@ -1,5 +1,14 @@
-import React, { useState } from "react";
-import { assetRegisterFileds, availabilityTypes, getAssetAvailability, getAssetType, getCanton, getDistrito, getProvincia, priceFields } from "../data";
+import React, { useEffect, useState } from "react";
+import {
+  assetRegisterFileds,
+  availabilityTypes,
+  getAssetAvailability,
+  getAssetType,
+  getCanton,
+  getDistrito,
+  getProvincia,
+  priceFields,
+} from "../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCommentsDollar,
@@ -12,34 +21,45 @@ import { useDispatch, useSelector } from "react-redux";
 import { FormInput } from "./FormInput";
 import { Modal } from "flowbite-react";
 import { ModalFooterOption } from "./ModalFooterOption";
-import { loadInventoryForm } from "../store";
+import {
+  changeModalState,
+  changeQueryState,
+  loadInventoryForm,
+} from "../store";
+import { useActionsInventory } from "../hooks";
 
 export const AssetCard = ({ Asset }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [editedAsset, setEditedAsset] = useState({ ...Asset });
 
-  const dispatch = useDispatch()
+  const { makeDeleteAsset } = useActionsInventory();
 
+  const dispatch = useDispatch();
+
+  const onDelete = () => {
+    Swal.fire({
+      title: "¿Seguro de que desea eliminar este registro?",
+      text: "Esta acción no podrá ser revertida",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        makeDeleteAsset(Asset);
+      }
+    });
+  };
   const handleEdit = () => {
     setIsEditModalOpen(true);
-    let newAsset = {...Asset}
-    newAsset.TipoActivo = getAssetType(Asset.TipoActivo).value
-    newAsset.idCanton = getCanton(Asset.idCanton)
-    newAsset.distrito = getDistrito(Asset.distrito)
-    newAsset.idProvincia = getProvincia(Asset.idProvincia)
-    newAsset.disponibilidad = getAssetAvailability(Asset.Disponibilidad).value
-    dispatch(loadInventoryForm(newAsset))
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // onUpdate(editedAsset);
-    setIsEditModalOpen(false);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditedAsset((prev) => ({ ...prev, [name]: value }));
+    let newAsset = { ...Asset };
+    newAsset.TipoActivo = getAssetType(Asset.TipoActivo).value;
+    newAsset.idCanton = getCanton(Asset.idCanton);
+    newAsset.distrito = getDistrito(Asset.distrito);
+    newAsset.idProvincia = getProvincia(Asset.idProvincia);
+    newAsset.disponibilidad = getAssetAvailability(Asset.Disponibilidad).value;
+    dispatch(loadInventoryForm(newAsset));
   };
 
   const handleViewMore = () => {
@@ -128,7 +148,7 @@ export const AssetCard = ({ Asset }) => {
             <button
               type="button"
               className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-SpringRed text-white hover:bg-[#ac1f28]"
-              onClick={() => handleEdit()}
+              onClick={() => onDelete()}
             >
               <FontAwesomeIcon icon={faEdit} size="xl" className="mr-1" />
               Borrar
@@ -148,14 +168,28 @@ export const AssetCard = ({ Asset }) => {
 };
 
 const EditionModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
-  const { disponibilidad } = useSelector((state) => state.inventory);
+  const { disponibilidad, querySucces } = useSelector(
+    (state) => state.inventory
+  );
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {};
+  const { makeUpdateAsset } = useActionsInventory();
+
+  const handleSubmit = () => {
+    makeUpdateAsset();
+  };
 
   const handleCloseEditModal = () => {
     setIsEditModalOpen(false);
   };
+
+  useEffect(() => {
+    if (querySucces) {
+      setIsEditModalOpen(false);
+    }
+    dispatch(changeQueryState(false));
+  }, [querySucces]);
+
   return (
     <>
       <Modal

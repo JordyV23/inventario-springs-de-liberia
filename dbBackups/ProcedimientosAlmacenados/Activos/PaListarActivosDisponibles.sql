@@ -12,6 +12,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
+		A.idAsset,
 		A.nombre,
 		A.descripcion,
 		CONCAT( P.provincia,', ',C.canton,', ', Ad.distrito, ', ',A.detalleDireccion) as 'Direccion',

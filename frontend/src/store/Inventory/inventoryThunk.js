@@ -1,7 +1,7 @@
 import { useApiInventory } from "../../hooks/Inventories/useApiInventory";
 import { errorProcess, showSuccessMessage } from "../../utils/messages";
 import { changeModalState, setLoading } from "../Global";
-import { setAssets } from "./inventorySlice";
+import { changeQueryState, setAssets } from "./inventorySlice";
 
 const { createAsset, updateAsset, deleteAsset, getAsset } = useApiInventory();
 
@@ -27,6 +27,7 @@ export const startUpdateAsset = (asset) => {
       const { data } = res;
       dispatch(setAssets(data.data));
       showSuccessMessage("Activo editado exitosamente");
+      dispatch(changeQueryState(true))
       dispatch(setLoading(false));
       return;
     }

@@ -23,8 +23,6 @@ export const crearActivo = async (req, res) => {
   try {
     const activo = req.body;
 
-    console.log(activo)
-
     // Agrega el activo a la base de datos
     await paAgregarActivo(activo);
 

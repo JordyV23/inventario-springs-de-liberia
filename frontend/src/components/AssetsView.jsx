@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { AssetCard } from "./AssetCard";
 import { useActionsInventory } from "../hooks";
+import { NoData } from "./shared/NoData";
 
 export const AssetsView = () => {
   const { assets } = useSelector((state) => state.inventory);
@@ -13,6 +14,10 @@ export const AssetsView = () => {
   useEffect(() => {
     makeGetAsset();
   }, []);
+
+  if (assets.length < 1) {
+    return <NoData />;
+  }
 
   return (
     <>

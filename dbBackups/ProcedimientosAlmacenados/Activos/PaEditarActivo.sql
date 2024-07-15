@@ -15,8 +15,8 @@ CREATE OR ALTER PROCEDURE PaEditarActivo
 	@tipoAsset char(1),
 	@precioPorNoche decimal(10,2),
 	@precioPorMes decimal(10,2),
-	@disponibilidad char(1),
-	@imagenSrc varchar(50)
+	@disponibilidad char(1)
+	--,@imagenSrc varchar(50)
 AS
 BEGIN
 	DECLARE @idDireccion int
@@ -41,7 +41,7 @@ BEGIN
 		,precioPorMes = @precioPorMes
 		,precioPorNoche = @precioPorNoche
 		,disponibilidad = @disponibilidad
-		,imagenSrc = @imagenSrc
+		--,imagenSrc = @imagenSrc
 	WHERE idAsset = @idActivo
 
 	

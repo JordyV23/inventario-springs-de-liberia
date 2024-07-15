@@ -2,7 +2,7 @@
 -- Create date: 19/06/2024
 -- Description:	Lista todos los activos en la base de datos
 -- =============================================
-CREATE PROCEDURE PaListarActivos
+CREATE OR ALTER PROCEDURE PaListarActivos
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN
@@ -14,7 +14,7 @@ BEGIN
 	SELECT
 		A.nombre,
 		A.descripcion,
-		CONCAT( P.provincia,',',C.canton,',', Ad.distrito, ',',A.detalleDireccion) as 'Direccion',
+		CONCAT( P.provincia,', ',C.canton,', ', Ad.distrito, ', ',A.detalleDireccion) as 'Direccion',
 		CASE 
 			WHEN A.estado = 'A' then 'Alquilada'
 			WHEN A.estado = 'V' then 'Vendida'
@@ -36,7 +36,10 @@ BEGIN
 		A.precioGlobal,
 		A.precioPorMes,
 		A.precioPorNoche,
-		A.imagenSrc
+		A.imagenSrc,
+		P.idProvincia,
+		C.idCanton,
+		AD.distrito
 	FROM TbAssets A
 	INNER JOIN TbAddresses AD on A.idAddress = AD.idAddress
 	INNER JOIN TbProvincias P on AD.idProvincia = P.idProvincia

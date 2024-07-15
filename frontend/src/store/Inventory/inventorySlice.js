@@ -40,6 +40,23 @@ export const InventoriesSlice = createSlice({
       state.imagen = "";
       state.direccion = "";
     },
+    loadInventoryForm: (state, action) => {
+      state.idActivo = action.payload.idActivo;
+      state.titulo = action.payload.nombre;
+      state.tipoActivo = action.payload.TipoActivo;
+      state.descripcion = action.payload.descripcion;
+      state.disponibilidad = action.payload.disponibilidad;
+      state.electrodomesticos = action.payload.electrodomesticos;
+      state.idCanton = action.payload.idCanton;
+      state.distrito = action.payload.distrito;
+      state.idProvincia = action.payload.idProvincia;
+      state.numeroHabitaciones = action.payload.numeroHabitaciones;
+      state.precioGlobal = action.payload.precioGlobal;
+      state.precioPorMes = "3000";
+      state.precioPorNoche = action.payload.precioPorNoche;
+      // state.imagen = action.payload.imagen;
+      state.direccion = action.payload.Direccion;
+    },
     setAssets: (state, action) => {
       state.assets = action.payload;
     },
@@ -90,6 +107,7 @@ export const InventoriesSlice = createSlice({
 
 export const {
   clearInventoryForm,
+  loadInventoryForm,
   setAssets,
   writeTituloActivo,
   writeTipoActivo,

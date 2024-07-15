@@ -4,6 +4,7 @@ import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { clearInventoryForm } from "../store";
 import { useActionsInventory } from "../hooks";
 import { RegisterAssetForm } from "../components/RegisterAssetForm";
+import { AssetsView } from "../components/AssetsView";
 
 
 export const InventoryPage = () => {
@@ -12,6 +13,7 @@ export const InventoryPage = () => {
   return (
     <>
       <RegisterAssetForm/>
+      <AssetsView/>
     </>
   );
 };

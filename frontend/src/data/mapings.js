@@ -24,6 +24,10 @@ export const assetsTypesOptions = [
   { value: assetsTypes[3], label: "Edificio" },
 ];
 
+export const getAssetType = (valueToSearch) => {
+  return assetsTypesOptions.find( (obj) => obj.label === valueToSearch )
+}
+
 //  V-Venta, A-Alquiler
 export const availabilityTypes = ["V", "A"];
 
@@ -31,6 +35,11 @@ export const availabilityTypesOptions = [
   { value: availabilityTypes[0], label: "Venta" },
   { value: availabilityTypes[1], label: "Alquiler" },
 ];
+
+export const getAssetAvailability = (valueToSearch) => {
+  return availabilityTypesOptions.find( (obj) => obj.label === valueToSearch )
+}
+
 
 export const provincias = [
   { value: "1", label: "San José" },
@@ -41,6 +50,10 @@ export const provincias = [
   { value: "6", label: "Punterenas" },
   { value: "7", label: "Limón" },
 ];
+
+export const getProvincia = (valueToSearch) => {
+  return provincias.find( (obj) => obj.value === valueToSearch.toString() )
+}
 
 export const distritos = [
   { value: "Carmen", label: "Carmen" },
@@ -55,6 +68,10 @@ export const distritos = [
   { value: "Hatillo", label: "Hatillo" },
   { value: "San Sebastián", label: "Carmen" },
 ];
+
+export const getDistrito = (valueToSearch) => {
+  return distritos.find( (obj) => obj.value === valueToSearch )
+}
 
 export const cantones = [
   { value: "1", label: "San José" },
@@ -141,3 +158,8 @@ export const cantones = [
   { value: "82", label: "Matina" },
   { value: "83", label: "Guácimo" },
 ];
+
+
+export const getCanton = (valueToSearch) => {
+  return cantones.find( (obj) => (obj.value === valueToSearch.toString()) )
+}

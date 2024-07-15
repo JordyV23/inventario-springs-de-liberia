@@ -108,7 +108,7 @@ export const paEditarActivo = async (activo) => {
       .input("precioPorNoche", activo.precioPorNoche)
       .input("precioPorMes", activo.precioPorMes)
       .input("disponibilidad", activo.disponibilidad)
-      .input("imagenSrc", activo.imagenSrc)
+      // .input("imagenSrc", activo.imagenSrc)
       .execute("PaEditarActivo");
 
     return result.recordset;

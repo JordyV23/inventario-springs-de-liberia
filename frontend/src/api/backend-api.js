@@ -10,6 +10,9 @@ const backendApi = {
   activos: axios.create({
     baseURL: `${import.meta.env.VITE_API_URL}activos`,
   }),
+  tramites: axios.create({
+    baseURL: `${import.meta.env.VITE_API_URL}tramites`,
+  }),
 };
 
 

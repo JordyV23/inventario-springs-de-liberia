@@ -4,4 +4,6 @@ export * from "./Maintenance";
 export * from "./Paperwork";
 export * from "./PromotionsPage";
 export * from "./ReportsPage";
+export * from "./ReportsPage";
+export * from "./SellingsPage";
 export * from "./UsersPage";

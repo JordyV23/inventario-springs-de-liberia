@@ -7,12 +7,12 @@ export const Paperwork = () => {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 p-4">
         <PaperworkCard
-          path={"/tramites/ventas"}
+          path={"/tramites/alquileres"}
           icon={faHouse}
           title={"Alquileres"}
         />
         <PaperworkCard
-          path={"/tramites/alquileres"}
+          path={"/tramites/ventas"}
           icon={faSackDollar}
           title={"Ventas"}
         />

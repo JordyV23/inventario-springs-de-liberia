@@ -1,6 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import { UserSlice, GlobalSlice, PromotionSlice, InventoriesSlice } from "./";
+import {
+  UserSlice,
+  GlobalSlice,
+  PromotionSlice,
+  InventoriesSlice,
+  PaperworkSlice,
+} from "./";
 import { persistReducer } from "redux-persist";
 
 const persistConfig = {
@@ -13,6 +19,7 @@ const rootReducer = combineReducers({
   users: UserSlice.reducer,
   promotions: PromotionSlice.reducer,
   inventory: InventoriesSlice.reducer,
+  paperworks: PaperworkSlice.reducer,
   global: GlobalSlice.reducer,
 });
 

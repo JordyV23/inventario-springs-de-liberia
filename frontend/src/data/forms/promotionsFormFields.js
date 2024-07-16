@@ -12,7 +12,7 @@ import {
   writeIntervaloDias,
   writePeriodica,
   writeTitulo,
-} from "../../store";
+} from "../../store/Promotion/promotionSlice";
 import { faMicroblog } from "@fortawesome/free-brands-svg-icons";
 
 export const promotionRegisterFields = [

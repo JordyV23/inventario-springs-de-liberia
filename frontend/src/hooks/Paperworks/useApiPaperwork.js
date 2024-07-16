@@ -1,7 +1,7 @@
 import backendApi from "../../api/backend-api";
 
-export const ApiUsers = () => {
-  const createSelling = async (paperworkInfo) => {
+export const useApiPaperworks = () => {
+  const createSellingEndpoint = async (paperworkInfo) => {
     try {
       const response = await backendApi.tramites.post("/vender", paperworkInfo);
       return response;
@@ -10,7 +10,7 @@ export const ApiUsers = () => {
     }
   };
 
-  const getSellings = async () => {
+  const getSellingsEndpoint = async () => {
     try {
       const response = await backendApi.tramites.get("/listarVentas");
       return response;
@@ -19,7 +19,7 @@ export const ApiUsers = () => {
     }
   };
 
-  const deleteSelling = async (paperworkInfo) => {
+  const deleteSellingEndpoint = async (paperworkInfo) => {
     try {
       const response = await backendApi.tramites.post(
         "/borrarVenta",
@@ -31,7 +31,7 @@ export const ApiUsers = () => {
     }
   };
 
-  const getRentals = async () => {
+  const getRentalsEndpoint = async () => {
     try {
       const response = await backendApi.tramites.get("/listarAlquileres");
       return response;
@@ -40,7 +40,7 @@ export const ApiUsers = () => {
     }
   };
 
-  const createRental = async (paperworkInfo) => {
+  const createRentalEndpoint = async (paperworkInfo) => {
     try {
       const response = await backendApi.tramites.post(
         "/alquilar",
@@ -52,7 +52,7 @@ export const ApiUsers = () => {
     }
   };
 
-  const deleteRental = async (paperworkInfo) => {
+  const deleteRentalEndpoint = async (paperworkInfo) => {
     try {
       const response = await backendApi.tramites.post(
         "/borrarAlquiler",
@@ -65,11 +65,11 @@ export const ApiUsers = () => {
   };
 
   return {
-    createSelling,
-    getSellings,
-    deleteSelling,
-    getRentals,
-    createRental,
-    deleteRental,
+    createSellingEndpoint,
+    getSellingsEndpoint,
+    deleteSellingEndpoint,
+    getRentalsEndpoint,
+    createRentalEndpoint,
+    deleteRentalEndpoint,
   };
 };

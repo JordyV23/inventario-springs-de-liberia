@@ -1,0 +1,88 @@
+import {
+  faCalendarCheck,
+  faCalendarXmark,
+  faTicket,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  writeFechaFinPaperwork,
+  writeFechaInicioPaperwork,
+  writeIdAsset,
+  writeIdPerson,
+} from "../../store";
+
+export const rentalRegisterFields = [
+  {
+    id: "idAsset",
+    label: "Activo a alquilar",
+    icon: faTicket,
+    type: "text",
+    placeholder: "Seleccione el activo",
+    write: writeIdAsset,
+    editable: true,
+    stateName: "paperworks",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+  {
+    id: "idPerson",
+    label: "Cliente",
+    icon: faUser,
+    type: "text",
+    placeholder: "Seleccione el activo",
+    write: writeIdPerson,
+    editable: true,
+    stateName: "paperworks",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+  {
+    id: "fechaInicio",
+    label: "Fecha de Inicio de alquiler",
+    icon: faCalendarCheck,
+    type: "date",
+    placeholder: "Ingrese la fecha de inicio",
+    write: writeFechaInicioPaperwork,
+    editable: false,
+    stateName: "paperworks",
+    fieldType: "InputFiled",
+  },
+  {
+    id: "fechaFin",
+    label: "Fecha de Fin de alquiler",
+    icon: faCalendarXmark,
+    type: "date",
+    placeholder: "Ingrese la fecha de finalizacion",
+    write: writeFechaFinPaperwork,
+    editable: false,
+    stateName: "paperworks",
+    fieldType: "InputFiled",
+  },
+];
+
+export const selllingRegisterFields = [
+  {
+    id: "idAsset",
+    label: "Activo a vender",
+    icon: faTicket,
+    type: "text",
+    placeholder: "Seleccione el activo",
+    write: writeIdAsset,
+    editable: true,
+    stateName: "paperworks",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+  {
+    id: "idPerson",
+    label: "Cliente",
+    icon: faUser,
+    type: "text",
+    placeholder: "Seleccione el activo",
+    write: writeIdPerson,
+    editable: true,
+    stateName: "paperworks",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+];

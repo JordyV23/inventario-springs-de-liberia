@@ -1,6 +1,6 @@
 import { useApiPaperworks } from "../../hooks";
 import { errorProcess, showSuccessMessage } from "../../utils/messages";
-import { setLoading } from "../Global";
+import { changeModalState, setLoading } from "../Global";
 import { setRentals, setSellings } from "./paperworkSlice";
 
 const {
@@ -18,6 +18,7 @@ export const startCreateRental = (paperworkData) => {
     if (res.status === 201) {
       const { data } = res;
       dispatch(setRentals(data.data));
+      dispatch(changeModalState());
       dispatch(setLoading(false));
       showSuccessMessage("Renta creada con éxito");
       return;
@@ -32,6 +33,7 @@ export const startCreateSelling = (paperworkData) => {
     if (res.status === 201) {
       const { data } = res;
       dispatch(setSellings(data.data));
+      dispatch(changeModalState());
       dispatch(setLoading(false));
       showSuccessMessage("Venta creada con éxito");
       return;

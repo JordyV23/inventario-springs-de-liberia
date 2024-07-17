@@ -27,10 +27,10 @@ import {
 export const agregarAlquiler = async (req, res) => {
   try {
     const asset = req.body;
-    let data = await paAlquilar(asset);
-    return res
-      .status(201)
-      .json({ success: true, data: "Alquiler agregado con Éxito!" });
+    await paAlquilar(asset);
+    let data = await paMostrarAlquileres();
+
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -66,10 +66,9 @@ export const listarAlquileres = async (req, res) => {
 export const borrarAlquiler = async (req, res) => {
   try {
     const alquiler = req.body;
-    let data = await paBorrarAlquiler(alquiler);
-    return res
-      .status(201)
-      .json({ success: true, data: "Alquiler eliminado con Éxito!" });
+    await paBorrarAlquiler(alquiler);
+    let data = await paMostrarAlquileres();
+    return res.status(201).json({ success: true, data: data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -87,10 +86,9 @@ export const borrarAlquiler = async (req, res) => {
 export const agregarVenta = async (req, res) => {
   try {
     const venta = req.body;
-    let data = await paVender(venta);
-    return res
-      .status(201)
-      .json({ success: true, data: "Venta agregada con Éxito!" });
+    await paVender(venta);
+    let data = await paMostrarVentas();
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);
@@ -126,10 +124,9 @@ export const listarVentas = async (req, res) => {
 export const borrarVenta = async (req, res) => {
   try {
     const asset = req.body;
-    let data = await paBorrarVenta(asset);
-    return res
-      .status(201)
-      .json({ success: true, data: "Venta eliminada con Éxito!" });
+    await paBorrarVenta(asset);
+    let data = await paMostrarVentas();
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
     return genealError(res, error);

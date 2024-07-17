@@ -8,6 +8,7 @@ import {
   startGetRentals,
   startGetSellings,
 } from "../../store";
+import moment from "moment-timezone";
 
 export const useActionsPaperwork = () => {
   const dispatch = useDispatch();
@@ -23,12 +24,14 @@ export const useActionsPaperwork = () => {
   } = useSelector((state) => state.paperworks);
 
   const makeCreateRental = () => {
+    let fecha = moment.tz("America/Costa_Rica");
+
     dispatch(setLoading(true));
     dispatch(
       startCreateRental({
         idAsset,
         idPerson,
-        fechaRegistro,
+        fechaRegistroAlquiler: fecha.format("YYYY-MM-DD"),
         fechaInicio,
         fechaFin,
         jsonDetalles,
@@ -37,8 +40,16 @@ export const useActionsPaperwork = () => {
   };
 
   const makeCreateSelling = () => {
+    let fecha = moment.tz("America/Costa_Rica");
+
     dispatch(setLoading(true));
-    dispatch(startCreateSelling({ idAsset, idPerson, fechaRegistro }));
+    dispatch(
+      startCreateSelling({
+        idAsset,
+        idPerson,
+        fecha: fecha.format("YYYY-MM-DD"),
+      })
+    );
   };
 
   const makeDeleteSelling = (row) => {

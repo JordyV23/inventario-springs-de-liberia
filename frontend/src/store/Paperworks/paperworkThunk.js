@@ -1,7 +1,7 @@
 import { useApiPaperworks } from "../../hooks";
 import { errorProcess, showSuccessMessage } from "../../utils/messages";
 import { setLoading } from "../Global";
-import { setPaperworks } from "./paperworkSlice";
+import { setRentals, setSellings } from "./paperworkSlice";
 
 const {
   createRentalEndpoint,
@@ -14,84 +14,82 @@ const {
 
 export const startCreateRental = (paperworkData) => {
   return async (dispatch) => {
-    const res = createRentalEndpoint(paperworkData);
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await createRentalEndpoint(paperworkData);
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setRentals(data.data));
+      dispatch(setLoading(false));
+      showSuccessMessage("Renta creada con éxito");
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};
 
 export const startCreateSelling = (paperworkData) => {
   return async (dispatch) => {
-    const res = createSellingEndpoint(paperworkData);
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await createSellingEndpoint(paperworkData);
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setSellings(data.data));
+      dispatch(setLoading(false));
+      showSuccessMessage("Venta creada con éxito");
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};
 
 export const startDeleteRental = (paperworkData) => {
   return async (dispatch) => {
-    const res = deleteRentalEndpoint(paperworkData);
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await deleteRentalEndpoint(paperworkData);
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setRentals(data.data));
+      dispatch(setLoading(false));
+      showSuccessMessage("Alquiler eliminado con éxito");
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};
 
 export const startDeleteSelling = (paperworkData) => {
   return async (dispatch) => {
-    const res = deleteSellingEndpoint(paperworkData);
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await deleteSellingEndpoint(paperworkData);
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setSellings(data.data));
+      dispatch(setLoading(false));
+      showSuccessMessage("Venta eliminada con éxito");
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};
 
 export const startGetRentals = () => {
   return async (dispatch) => {
-    const res = getRentalsEndpoint();
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await getRentalsEndpoint();
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setRentals(data.data));
+      dispatch(setLoading(false));
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};
 
 export const startGetSellings = () => {
   return async (dispatch) => {
-    const res = getSellingsEndpoint();
-    if(res.status === 201) {
-      const {data} = res;
-      dispatch(setPaperworks(data))
-      dispatch(setLoading(false))
-      showSuccessMessage("Trámite con éxito")
+    const res = await getSellingsEndpoint();
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setSellings(data.data));
+      dispatch(setLoading(false));
       return;
     }
-    errorProcess(res,dispatch)
-  }
-}
+    errorProcess(res, dispatch);
+  };
+};

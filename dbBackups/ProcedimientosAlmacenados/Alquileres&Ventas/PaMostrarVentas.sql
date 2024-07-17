@@ -13,9 +13,9 @@ BEGIN
     -- Insert statements for procedure here
 	SELECT 
 		S.idSelling,
-		S.fechaVenta,
-		A.idAsset,
-		A.nombre
+		A.nombre,
+		CONVERT(varchar,S.fechaVenta) as 'fechaVenta',
+		A.idAsset
 	FROM TbSelling AS S
 	INNER JOIN TbPaperwork AS P ON P.idPaperwork = S.idPaperwork
 	INNER JOIN TbAssets AS A ON A.idAsset = P.idAsset

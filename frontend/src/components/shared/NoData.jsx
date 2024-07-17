@@ -13,7 +13,7 @@ export const NoData = () => {
           className="mx-auto"
           autoplay
           loop
-          src="animations/NoData.lottie"
+          src="../../../public/animations/NoData.lottie"
           style={{ height: "300px", width: "300px" }}
         />
       </div>

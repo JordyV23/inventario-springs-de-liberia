@@ -41,14 +41,14 @@ export const useActionsPaperwork = () => {
     dispatch(startCreateSelling({ idAsset, idPerson, fechaRegistro }));
   };
 
-  const makeDeleteSelling = () => {
+  const makeDeleteSelling = (row) => {
     dispatch(setLoading(true));
-    dispatch(startDeleteSelling({ id: idPaperwork }));
+    dispatch(startDeleteSelling({ id: row.idSelling }));
   };
 
-  const makeDeleteRental = () => {
+  const makeDeleteRental = (row) => {
     dispatch(setLoading(true));
-    dispatch(startDeleteRental({ id: idPaperwork }));
+    dispatch(startDeleteRental({ id: row.idRental }));
   };
 
   const makeGetRentals = () => {

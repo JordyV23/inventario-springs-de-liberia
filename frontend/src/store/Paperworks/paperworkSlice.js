@@ -8,7 +8,8 @@ const initialState = {
   fechaInicio: "",
   fechaFin: "",
   jsonDetalles: "",
-  paperworks: [],
+  sellings: [],
+  rentals: [],
 };
 
 export const PaperworkSlice = createSlice({
@@ -24,8 +25,11 @@ export const PaperworkSlice = createSlice({
       state.fechaFin = "";
       state.jsonDetalles = "";
     },
-    setPaperworks: (state, action) => {
-      state.paperworks = action.payload;
+    setSellings: (state, action) => {
+      state.sellings = action.payload;
+    },
+    setRentals: (state, action) => {
+      state.rentals = action.payload;
     },
     writeIdAsset: (state, action) => {
       state.idAsset = action.payload;
@@ -56,5 +60,6 @@ export const {
   writeIdAsset,
   writeIdPerson,
   writeJsonDetalles,
-  setPaperworks,
+  setRentals,
+  setSellings,
 } = PaperworkSlice.actions;

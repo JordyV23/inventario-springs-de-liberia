@@ -14,10 +14,10 @@ BEGIN
 	SELECT 
 		R.idRental,
 		A.nombre,
-		R.fechaRegistroAlquiler,
+		CONVERT(varchar, R.fechaInicio) as 'fechaInicio',
+		CONVERT(varchar, R.fechaFin) as 'fechaFin',
 		R.activo,
-		R.fechaInicio,
-		R.fechaFin,
+		CONVERT(varchar, R.fechaRegistroAlquiler) as 'fechaRegistroAlquiler',
 		R.jsonDetalles,
 		A.idAsset
 	FROM TbRental R

@@ -57,6 +57,23 @@ export const paMostrarAlquileres = async () => {
   }
 };
 
+export const paEditarAlquiler = async (alquiler) => {
+  try {
+    const pool = await getConnection();
+    const result = await pool
+      .request()
+      .input("idAlquiler", alquiler.id)
+      .input("fechaFin", alquiler.fechaFin)
+      .input("alquilerActivo", alquiler.alquilerActivo)
+      .execute("PaEditarAlquiler");
+
+    return result.recordset;
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};
+
 /**
  * @function paBorrarAlquiler
  * @async

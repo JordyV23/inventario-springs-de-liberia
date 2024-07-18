@@ -7,6 +7,7 @@ import {
   startDeleteRental,
   startGetRentals,
   startGetSellings,
+  startEditRental,
 } from "../../store";
 import moment from "moment-timezone";
 
@@ -15,6 +16,7 @@ export const useActionsPaperwork = () => {
 
   const {
     idPaperwork,
+    idRental,
     idAsset,
     idPerson,
     fechaRegistro,
@@ -52,6 +54,21 @@ export const useActionsPaperwork = () => {
     );
   };
 
+  const makeEditRental = () => {
+    let fechaActual = moment.tz("America/Costa_Rica");
+    let finAlquiler = moment(fechaFin);
+    let estadoFecha = fechaActual.isAfter(finAlquiler) 
+
+    dispatch(setLoading(true));
+    dispatch(
+      startEditRental({
+        id: idRental,
+        fechaFin,
+        alquilerActivo: estadoFecha ? "0" : "1"
+      })
+    );
+  };
+
   const makeDeleteSelling = (row) => {
     dispatch(setLoading(true));
     dispatch(startDeleteSelling({ id: row.idSelling }));
@@ -79,5 +96,6 @@ export const useActionsPaperwork = () => {
     makeDeleteRental,
     makeGetRentals,
     makeGetSellings,
+    makeEditRental,
   };
 };

@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  idPaperwork:"",
+  idPaperwork: "",
   idAsset: "",
+  idRental: "",
   idPerson: "",
   fechaRegistro: "",
   fechaInicio: "",
@@ -24,6 +25,13 @@ export const PaperworkSlice = createSlice({
       state.fechaInicio = "";
       state.fechaFin = "";
       state.jsonDetalles = "";
+    },
+    loadPaperworkForm: (state, action) => {
+      state.idRental = action.payload.idRental;
+      state.idAsset = action.payload.idAsset;
+      state.idPerson = action.payload.idPerson;
+      state.fechaInicio = action.payload.fechaInicio;
+      state.fechaFin = action.payload.fechaFin;
     },
     setSellings: (state, action) => {
       state.sellings = action.payload;
@@ -62,4 +70,5 @@ export const {
   writeJsonDetalles,
   setRentals,
   setSellings,
+  loadPaperworkForm,
 } = PaperworkSlice.actions;

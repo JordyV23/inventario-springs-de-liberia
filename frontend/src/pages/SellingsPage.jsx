@@ -57,6 +57,7 @@ export const SellingsPage = () => {
         deleteFunction={handleDelete}
         editFunction={() => {}}
         editModalTitle={"Editar"}
+        renderEdit={false}
       />
     </>
   );

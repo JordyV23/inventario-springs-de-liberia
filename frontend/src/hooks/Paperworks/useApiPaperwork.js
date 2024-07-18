@@ -64,6 +64,18 @@ export const useApiPaperworks = () => {
     }
   };
 
+  const editRentalEndpoint = async (paperworkInfo) => {
+    try {
+      const response = await backendApi.tramites.post(
+        "/editarAlquiler",
+        paperworkInfo
+      );
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
+
   return {
     createSellingEndpoint,
     getSellingsEndpoint,
@@ -71,5 +83,6 @@ export const useApiPaperworks = () => {
     getRentalsEndpoint,
     createRentalEndpoint,
     deleteRentalEndpoint,
+    editRentalEndpoint,
   };
 };

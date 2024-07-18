@@ -19,10 +19,13 @@ BEGIN
 		R.activo,
 		CONVERT(varchar, R.fechaRegistroAlquiler) as 'fechaRegistroAlquiler',
 		R.jsonDetalles,
+		P.idPerson,
+		Pe.nombreCompleto,
 		A.idAsset
 	FROM TbRental R
 	INNER JOIN TbPaperwork AS P ON P.idPaperwork = R.idPaperwork
 	INNER JOIN TbAssets AS A ON A.idAsset = P.idAsset
+	INNER JOIN TbPerson as Pe on Pe.idPerson = P.idPerson
 	WHERE R.eliminado = 0
 END
 GO

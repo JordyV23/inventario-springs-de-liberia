@@ -12,6 +12,7 @@ import {
   agregarVenta,
   borrarAlquiler,
   borrarVenta,
+  editarAlquiler,
   listarAlquileres,
   listarVentas,
 } from "../controllers/tramites.controller.js";
@@ -33,6 +34,12 @@ tramitesRoutes.post("/alquilar", agregarAlquiler);
  * @description Ruta para obtener la lista de alquileres
  */
 tramitesRoutes.get("/listarAlquileres", listarAlquileres);
+
+/**
+ * @name POST /editarAlquiler
+ * @description Ruta para obtener la lista de alquileres
+ */
+tramitesRoutes.post("/editarAlquiler", editarAlquiler);
 
 /**
  * @name POST /borrarAlquiler

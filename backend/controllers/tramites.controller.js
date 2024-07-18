@@ -11,6 +11,7 @@ import {
   paAlquilar,
   paBorrarAlquiler,
   paBorrarVenta,
+  paEditarAlquiler,
   paMostrarAlquileres,
   paMostrarVentas,
   paVender,
@@ -51,6 +52,17 @@ export const listarAlquileres = async (req, res) => {
     return res.status(201).json({ success: true, data });
   } catch (error) {
     console.log(error.message);
+    return genealError(res, error);
+  }
+};
+
+export const editarAlquiler = async (req, res) => {
+  try {
+    const alquiler = req.body;
+    await paEditarAlquiler(alquiler);
+    let data = await paMostrarAlquileres();
+    return res.status(201).json({ success: true, data });
+  } catch (error) {
     return genealError(res, error);
   }
 };

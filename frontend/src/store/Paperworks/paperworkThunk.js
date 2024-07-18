@@ -10,6 +10,7 @@ const {
   deleteSellingEndpoint,
   getRentalsEndpoint,
   getSellingsEndpoint,
+  editRentalEndpoint,
 } = useApiPaperworks();
 
 export const startCreateRental = (paperworkData) => {
@@ -90,6 +91,21 @@ export const startGetSellings = () => {
       const { data } = res;
       dispatch(setSellings(data.data));
       dispatch(setLoading(false));
+      return;
+    }
+    errorProcess(res, dispatch);
+  };
+};
+
+export const startEditRental = (rentalInfo) => {
+  return async (dispatch) => {
+    const res = await editRentalEndpoint(rentalInfo);
+    if (res.status === 201) {
+      const { data } = res;
+      dispatch(setRentals(data.data));
+      dispatch(setLoading(false));
+      dispatch(changeModalState());
+      showSuccessMessage("Alquiler actualizado con éxito");
       return;
     }
     errorProcess(res, dispatch);

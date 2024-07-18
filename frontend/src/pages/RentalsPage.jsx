@@ -4,7 +4,7 @@ import { useActionsPaperwork } from "../hooks";
 import { FormModal, SpringDataTable, SpringForm } from "../components";
 import { faTicket, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { rentalRegisterFields } from "../data/forms/paperworkFormFields";
-import { clearPaperworkForm } from "../store";
+import { clearPaperworkForm, loadPaperworkForm } from "../store";
 
 export const RentalsPage = () => {
   const { rentals } = useSelector((state) => state.paperworks);
@@ -20,7 +20,7 @@ export const RentalsPage = () => {
     return { value: user.idPerson, label: user.nombreCompleto };
   });
 
-  const { makeGetRentals, makeDeleteRental, makeCreateRental } =
+  const { makeGetRentals, makeDeleteRental, makeCreateRental,makeEditRental } =
     useActionsPaperwork();
 
   rentalRegisterFields[0].fieldOptions = assetsOptions;
@@ -48,7 +48,7 @@ export const RentalsPage = () => {
         icon={faTicket}
         clearFunction={clearPaperworkForm}
         creationFunction={makeCreateRental}
-        editionFunction={() => {}}
+        editionFunction={makeEditRental}
       >
         <SpringForm
           fields={rentalRegisterFields}
@@ -59,7 +59,7 @@ export const RentalsPage = () => {
         data={rentals}
         columnTitles={columnTitles}
         deleteFunction={handleDelete}
-        editFunction={() => {}}
+        editFunction={loadPaperworkForm}
         editModalTitle={"Editar"}
       />
     </>

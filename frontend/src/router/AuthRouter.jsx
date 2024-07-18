@@ -1,7 +1,15 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { SpringLayout } from "../layouts/SpringLayout";
-import { InventoryPage, Paperwork, PromotionsPage, RentalsPage, SellingsPage, UsersPage } from "../pages";
+import {
+  InventoryPage,
+  MaintenancePage,
+  Paperwork,
+  PromotionsPage,
+  RentalsPage,
+  SellingsPage,
+  UsersPage,
+} from "../pages";
 
 export const AuthRouter = () => {
   return (
@@ -13,6 +21,7 @@ export const AuthRouter = () => {
         <Route path="/tramites" element={<Paperwork />}></Route>
         <Route path="/tramites/alquileres" element={<RentalsPage />}></Route>
         <Route path="/tramites/ventas" element={<SellingsPage />}></Route>
+        <Route path="/mantenimientos" element={<MaintenancePage />}></Route>
       </Routes>
     </SpringLayout>
   );

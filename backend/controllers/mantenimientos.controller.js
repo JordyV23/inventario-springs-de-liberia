@@ -26,11 +26,10 @@ export const crearMantenimiento = async (req, res) => {
   try {
     const mantenimiento = req.body;
 
-    const data = await paCrearMantenimiento(mantenimiento);
+    await paCrearMantenimiento(mantenimiento);
+    let data = await paListarMantenimientos();
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Mantenimiento agregado con Éxito!" });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -65,11 +64,10 @@ export const terminarMantenimiento = async (req, res) => {
   try {
     const mantenimiento = req.body;
 
-    const data = await paCerrarMantenimiento(mantenimiento);
+    await paCerrarMantenimiento(mantenimiento);
+    let data = await paListarMantenimientos();
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Mantenimiento Finalizado" });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }
@@ -86,11 +84,10 @@ export const terminarMantenimiento = async (req, res) => {
 export const borrarMantenimiento = async (req, res) => {
   try {
     const mantenimiento = req.body;
-    const data = await paBorrarMantenimiento(mantenimiento);
+    await paBorrarMantenimiento(mantenimiento);
+    let data = await paListarMantenimientos();
 
-    return res
-      .status(201)
-      .json({ success: true, data: "Mantenimiento eliminado con Éxito!" });
+    return res.status(201).json({ success: true, data });
   } catch (error) {
     return genealError(res, error);
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Maintenance = () => {
+export const MaintenancePage = () => {
   return (
     <div>Maintenance</div>
   )

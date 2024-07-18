@@ -1,6 +1,6 @@
 export * from "./auth";
 export * from "./InventoryPage";
-export * from "./Maintenance";
+export * from "./MaintenancePage";
 export * from "./Paperwork";
 export * from "./PromotionsPage";
 export * from "./RentalsPage";

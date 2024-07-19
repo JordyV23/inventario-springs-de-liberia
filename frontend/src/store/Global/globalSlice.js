@@ -6,6 +6,7 @@ const initialState = {
   isLogged: false,
   isModalOpen: false,
   authUser: "",
+  authUserId:"",
   authRol: "",
   token: "",
   modalTitle: "",
@@ -24,6 +25,7 @@ export const GlobalSlice = createSlice({
       state.token = "";
     },
     setUserAsLogged: (state, action) => {
+      state.authUserId = action.payload.idPerson;
       state.authUser = action.payload.username;
       state.authRol = action.payload.rol;
       state.token = action.payload.token;

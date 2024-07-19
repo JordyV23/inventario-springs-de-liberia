@@ -13,9 +13,10 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
+		M.idMaintenance,
 		A.nombre as 'NombreActivo',
 		M.detalle,
-		M.fechaRegistro
+		CONVERT(varchar, M.fechaRegistro) as fechaRegistro
 	FROM TbMaintenance M
 	INNER JOIN TbPaperwork AS P on P.idPaperwork = M.idPaperwork
 	INNER JOIN TbAssets as A on A.idAsset = P.idAsset

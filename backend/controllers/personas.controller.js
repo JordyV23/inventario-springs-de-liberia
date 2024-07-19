@@ -105,6 +105,7 @@ export const iniciarSesion = async (req, res) => {
     }
 
     const responseData = {
+      idPerson: data.idPerson,
       token: generateToken(data),
       username: data.username,
       rol: data.rol,

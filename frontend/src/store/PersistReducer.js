@@ -6,6 +6,7 @@ import {
   PromotionSlice,
   InventoriesSlice,
   PaperworkSlice,
+  MaintenanceSlice,
 } from "./";
 import { persistReducer } from "redux-persist";
 
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   promotions: PromotionSlice.reducer,
   inventory: InventoriesSlice.reducer,
   paperworks: PaperworkSlice.reducer,
+  maintenances: MaintenanceSlice.reducer,
   global: GlobalSlice.reducer,
 });
 

@@ -14,11 +14,13 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
+		  P.idPerson,
 		  U.username, 
 		  U.password,
 		  U.rol
 	FROM TbUser AS U 
-	WHERE eliminado = 0 
+	INNER JOIN TbPerson AS P ON P.idUsuario = U.idUser
+	WHERE U.eliminado = 0 
 		  AND U.username = @username 
 		  --AND U.password = @password
 END

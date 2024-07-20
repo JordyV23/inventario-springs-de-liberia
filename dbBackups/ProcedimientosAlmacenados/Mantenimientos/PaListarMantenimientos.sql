@@ -17,7 +17,12 @@ BEGIN
 		A.nombre as 'NombreActivo',
 		M.detalle,
 		CONVERT(varchar, M.fechaRegistro) as fechaRegistro,
-		M.pendiente
+		CASE M.pendiente 
+			WHEN 1 THEN 'Pendiente'
+			WHEN 0 THEN 'Finalizado'
+		END AS 'estadoMantenimiento',
+		M.pendiente,
+		A.idAsset
 	FROM TbMaintenance M
 	INNER JOIN TbPaperwork AS P on P.idPaperwork = M.idPaperwork
 	INNER JOIN TbAssets as A on A.idAsset = P.idAsset

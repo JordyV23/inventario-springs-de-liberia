@@ -12,6 +12,7 @@ export const FormModal = ({
   clearFunction,
   creationFunction,
   editionFunction,
+  closeMaintenanceFunction = () => {}
 }) => {
   const { isModalOpen, modalTitle, modalMode } = useSelector(
     (state) => state.global
@@ -22,17 +23,14 @@ export const FormModal = ({
   const handleModalChange = () => {
     dispatch(changeModalState());
     dispatch(writeModalTitle(label));
-    dispatch(setCreation())
+    dispatch(setCreation());
     dispatch(clearFunction());
   };
 
-  const handleSubmit = () => {
-    if (modalMode === "C") {
-      creationFunction();
-    }
-    if (modalMode === "E") {
-      editionFunction();
-    }
+  const handleSubmit = {
+    C: () => creationFunction(),
+    E: () => editionFunction(),
+    M: () => closeMaintenanceFunction(),
   };
 
   return (
@@ -51,7 +49,7 @@ export const FormModal = ({
           <div className="space-y-6">{children}</div>
         </Modal.Body>
         <Modal.Footer className="bg-white border-none">
-          <ModalFooterOption type={"accept"} event={handleSubmit} />
+          <ModalFooterOption type={"accept"} event={handleSubmit[modalMode]} />
           <ModalFooterOption type={"cancel"} event={handleModalChange} />
         </Modal.Footer>
       </Modal>

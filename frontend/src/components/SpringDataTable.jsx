@@ -22,6 +22,7 @@ export const SpringDataTable = ({
   deleteFunction,
   renderEdit = true,
   maintenancePage = false,
+  closeMaintenance = () => {},
 }) => {
   if (data.length > 0) {
     return (
@@ -33,6 +34,7 @@ export const SpringDataTable = ({
         deleteFunction={deleteFunction}
         maintenancePage={maintenancePage}
         renderEdit={renderEdit}
+        closeMaintenance={closeMaintenance}
       />
     );
   } else {
@@ -66,6 +68,7 @@ const TableComponent = ({
   deleteFunction,
   renderEdit,
   maintenancePage,
+  closeMaintenance,
 }) => {
   const [records, setRecords] = useState(data);
   const dispatch = useDispatch();
@@ -77,7 +80,11 @@ const TableComponent = ({
   }, [data]);
 
   const onEdit = (row) => {
-    dispatch(editFunction(row));
+    if (maintenancePage) {
+      editFunction(row);
+    } else {
+      dispatch(editFunction(row));
+    }
     dispatch(writeModalTitle(editModalTitle));
     dispatch(setEdition());
     dispatch(changeModalState());
@@ -114,7 +121,7 @@ const TableComponent = ({
             <>
               <ActionBtn
                 type={row.pendiente ? "E" : "I"}
-                event={() => onEdit(row)}
+                event={() => closeMaintenance(row)}
                 icon={faHammer}
               />
               <ActionBtn type={"E"} event={() => onEdit(row)} icon={faEye} />

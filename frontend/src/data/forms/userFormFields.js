@@ -155,7 +155,7 @@ export const registerFields = [
     type: "text",
     placeholder: "Rol del usuario",
     write: writeRol,
-    editable: true,
+    editable: false,
     stateName: "users",
     fieldType:"SelectField",
     fieldOptions: roleOptions

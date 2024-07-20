@@ -1,5 +1,17 @@
-import { faBuilding, faHammer } from "@fortawesome/free-solid-svg-icons";
-import { writeDetalle, writeIdAssetMaintenance } from "../../store";
+import {
+  faBuilding,
+  faCircleDollarToSlot,
+  faHammer,
+  faUnlockKeyhole,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  writeCosto,
+  writeDetalle,
+  writeDetalleCierre,
+  writeIdAssetMaintenance,
+  writeMotivo,
+} from "../../store";
+import { closeReasonOptions } from "../mapings";
 
 export const maintenanceRegisterFields = [
   {
@@ -50,5 +62,65 @@ export const maintenanceEditionsFields = [
     editable: true,
     stateName: "maintenances",
     fieldType: "TextArea",
+  },
+];
+
+export const maintenanceCloseFields = [
+  {
+    id: "idAsset",
+    label: "Activos",
+    icon: faBuilding,
+    type: "text",
+    placeholder: "Ingrese el activo",
+    write: writeIdAssetMaintenance,
+    editable: true,
+    stateName: "maintenances",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+  {
+    id: "detalle",
+    label: "Averia a reportar",
+    icon: faHammer,
+    type: "text",
+    placeholder: "Ingrese la averia",
+    write: writeDetalle,
+    editable: true,
+    stateName: "maintenances",
+    fieldType: "TextArea",
+  },
+  {
+    id: "detalleCierre",
+    label: "Detalle sobre la reparacion",
+    icon: faHammer,
+    type: "text",
+    placeholder: "Ingrese informacion relacionada a la reparacion de la averia",
+    write: writeDetalleCierre,
+    editable: false,
+    stateName: "maintenances",
+    fieldType: "TextArea",
+  },
+  {
+    id: "motivo",
+    label: "Motivo de Cierre",
+    icon: faUnlockKeyhole,
+    type: "text",
+    placeholder: "Motivo de Cierre",
+    write: writeMotivo,
+    editable: false,
+    stateName: "maintenances",
+    fieldType: "SelectField",
+    fieldOptions: closeReasonOptions,
+  },
+  {
+    id: "costo",
+    label: "Costo de Reparacion",
+    icon: faCircleDollarToSlot,
+    type: "number",
+    placeholder: "1000",
+    write: writeCosto,
+    editable: false,
+    stateName: "maintenances",
+    fieldType: "InputFiled",
   },
 ];

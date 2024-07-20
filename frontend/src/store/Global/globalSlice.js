@@ -6,11 +6,11 @@ const initialState = {
   isLogged: false,
   isModalOpen: false,
   authUser: "",
-  authUserId:"",
+  authUserId: "",
   authRol: "",
   token: "",
   modalTitle: "",
-  modalMode:""
+  modalMode: "",
 };
 
 export const GlobalSlice = createSlice({
@@ -34,11 +34,14 @@ export const GlobalSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-    setEdition:(state,action) => {
-      state.modalMode = "E"
+    setCloseMaintenanceMode: (state, action) => {
+      state.modalMode = "M";
     },
-    setCreation:(state,action) => {
-      state.modalMode = "C"
+    setEdition: (state, action) => {
+      state.modalMode = "E";
+    },
+    setCreation: (state, action) => {
+      state.modalMode = "C";
     },
     changeSidebar: (state, action) => {
       state.sidebarOpen = !state.sidebarOpen;
@@ -56,6 +59,7 @@ export const {
   clear,
   setUserAsLogged,
   setLoading,
+  setCloseMaintenanceMode,
   setEdition,
   setCreation,
   changeSidebar,

@@ -6,9 +6,10 @@ const initialState = {
   idPerson: "",
   fechaMantenimiento: "",
   detalle: "",
+  detalleCierre: "",
   idOperario: "",
   motivo: "",
-  costo: "",
+  costo: "0",
   fechaCierre: "",
   mantenimientos: [],
 };
@@ -23,9 +24,10 @@ export const MaintenanceSlice = createSlice({
       state.idPerson = "";
       state.fechaMantenimiento = "";
       state.detalle = "";
+      state.detalleCierre = ""
       state.idOperario = "";
       state.motivo = "";
-      state.costo = "";
+      state.costo = "0";
       state.fechaCierre = "";
     },
     clearRegisterMaintenanceForm: (state, action) => {
@@ -33,6 +35,12 @@ export const MaintenanceSlice = createSlice({
       state.detalle = "";
     },
     loadMaintenanceForm: (state, action) => {
+      state.idAsset = action.payload.idAsset;
+      state.detalle = action.payload.detalle;
+    },
+    loadMaintenanceToClose: (state, action) => {
+      state.idMaintenance = action.payload.idMaintenance;
+      state.idAsset = action.payload.idAsset;
       state.detalle = action.payload.detalle;
     },
     writeIdMaintenance: (state, action) => {
@@ -49,6 +57,9 @@ export const MaintenanceSlice = createSlice({
     },
     writeDetalle: (state, action) => {
       state.detalle = action.payload;
+    },
+    writeDetalleCierre: (state, action) => {
+      state.detalleCierre = action.payload;
     },
     writeIdOperario: (state, action) => {
       state.idOperario = action.payload;
@@ -73,8 +84,10 @@ export const {
   clearRegisterMaintenanceForm,
   setMantenimientos,
   loadMaintenanceForm,
+  loadMaintenanceToClose,
   writeCosto,
   writeDetalle,
+  writeDetalleCierre,
   writeFechaCierreMantenimiento,
   writeFechaMantenimiento,
   writeIdAssetMaintenance,

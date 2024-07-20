@@ -19,6 +19,7 @@ export const useActionsMaintenance = () => {
     detalle,
     idOperario,
     motivo,
+    detalleCierre,
     costo,
     fechaCierre,
   } = useSelector((state) => state.maintenances);
@@ -40,15 +41,17 @@ export const useActionsMaintenance = () => {
   };
 
   const makeCloseMaintenance = () => {
+    let fecha = moment.tz("America/Costa_Rica");
+
     dispatch(setLoading(true));
     dispatch(
       startCloseMaintenance({
         idMaintenance,
-        idOperario,
+        idOperario: authUserId,
         motivo,
-        detalle,
+        detalle: detalleCierre,
         costo: parseInt(costo),
-        fechaCierre,
+        fechaCierre: fecha.format("YYYY-MM-DD"),
       })
     );
   };

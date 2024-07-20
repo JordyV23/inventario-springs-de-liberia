@@ -25,8 +25,8 @@ export const assetsTypesOptions = [
 ];
 
 export const getAssetType = (valueToSearch) => {
-  return assetsTypesOptions.find( (obj) => obj.label === valueToSearch )
-}
+  return assetsTypesOptions.find((obj) => obj.label === valueToSearch);
+};
 
 //  V-Venta, A-Alquiler
 export const availabilityTypes = ["V", "A"];
@@ -37,9 +37,16 @@ export const availabilityTypesOptions = [
 ];
 
 export const getAssetAvailability = (valueToSearch) => {
-  return availabilityTypesOptions.find( (obj) => obj.label === valueToSearch )
-}
+  return availabilityTypesOptions.find((obj) => obj.label === valueToSearch);
+};
 
+// F-Finalizado o D-Descartado
+export const closeReasons = ["F", "D"];
+
+export const closeReasonOptions = [
+  { value: closeReasons[0], label: "Mantenimiento Finalizado" },
+  { value: closeReasons[1], label: "Mantenimiento Descartado" },
+];
 
 export const provincias = [
   { value: "1", label: "San José" },
@@ -52,8 +59,8 @@ export const provincias = [
 ];
 
 export const getProvincia = (valueToSearch) => {
-  return provincias.find( (obj) => obj.value === valueToSearch.toString() )
-}
+  return provincias.find((obj) => obj.value === valueToSearch.toString());
+};
 
 export const distritos = [
   { value: "Carmen", label: "Carmen" },
@@ -70,8 +77,8 @@ export const distritos = [
 ];
 
 export const getDistrito = (valueToSearch) => {
-  return distritos.find( (obj) => obj.value === valueToSearch )
-}
+  return distritos.find((obj) => obj.value === valueToSearch);
+};
 
 export const cantones = [
   { value: "1", label: "San José" },
@@ -159,7 +166,6 @@ export const cantones = [
   { value: "83", label: "Guácimo" },
 ];
 
-
 export const getCanton = (valueToSearch) => {
-  return cantones.find( (obj) => (obj.value === valueToSearch.toString()) )
-}
+  return cantones.find((obj) => obj.value === valueToSearch.toString());
+};

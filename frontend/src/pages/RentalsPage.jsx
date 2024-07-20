@@ -3,13 +3,17 @@ import { useSelector } from "react-redux";
 import { useActionsPaperwork } from "../hooks";
 import { FormModal, SpringDataTable, SpringForm } from "../components";
 import { faTicket, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { rentalRegisterFields } from "../data/forms/paperworkFormFields";
+import {
+  rentalEditFields,
+  rentalRegisterFields,
+} from "../data/forms/paperworkFormFields";
 import { clearPaperworkForm, loadPaperworkForm } from "../store";
 
 export const RentalsPage = () => {
   const { rentals } = useSelector((state) => state.paperworks);
   const { users } = useSelector((state) => state.users);
   const { assets } = useSelector((state) => state.inventory);
+  const { modalMode } = useSelector((state) => state.global);
 
   const assetsOptions = assets
     .filter((asset) => asset.Estado === "Disponible")
@@ -20,11 +24,13 @@ export const RentalsPage = () => {
     return { value: user.idPerson, label: user.nombreCompleto };
   });
 
-  const { makeGetRentals, makeDeleteRental, makeCreateRental,makeEditRental } =
+  const { makeGetRentals, makeDeleteRental, makeCreateRental, makeEditRental } =
     useActionsPaperwork();
 
   rentalRegisterFields[0].fieldOptions = assetsOptions;
   rentalRegisterFields[1].fieldOptions = usersOptions;
+  rentalEditFields[0].fieldOptions = assetsOptions;
+  rentalEditFields[1].fieldOptions = usersOptions;
 
   useEffect(() => {
     makeGetRentals();
@@ -41,6 +47,11 @@ export const RentalsPage = () => {
     "Fecha de Fin",
   ];
 
+  const formFields = {
+    C: rentalRegisterFields,
+    E: rentalEditFields,
+  };
+
   return (
     <>
       <FormModal
@@ -51,7 +62,7 @@ export const RentalsPage = () => {
         editionFunction={makeEditRental}
       >
         <SpringForm
-          fields={rentalRegisterFields}
+          fields={formFields[modalMode]}
           submitEvent={makeCreateRental}
         />
       </FormModal>

@@ -12,7 +12,7 @@ export const SpringNavbar = () => {
         <button className="p-1 mr-4" onClick={() => dispatch(changeSidebar())}>
         <FontAwesomeIcon icon={faBars} className="h-4 w-4" />
         </button>
-        Header
+        <img src="/images/NavLogo.png" alt="" className="rounded-full" />
       </header>
     </>
   );

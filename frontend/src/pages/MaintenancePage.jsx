@@ -3,8 +3,11 @@ import { useActionsInventory, useActionsMaintenance } from "../hooks";
 import { useSelector } from "react-redux";
 import { FormModal, SpringDataTable, SpringForm } from "../components";
 import { faToolbox } from "@fortawesome/free-solid-svg-icons";
-import { maintenanceRegisterFields } from "../data/forms/maintenanceFormFields";
-import { clearRegisterMaintenanceForm } from "../store";
+import {
+  maintenanceEditionsFields,
+  maintenanceRegisterFields,
+} from "../data/forms/maintenanceFormFields";
+import { clearRegisterMaintenanceForm, loadMaintenanceForm } from "../store";
 
 export const MaintenancePage = () => {
   const { makeGetMaintenances, makeCreateMaintenance, makeDeleteMaintenance } =
@@ -14,6 +17,7 @@ export const MaintenancePage = () => {
 
   const { assets } = useSelector((state) => state.inventory);
   const { mantenimientos } = useSelector((state) => state.maintenances);
+  const { modalMode } = useSelector((state) => state.global);
 
   useEffect(() => {
     makeGetAsset();
@@ -25,11 +29,24 @@ export const MaintenancePage = () => {
   });
 
   maintenanceRegisterFields[0].fieldOptions = assetsOptions;
+  maintenanceEditionsFields[0].fieldOptions = assetsOptions;
 
   const columnTitles = ["Codigo", "Activo", "Averia", "Fecha de reporte"];
 
   const handleDelete = (row) => {
     makeDeleteMaintenance(row.idMaintenance);
+  };
+
+  const handleFormInputs = () => {
+    if (modalMode === "C") {
+      return maintenanceRegisterFields;
+    }
+
+    return maintenanceEditionsFields;
+  };
+
+  const handelEdit = () => {
+    console.log("Hola")
   };
 
   return (
@@ -39,16 +56,18 @@ export const MaintenancePage = () => {
         icon={faToolbox}
         clearFunction={clearRegisterMaintenanceForm}
         creationFunction={makeCreateMaintenance}
-        editionFunction={{}}
+        editionFunction={handelEdit}
       >
-        <SpringForm fields={maintenanceRegisterFields} />
+        <SpringForm fields={handleFormInputs()} />
       </FormModal>
       <SpringDataTable
         data={mantenimientos}
         columnTitles={columnTitles}
         editModalTitle={"Cerra Mantenimiento"}
-        editFunction={{}}
+        editFunction={loadMaintenanceForm}
         deleteFunction={handleDelete}
+        maintenancePage={true}
+        renderEdit={false}
       />
     </>
   );

@@ -28,9 +28,12 @@ export const MaintenanceSlice = createSlice({
       state.costo = "";
       state.fechaCierre = "";
     },
-    clearRegisterMaintenanceForm: (state,action) => {
+    clearRegisterMaintenanceForm: (state, action) => {
       state.idAsset = "";
-      state.detalle = ""
+      state.detalle = "";
+    },
+    loadMaintenanceForm: (state, action) => {
+      state.detalle = action.payload.detalle;
     },
     writeIdMaintenance: (state, action) => {
       state.idMaintenance = action.payload;
@@ -69,6 +72,7 @@ export const {
   clearMaintenanceForm,
   clearRegisterMaintenanceForm,
   setMantenimientos,
+  loadMaintenanceForm,
   writeCosto,
   writeDetalle,
   writeFechaCierreMantenimiento,

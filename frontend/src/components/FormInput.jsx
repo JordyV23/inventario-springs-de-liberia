@@ -64,6 +64,7 @@ const SelectFiled = ({ formProps, textColor }) => {
         {formProps.label}
       </label>
       <select
+        disabled={formProps.editable}
         name={formProps.id}
         id={formProps.id}
         className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
@@ -167,51 +168,6 @@ const SearchableSelect = ({ formProps, textColor }) => {
         className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
         onChange={(selectedOption) => dispatch(formProps.write(selectedOption))}
       />
-    </>
-  );
-};
-
-const ImageInput = ({ formProps, textColor }) => {
-  const state = useSelector((state) => state[formProps.stateName]);
-  const dispatch = useDispatch();
-
-  const [file, setFile] = useState();
-
-  const handleChange = async (e) => {
-    setFile(e.target.files[0]);
-    // await axios.post("http://localhost:2305/activos/guardarImagen", {
-    //   body: formData,
-    // });
-
-    // dispatch(formProps.write(e.target.files[0].picture.name));
-  };
-
-  const send = () => {
-    const formData = new FormData();
-    formData.append("image", file);
-    fetch("http://localhost:2305/activos/guardarImagen", {
-      method: "POST",
-      body: formData,
-    });
-  };
-
-  return (
-    <>
-      <label
-        className={"block mb-2 text-sm font-medium " + textColor}
-        htmlFor="file_input"
-      >
-        Seleccionar Imagen
-      </label>
-      <input
-        className="block w-full text-sm text-gray-900 border border-gray-700 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-        aria-describedby="file_input_help"
-        id="file_input"
-        type="file"
-        accept="image/png, image/jpeg"
-        onChange={(e) => handleChange(e)}
-      />
-      <button onClick={() => send()}>Enviar</button>
     </>
   );
 };

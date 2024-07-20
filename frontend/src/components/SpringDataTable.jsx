@@ -1,5 +1,7 @@
 import {
   faEdit,
+  faEye,
+  faHammer,
   faMagnifyingGlass,
   faPenToSquare,
   faTrash,
@@ -19,6 +21,7 @@ export const SpringDataTable = ({
   editFunction,
   deleteFunction,
   renderEdit = true,
+  maintenancePage = false,
 }) => {
   if (data.length > 0) {
     return (
@@ -28,6 +31,7 @@ export const SpringDataTable = ({
         editModalTitle={editModalTitle}
         editFunction={editFunction}
         deleteFunction={deleteFunction}
+        maintenancePage={maintenancePage}
         renderEdit={renderEdit}
       />
     );
@@ -37,16 +41,19 @@ export const SpringDataTable = ({
 };
 
 const ActionBtn = ({ icon, event, type }) => {
+  const btnTypes = {
+    E: "text-blue-500 hover:text-blue-700",
+    D: "text-red-500 hover:text-red-700",
+    I: "text-gray-500",
+  };
+
   return (
     <button
       onClick={() => event()}
-      className={`mr-2 p-1 ${
-        type === "E"
-          ? "text-blue-500 hover:text-blue-700"
-          : "text-red-500 hover:text-red-700"
-      }`}
+      className={`mr-2 p-1 ${btnTypes[type]}`}
+      disabled={type === "I"}
     >
-      <FontAwesomeIcon icon={icon} />
+      <FontAwesomeIcon size="2x" icon={icon} />
     </button>
   );
 };
@@ -58,6 +65,7 @@ const TableComponent = ({
   editFunction,
   deleteFunction,
   renderEdit,
+  maintenancePage,
 }) => {
   const [records, setRecords] = useState(data);
   const dispatch = useDispatch();
@@ -102,6 +110,18 @@ const TableComponent = ({
       name: "Acciones",
       cell: (row) => (
         <div>
+          {maintenancePage ? (
+            <>
+              <ActionBtn
+                type={row.pendiente ? "E" : "I"}
+                event={() => onEdit(row)}
+                icon={faHammer}
+              />
+              <ActionBtn type={"E"} event={() => onEdit(row)} icon={faEye} />
+            </>
+          ) : (
+            ""
+          )}
           {renderEdit ? (
             <ActionBtn type={"E"} event={() => onEdit(row)} icon={faEdit} />
           ) : (

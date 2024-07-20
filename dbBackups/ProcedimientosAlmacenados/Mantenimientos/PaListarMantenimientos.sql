@@ -16,7 +16,8 @@ BEGIN
 		M.idMaintenance,
 		A.nombre as 'NombreActivo',
 		M.detalle,
-		CONVERT(varchar, M.fechaRegistro) as fechaRegistro
+		CONVERT(varchar, M.fechaRegistro) as fechaRegistro,
+		M.pendiente
 	FROM TbMaintenance M
 	INNER JOIN TbPaperwork AS P on P.idPaperwork = M.idPaperwork
 	INNER JOIN TbAssets as A on A.idAsset = P.idAsset

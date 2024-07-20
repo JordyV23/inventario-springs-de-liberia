@@ -1,8 +1,5 @@
 import { faBuilding, faHammer } from "@fortawesome/free-solid-svg-icons";
-import {
-  writeDetalle,
-  writeIdAssetMaintenance,
-} from "../../store";
+import { writeDetalle, writeIdAssetMaintenance } from "../../store";
 
 export const maintenanceRegisterFields = [
   {
@@ -25,6 +22,32 @@ export const maintenanceRegisterFields = [
     placeholder: "Ingrese la averia",
     write: writeDetalle,
     editable: false,
+    stateName: "maintenances",
+    fieldType: "TextArea",
+  },
+];
+
+export const maintenanceEditionsFields = [
+  {
+    id: "idAsset",
+    label: "Activos",
+    icon: faBuilding,
+    type: "text",
+    placeholder: "Ingrese el activo",
+    write: writeIdAssetMaintenance,
+    editable: true,
+    stateName: "maintenances",
+    fieldType: "SelectField",
+    fieldOptions: [],
+  },
+  {
+    id: "detalle",
+    label: "Averia a reportar",
+    icon: faHammer,
+    type: "text",
+    placeholder: "Ingrese la averia",
+    write: writeDetalle,
+    editable: true,
     stateName: "maintenances",
     fieldType: "TextArea",
   },

@@ -7,6 +7,7 @@ import {
   Paperwork,
   PromotionsPage,
   RentalsPage,
+  ReportsPage,
   SellingsPage,
   UsersPage,
 } from "../pages";
@@ -22,6 +23,7 @@ export const AuthRouter = () => {
         <Route path="/tramites/alquileres" element={<RentalsPage />}></Route>
         <Route path="/tramites/ventas" element={<SellingsPage />}></Route>
         <Route path="/mantenimientos" element={<MaintenancePage />}></Route>
+        <Route path="/reportes" element={<ReportsPage />}></Route>
       </Routes>
     </SpringLayout>
   );

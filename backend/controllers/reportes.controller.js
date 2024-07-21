@@ -3,7 +3,8 @@
  * @module reportControllers
  */
 
-import { genealError } from "../helpers.js";
+// Importación de la función de manejo de errores
+import { genealError } from "../helpers/index.js";
 import {
   paRentalReport,
   paRentalReportByProperty,

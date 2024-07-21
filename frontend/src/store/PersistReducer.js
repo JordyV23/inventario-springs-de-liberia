@@ -7,6 +7,7 @@ import {
   InventoriesSlice,
   PaperworkSlice,
   MaintenanceSlice,
+  ReportsSlice,
 } from "./";
 import { persistReducer } from "redux-persist";
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   inventory: InventoriesSlice.reducer,
   paperworks: PaperworkSlice.reducer,
   maintenances: MaintenanceSlice.reducer,
+  reports: ReportsSlice.reducer,
   global: GlobalSlice.reducer,
 });
 

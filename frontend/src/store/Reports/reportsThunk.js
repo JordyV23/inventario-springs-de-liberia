@@ -12,7 +12,7 @@ const {
 
 export const startGetRentalReport = (reportParams) => {
   return async (dispatch) => {
-    const res = await rentalReportByAssetEndpoint(reportParams);
+    const res = await rentalReportByDateEndpoint(reportParams);
     if (res.status === 201) {
       const { data } = res;
       dispatch(setReportData(data.data));
@@ -38,7 +38,7 @@ export const startGetSellingReport = (reportParams) => {
 
 export const startGetRentalReportByProperty = (reportParams) => {
   return async (dispatch) => {
-    const res = await rentalReportByDateEndpoint(reportParams);
+    const res = await rentalReportByAssetEndpoint(reportParams);
     if (res.status === 201) {
       const { data } = res;
       dispatch(setReportData(data.data));

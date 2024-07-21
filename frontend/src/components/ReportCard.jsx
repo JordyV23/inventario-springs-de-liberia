@@ -1,10 +1,15 @@
 import { faMagnifyingGlassChart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { changeModalState } from "../store";
+import { useDispatch } from "react-redux";
 
 export const ReportCard = ({ reportData }) => {
-  const onClickEvent = () => {
-    reportData.function();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(changeModalState());
+    dispatch(reportData.function());
   };
 
   return (
@@ -24,7 +29,7 @@ export const ReportCard = ({ reportData }) => {
           {reportData.description}
         </p>
         <button
-          onClick={() => onClickEvent()}
+          onClick={() => handleClick()}
           className="inline-flex font-medium items-center bg-blue-600 text-white p-2 rounded-full hover:scale-110 duration-500"
         >
           Generar Reporte

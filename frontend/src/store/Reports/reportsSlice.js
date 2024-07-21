@@ -4,6 +4,7 @@ const initialState = {
   idAsset: "",
   mes: "",
   year: "",
+  reportMode: "RD",
   reportData: [],
 };
 
@@ -17,11 +18,22 @@ export const ReportsSlice = createSlice({
     writeIdAssetReport: (state, action) => {
       state.idAsset = action.payload;
     },
-    writeMes: (state, action) => {
-      state.mes = action.payload;
+    writeFechaReporte: (state, action) => {
+      let [anio, mes] = action.payload.split("-");
+      state.mes = mes;
+      state.year = anio;
     },
-    writeYear: (state, action) => {
-      state.year = action.payload;
+    setRDReport: (state, action) => {
+      state.reportMode = "RD";
+    },
+    setRAReport: (state, action) => {
+      state.reportMode = "RA";
+    },
+    setSDReport: (state, action) => {
+      state.reportMode = "SD";
+    },
+    setUMReport: (state, action) => {
+      state.reportMode = "UM";
     },
     clearFormReport: (state, action) => {
       state.idAsset = "";
@@ -34,7 +46,11 @@ export const ReportsSlice = createSlice({
 export const {
   setReportData,
   clearFormReport,
+  setRDReport,
+  setRAReport,
+  setSDReport,
+  setUMReport,
   writeIdAssetReport,
-  writeMes,
+  writeFechaReporte,
   writeYear,
 } = ReportsSlice.actions;

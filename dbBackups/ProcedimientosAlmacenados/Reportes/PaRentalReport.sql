@@ -17,8 +17,8 @@ BEGIN
 	SELECT 
 		R.fechaRegistroAlquiler
 		,A.nombre as 'activo'
-		,R.fechaInicio
-		,R.fechaFin
+		,CONVERT(varchar,R.fechaInicio) as 'fechaInicio'
+		,CONVERT(varchar,R.fechaFin) as 'fechaFin'
 		,DATEDIFF(DAY,R.fechaInicio,R.fechaFin) as 'diasAlquilado'
 	FROM TbRental R
 	INNER JOIN TbPaperwork AS P on P.idPaperwork = R.idPaperwork

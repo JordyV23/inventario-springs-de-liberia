@@ -12,7 +12,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT 
-		M.fechaRegistro,
+		CONVERT(varchar,M.fechaRegistro) as 'fechaRegistro',
 		M.detalle,
 		M.pendiente,
 		A.nombre

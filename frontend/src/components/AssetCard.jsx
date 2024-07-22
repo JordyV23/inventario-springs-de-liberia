@@ -138,7 +138,9 @@ export const AssetCard = ({ Asset }) => {
               <FontAwesomeIcon icon={faEye} size="xl" className="mr-1" />
               Ver Más
             </button>
-            {authRol == !"C" ? (
+            {authRol === "C" ? (
+              ""
+            ) : (
               <>
                 <button
                   type="button"
@@ -157,8 +159,6 @@ export const AssetCard = ({ Asset }) => {
                   Borrar
                 </button>
               </>
-            ) : (
-              ""
             )}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ReportCard } from "../components/ReportCard";
 import { reportData } from "../data/reportData";
 import { useActionsReports, usePdfReport } from "../hooks";
@@ -22,6 +22,8 @@ export const ReportsPage = () => {
   } = useSelector((state) => state.reports);
   const { assets } = useSelector((state) => state.inventory);
 
+  const [reportGenerated, setReportGenerated] = useState(false);
+
   const assetsOptions = assets.map((asset) => {
     return { value: asset.idAsset, label: asset.nombre };
   });
@@ -29,12 +31,15 @@ export const ReportsPage = () => {
   const { generatePdf } = usePdfReport();
 
   useEffect(() => {
-    if (reportInfo.length > 0) {
-      generatePdf(reportTitle, reportInfo);
-    } else {
-      showErrorMessage("No hay datos para mostrar")
+    if (reportGenerated) {
+      if (reportInfo.length > 0) {
+        generatePdf(reportTitle, reportInfo);
+      } else {
+        showErrorMessage("No hay datos para mostrar");
+      }
+      setReportGenerated(false);
     }
-  }, [reportInfo]);
+  }, [reportInfo, reportGenerated]);
 
   const {
     makeRentalReportByAsset,
@@ -56,13 +61,18 @@ export const ReportsPage = () => {
     },
   };
 
+  const handleReportGeneration = async (data) => {
+    setReportGenerated(true);
+    await reportTypeFunction[reportMode].fnc(data);
+  };
+
   return (
     <>
       <FormModal
         showBtn={false}
         clearFunction={clearFormReport}
         label={"Generar Reporte"}
-        creationFunction={reportTypeFunction[reportMode].fnc}
+        creationFunction={handleReportGeneration}
       >
         <SpringForm fields={reportTypeFunction[reportMode].fields} />
       </FormModal>

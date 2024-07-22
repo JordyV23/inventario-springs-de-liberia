@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { SpringLayout } from "../layouts/SpringLayout";
 import {
   InventoryPage,
@@ -24,6 +24,7 @@ export const AuthRouter = () => {
         <Route path="/tramites/ventas" element={<SellingsPage />}></Route>
         <Route path="/mantenimientos" element={<MaintenancePage />}></Route>
         <Route path="/reportes" element={<ReportsPage />}></Route>
+        <Route path="*" element={<Navigate to="/inventario" replace />} />
       </Routes>
     </SpringLayout>
   );

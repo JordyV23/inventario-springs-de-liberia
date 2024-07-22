@@ -20,7 +20,7 @@ BEGIN
 	FROM TbSelling S
 	INNER JOIN TbPaperwork AS P ON S.idPaperwork = P.idPaperwork
 	INNER JOIN TbAssets AS A ON A.idAsset = P.idAsset
-	WHERE MONTH(S.fechaVenta) = @mes OR  YEAR(S.fechaVenta) = @year
+	WHERE MONTH(S.fechaVenta) = @mes AND  YEAR(S.fechaVenta) = @year
 
 END
 GO

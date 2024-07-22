@@ -15,14 +15,14 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT 
-		R.fechaRegistroAlquiler
-		,A.nombre as 'activo'
-		,CONVERT(varchar,R.fechaInicio) as 'fechaInicio'
-		,CONVERT(varchar,R.fechaFin) as 'fechaFin'
-		,DATEDIFF(DAY,R.fechaInicio,R.fechaFin) as 'diasAlquilado'
+		CONVERT(varchar,R.fechaRegistroAlquiler) as 'Fecha de Registro'
+		,A.nombre as 'Activo Alquilado'
+		,CONVERT(varchar,R.fechaInicio) as 'Fecha de Inicio'
+		,CONVERT(varchar,R.fechaFin) as 'Fecha de Fin'
+		,DATEDIFF(DAY,R.fechaInicio,R.fechaFin) as 'Dias Alquilado'
 	FROM TbRental R
 	INNER JOIN TbPaperwork AS P on P.idPaperwork = R.idPaperwork
 	INNER JOIN TbAssets AS A ON A.idAsset = P.idAsset
-	WHERE MONTH(R.fechaRegistroAlquiler) = @mes OR  YEAR(R.fechaRegistroAlquiler) = @year
+	WHERE MONTH(R.fechaRegistroAlquiler) = @mes AND  YEAR(R.fechaRegistroAlquiler) = @year
 END
 GO

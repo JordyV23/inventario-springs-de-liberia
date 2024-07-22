@@ -1,4 +1,4 @@
-import { useApiReports } from "../../hooks";
+import { useApiReports, usePdfReport } from "../../hooks";
 import { errorProcess } from "../../utils/messages";
 import { setLoading } from "../Global";
 import { setReportData } from "./reportsSlice";

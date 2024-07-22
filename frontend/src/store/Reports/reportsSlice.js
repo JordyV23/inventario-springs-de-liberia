@@ -5,6 +5,7 @@ const initialState = {
   mes: "",
   year: "",
   reportMode: "RD",
+  reportTitle: "",
   reportData: [],
 };
 
@@ -24,15 +25,19 @@ export const ReportsSlice = createSlice({
       state.year = anio;
     },
     setRDReport: (state, action) => {
+      state.reportTitle = "Reporte de Alquileres por fecha"
       state.reportMode = "RD";
     },
     setRAReport: (state, action) => {
+      state.reportTitle = "Reporte de Alquileres por Activo"
       state.reportMode = "RA";
     },
     setSDReport: (state, action) => {
+      state.reportTitle = "Reporte de Ventas Por Fecha"
       state.reportMode = "SD";
     },
     setUMReport: (state, action) => {
+      state.reportTitle = "Reporte de Mantenimientos No Finalizados"
       state.reportMode = "UM";
     },
     clearFormReport: (state, action) => {

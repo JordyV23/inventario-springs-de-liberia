@@ -11,19 +11,78 @@ import {
   SellingsPage,
   UsersPage,
 } from "../pages";
+import { RouteGuard } from "../components/RouteGuard";
+import { springLinks } from "../data";
 
 export const AuthRouter = () => {
   return (
     <SpringLayout>
       <Routes>
-        <Route path="/users" element={<UsersPage />}></Route>
-        <Route path="/promociones" element={<PromotionsPage />}></Route>
-        <Route path="/inventario" element={<InventoryPage />}></Route>
-        <Route path="/tramites" element={<Paperwork />}></Route>
-        <Route path="/tramites/alquileres" element={<RentalsPage />}></Route>
-        <Route path="/tramites/ventas" element={<SellingsPage />}></Route>
-        <Route path="/mantenimientos" element={<MaintenancePage />}></Route>
-        <Route path="/reportes" element={<ReportsPage />}></Route>
+        <Route
+          path="/users"
+          element={
+            <RouteGuard permisons={springLinks[0].allowed}>
+              <UsersPage />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/promociones"
+          element={
+            <RouteGuard permisons={springLinks[1].allowed}>
+              <PromotionsPage />
+            </RouteGuard>
+          }
+        />
+
+        <Route path="/inventario" element={<InventoryPage />} />
+
+        <Route
+          path="/tramites"
+          element={
+            <RouteGuard permisons={springLinks[3].allowed}>
+              <Paperwork />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/tramites/alquileres"
+          element={
+            <RouteGuard permisons={springLinks[3].allowed}>
+              <RentalsPage />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/tramites/ventas"
+          element={
+            <RouteGuard permisons={springLinks[3].allowed}>
+              <SellingsPage />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/mantenimientos"
+          element={
+            <RouteGuard permisons={springLinks[4].allowed}>
+              <MaintenancePage />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/reportes"
+          element={
+            <RouteGuard permisons={springLinks[5].allowed}>
+              <ReportsPage />
+            </RouteGuard>
+          }
+        />
+
         <Route path="*" element={<Navigate to="/inventario" replace />} />
       </Routes>
     </SpringLayout>

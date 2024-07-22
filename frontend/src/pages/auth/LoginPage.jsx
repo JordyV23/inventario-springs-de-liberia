@@ -22,7 +22,7 @@ export const LoginPage = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/users", { replace: true });
+      navigate("/inventario", { replace: true });
     }
   }, [token]);
 

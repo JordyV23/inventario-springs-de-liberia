@@ -30,6 +30,7 @@ import { useActionsInventory } from "../hooks";
 
 export const AssetCard = ({ Asset }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const { authRol } = useSelector((state) => state.global);
 
   const { makeDeleteAsset } = useActionsInventory();
 
@@ -137,22 +138,28 @@ export const AssetCard = ({ Asset }) => {
               <FontAwesomeIcon icon={faEye} size="xl" className="mr-1" />
               Ver Más
             </button>
-            <button
-              type="button"
-              className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-blue-500 text-white hover:bg-blue-600"
-              onClick={() => handleEdit()}
-            >
-              <FontAwesomeIcon icon={faEdit} size="xl" className="mr-1" />
-              Editar
-            </button>
-            <button
-              type="button"
-              className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-SpringRed text-white hover:bg-[#ac1f28]"
-              onClick={() => onDelete()}
-            >
-              <FontAwesomeIcon icon={faEdit} size="xl" className="mr-1" />
-              Borrar
-            </button>
+            {authRol == !"C" ? (
+              <>
+                <button
+                  type="button"
+                  className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-blue-500 text-white hover:bg-blue-600"
+                  onClick={() => handleEdit()}
+                >
+                  <FontAwesomeIcon icon={faEdit} size="xl" className="mr-1" />
+                  Editar
+                </button>
+                <button
+                  type="button"
+                  className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-SpringRed text-white hover:bg-[#ac1f28]"
+                  onClick={() => onDelete()}
+                >
+                  <FontAwesomeIcon icon={faEdit} size="xl" className="mr-1" />
+                  Borrar
+                </button>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

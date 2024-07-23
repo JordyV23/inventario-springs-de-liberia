@@ -114,3 +114,21 @@ export const paBorrarAdvertisement = async (publicidad) => {
     throw new Error(error.message);
   }
 };
+
+/**
+ * Lista los usuarios y sus correos para el envio de promociones
+ * @async
+ * @function paListarUsuariosCorreos
+ * @returns {Promise<Array>} Resultado de la operación
+ * @throws {Error} Si ocurre un error durante la operación
+ */
+export const paListarUsuariosCorreos = async () => {
+  try {
+    const pool = await getConnection();
+    const request = await pool.request().execute("PaListarUsuariosCorreos");
+    return request.recordset;
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};

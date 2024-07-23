@@ -6,6 +6,12 @@ import publicidadRoutes from "./routers/publicidad.routes.js";
 import tramitesRoutes from "./routers/tramites.routes.js";
 import mantenimientoRoutes from "./routers/mantenimientos.routes.js";
 import reportesRoutes from "./routers/reportes.routes.js";
+import cron from "node-cron";
+import { sendAdvertisementMail } from "./helpers/emailSender.js";
+
+cron.schedule("* * 9 * *", () => {
+  sendAdvertisementMail();
+});
 
 const app = express();
 

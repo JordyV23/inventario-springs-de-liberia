@@ -1,4 +1,4 @@
-export const welcomeEmailHtmlBody = (username,nombre) => {
+export const welcomeEmailHtmlBody = (username, nombre) => {
   return `
   <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -177,6 +177,160 @@ export const welcomeEmailHtmlBody = (username,nombre) => {
   `;
 };
 
+export const promotionEmailHtmlBody = (nombre, body, fechaFin) => {
+  return `
+      <!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="es">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="telephone=no" name="format-detection">
+        <title>Ofertas especiales de Springers Real State🏠</title>
+        <!--[if (mso 16)]>
+        <style type="text/css">
+        a {text-decoration: none;}
+        </style>
+        <![endif]-->
+        <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+        <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG></o:AllowPNG>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+        <style type="text/css">
+        ${styles}
+        </style>
+    </head>
+    
+    <body class="body" style="width:100%;height:100%;padding:0;Margin:0">
+        <div dir="ltr" class="es-wrapper-color" lang="es" style="background-color:#F6F6F6">
+            <!--[if gte mso 9]>
+                <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+                    <v:fill type="tile" color="#f6f6f6"></v:fill>
+                </v:background>
+            <![endif]-->
+            <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" role="none"
+                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top;background-color:#F6F6F6">
+                <tr>
+                    <td valign="top" style="padding:0;Margin:0">
+                        <table class="es-content" cellspacing="0" cellpadding="0" align="center" role="none"
+                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important">
+                            <tr>
+                                <td align="center" style="padding:0;Margin:0">
+                                    <table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+                                        align="center" role="none"
+                                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+                                        <tr>
+                                            <td align="left"
+                                                style="padding:0;Margin:0;padding-top:20px;padding-right:20px;padding-left:20px">
+                                                <table width="100%" cellspacing="0" cellpadding="0" role="none"
+                                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                    <tr>
+                                                        <td valign="top" align="center"
+                                                            style="padding:0;Margin:0;width:560px">
+                                                            <table width="100%" cellspacing="0" cellpadding="0"
+                                                                role="presentation"
+                                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                                <tr>
+                                                                    <td align="left" style="padding:0;Margin:0">
+                                                                        <h1
+                                                                            style="Margin:0;font-family:'trebuchet ms', 'lucida grande', 'lucida sans unicode', 'lucida sans', tahoma, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333">
+                                                                            <strong>¡Ofertas especiales de Springers Real State🏠!</strong></h1>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left"
+                                                style="padding:0;Margin:0;padding-top:20px;padding-right:20px;padding-left:20px">
+                                                <table width="100%" cellspacing="0" cellpadding="0" role="none"
+                                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                    <tr>
+                                                        <td valign="top" align="center"
+                                                            style="padding:0;Margin:0;width:560px">
+                                                            <table width="100%" cellspacing="0" cellpadding="0"
+                                                                role="presentation"
+                                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                                <tr class="es-visible-simple-html-only">
+                                                                    <td class="es-m-txt-c" align="center"
+                                                                        style="padding:0;Margin:0">
+                                                                        <p align="left"
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            Estimado/a ${nombre}&nbsp;</p>
+                                                                        <p align="left"
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            Tenemos emocionantes ofertas y promociones exclusivas para ti en Springers Real State. ¡No te las pierdas!&nbsp;</p>
+                                                                        <p align="left"
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            ${body}&nbsp;</p>
+                                                                        <p align="left"
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            ​</p>
+                                                                        <p align="left"
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            Visita nuestra plataforma para descubrir increíbles oportunidades en bienes raíces.</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="es-visible-simple-html-only">
+                                                                    <td class="es-m-txt-c" align="center"
+                                                                        style="padding:0;Margin:0;padding-top:15px;padding-bottom:20px">
+                                                                        <h3
+                                                                            style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:20px;font-style:normal;font-weight:normal;line-height:24px;color:#999999">
+                                                                            Ofertas válidas hasta: <span
+                                                                                style="color:#000000"><strong>${fechaFin}</strong></span>
+                                                                        </h3>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="es-visible-simple-html-only">
+                                                                    <td align="left" style="padding:0;Margin:0">
+                                                                        <p
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            Si tienes alguna pregunta sobre nuestras promociones, no dudes en contactar a nuestro equipo de ventas.&nbsp;</p>
+                                                                        <p
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            ​</p>
+                                                                        <p
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">
+                                                                            <em>¡No dejes pasar esta oportunidad única!</em></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="es-m-txt-c" align="center"
+                                                                        style="padding:0;Margin:0;padding-top:10px;padding-bottom:15px">
+                                                                        <p
+                                                                            style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#999999;font-size:14px">
+                                                                            Springers Real State - Team<b>©</b></p>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    </html>
+      `;
+};
 
 const styles = `
 .rollover:hover .rollover-first {
@@ -524,4 +678,4 @@ const styles = `
             }
         }
 
-`
+`;

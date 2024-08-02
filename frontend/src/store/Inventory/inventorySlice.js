@@ -13,8 +13,8 @@ const initialState = {
   direccion: "",
   numeroHabitaciones: "",
   precioGlobal: "0",
-  precioPorMes: "",
-  precioPorNoche: "",
+  precioPorMes: "0",
+  precioPorNoche: 0,
   imagen: "",
   querySucces: false,
   assets: [],
@@ -35,9 +35,9 @@ export const InventoriesSlice = createSlice({
       state.distrito = "";
       state.idProvincia = "";
       state.numeroHabitaciones = "";
-      state.precioGlobal = "";
-      state.precioPorMes = "";
-      state.precioPorNoche = "";
+      state.precioGlobal = "0";
+      state.precioPorMes = "0";
+      state.precioPorNoche = "0";
       state.imagen = "";
       state.direccion = "";
     },

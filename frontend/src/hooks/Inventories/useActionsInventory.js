@@ -28,7 +28,7 @@ export const useActionsInventory = () => {
     direccion,
   } = useSelector((state) => state.inventory);
 
-  const makeCreateAsset = () => {
+  const makeCreateAsset = (image) => {
     dispatch(setLoading(true));
     dispatch(
       startCreateAsset({
@@ -43,7 +43,7 @@ export const useActionsInventory = () => {
         precioPorNoche,
         precioPorMes,
         disponibilidad,
-        imagenSrc: imagen,
+        imagenSrc: image,
       })
     );
   };

@@ -18,7 +18,8 @@ export const RegisterAssetForm = () => {
   const { makeCreateAsset } = useActionsInventory();
 
   const handleCreate = async () => {
-    dispatch(writeImage("no-image.svg"));
+    let imageName = "no-image.svg";
+    dispatch(writeImage(imageName));
 
     if (file) {
       const formData = new FormData();
@@ -33,12 +34,15 @@ export const RegisterAssetForm = () => {
           }
         );
         const data = await response.json();
-        dispatch(writeImage(data.data));
-        makeCreateAsset();
+        imageName = data.data;
+        dispatch(writeImage(imageName));
       } catch (error) {
         console.error("Error al guardar la imagen:", error);
       }
     }
+
+    // Pasamos el nombre de la imagen directamente a makeCreateAsset
+    makeCreateAsset(imageName);
   };
 
   return (
